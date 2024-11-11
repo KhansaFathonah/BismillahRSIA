@@ -127,7 +127,7 @@ public class Hapus_Jadwal_Agenda extends javax.swing.JFrame {
     private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
         // TODO add your handling code here:
         String selectedItem = (String) jComboBox2.getSelectedItem();
-        JOptionPane.showMessageDialog(this, "Anda memilih pengeluaran: " + selectedItem);
+        JOptionPane.showMessageDialog(this, "Anda memilih tanggal: " + selectedItem);
     }//GEN-LAST:event_jComboBox2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
