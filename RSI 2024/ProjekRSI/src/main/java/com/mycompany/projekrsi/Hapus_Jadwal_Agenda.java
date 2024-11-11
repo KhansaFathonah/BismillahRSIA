@@ -109,7 +109,7 @@ public class Hapus_Jadwal_Agenda extends javax.swing.JFrame {
         });
         getContentPane().add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 310, 510, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("D:\\RSI\\RSI 2024\\ProjekRSI\\src\\main\\java\\com\\mycompany\\Image\\Frame Hapus Jadwal Agenda.png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/Image/Frame Hapus Jadwal Agenda.png"))); // NOI18N
         jLabel1.setText("Baground");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, -1));
 
