@@ -28,7 +28,7 @@
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="D:\RSI\RSI 2024\ProjekRSI\src\main\java\com\mycompany\Image\Frame Adiministrator Webinar.png"/>
+          <Image iconType="3" name="/com/mycompany/Image/Frame Adiministrator Webinar.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="jLabel1"/>
       </Properties>
