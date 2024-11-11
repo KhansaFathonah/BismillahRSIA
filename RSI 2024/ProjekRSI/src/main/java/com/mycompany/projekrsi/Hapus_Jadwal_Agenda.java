@@ -4,6 +4,7 @@
  */
 package com.mycompany.projekrsi;
 
+import java.awt.Color;
 import javax.swing.JOptionPane;
 /**
  *
@@ -16,6 +17,8 @@ public class Hapus_Jadwal_Agenda extends javax.swing.JFrame {
      */
     public Hapus_Jadwal_Agenda() {
         initComponents();
+        jButton1.setForeground(Color.WHITE);
+        jButton2.setForeground(Color.WHITE);
     }
 
     /**
@@ -89,6 +92,11 @@ public class Hapus_Jadwal_Agenda extends javax.swing.JFrame {
         jButton2.setBackground(new java.awt.Color(51, 0, 0));
         jButton2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jButton2.setText("BATAL");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 440, 120, -1));
 
         jComboBox2.setBackground(new java.awt.Color(0, 0, 0));
@@ -101,7 +109,7 @@ public class Hapus_Jadwal_Agenda extends javax.swing.JFrame {
         });
         getContentPane().add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 310, 510, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/Image/Frame Hapus Jadwal Agenda.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("D:\\RSI\\RSI 2024\\ProjekRSI\\src\\main\\java\\com\\mycompany\\Image\\Frame Hapus Jadwal Agenda.png")); // NOI18N
         jLabel1.setText("Baground");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, -1));
 
@@ -139,6 +147,10 @@ public class Hapus_Jadwal_Agenda extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Penghapusan dibatalkan.");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
