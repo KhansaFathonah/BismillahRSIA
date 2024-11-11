@@ -5,7 +5,6 @@
 package com.mycompany.projekrsi;
 
 import javax.swing.JOptionPane;
-
 /**
  *
  * @author Asus
@@ -170,10 +169,8 @@ public class Hapus_Jadwal_Agenda extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Hapus_Jadwal_Agenda().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new Hapus_Jadwal_Agenda().setVisible(true);
         });
     }
 
