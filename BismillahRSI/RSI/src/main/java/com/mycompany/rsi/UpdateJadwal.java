@@ -32,7 +32,6 @@ public class UpdateJadwal extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         BgUpdateJadwal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/rsi/Image/Frame Update Jadwal Agenda.png"))); // NOI18N
-        BgUpdateJadwal.setText("jLabel1");
         getContentPane().add(BgUpdateJadwal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
