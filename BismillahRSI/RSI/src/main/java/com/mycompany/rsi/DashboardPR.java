@@ -29,6 +29,8 @@ public class DashboardPR extends javax.swing.JFrame {
         Profil = new javax.swing.JLabel();
         NamaPR = new javax.swing.JLabel();
         namaAnak = new javax.swing.JLabel();
+        CBBulan = new javax.swing.JComboBox<>();
+        jLabel1 = new javax.swing.JLabel();
         BgDashboardPR = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -45,12 +47,30 @@ public class DashboardPR extends javax.swing.JFrame {
         namaAnak.setText("NAMA ANAK");
         getContentPane().add(namaAnak, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 50, -1, -1));
 
+        CBBulan.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
+        CBBulan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember" }));
+        CBBulan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CBBulanActionPerformed(evt);
+            }
+        });
+        getContentPane().add(CBBulan, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 220, 150, 30));
+
+        jLabel1.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("2024");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 170, -1, -1));
+
         BgDashboardPR.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/rsi/Image/Frame Dashboard.png"))); // NOI18N
         BgDashboardPR.setText("jLabel1");
         getContentPane().add(BgDashboardPR, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void CBBulanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CBBulanActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CBBulanActionPerformed
 
     /**
      * @param args the command line arguments
@@ -89,8 +109,10 @@ public class DashboardPR extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel BgDashboardPR;
+    private javax.swing.JComboBox<String> CBBulan;
     private javax.swing.JLabel NamaPR;
     private javax.swing.JLabel Profil;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel namaAnak;
     // End of variables declaration//GEN-END:variables
 }
