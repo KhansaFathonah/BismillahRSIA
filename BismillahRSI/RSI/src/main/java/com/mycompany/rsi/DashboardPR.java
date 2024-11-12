@@ -26,14 +26,28 @@ public class DashboardPR extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        Profil = new javax.swing.JLabel();
+        NamaPR = new javax.swing.JLabel();
+        namaAnak = new javax.swing.JLabel();
+        BgDashboardPR = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/rsi/Image/Frame Dashboard.png"))); // NOI18N
-        jLabel1.setText("jLabel1");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        Profil.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/rsi/Image/image 1 nava.png"))); // NOI18N
+        getContentPane().add(Profil, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+
+        NamaPR.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        NamaPR.setText("NAMA PENGGUNA");
+        getContentPane().add(NamaPR, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, -1, -1));
+
+        namaAnak.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        namaAnak.setText("NAMA ANAK");
+        getContentPane().add(namaAnak, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 50, -1, -1));
+
+        BgDashboardPR.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/rsi/Image/Frame Dashboard.png"))); // NOI18N
+        BgDashboardPR.setText("jLabel1");
+        getContentPane().add(BgDashboardPR, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -74,6 +88,9 @@ public class DashboardPR extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel BgDashboardPR;
+    private javax.swing.JLabel NamaPR;
+    private javax.swing.JLabel Profil;
+    private javax.swing.JLabel namaAnak;
     // End of variables declaration//GEN-END:variables
 }
