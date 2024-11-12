@@ -48,7 +48,7 @@ public class UploadInformasiWebinar extends javax.swing.JFrame {
         jTextField4.setText("jTextField1");
         getContentPane().add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 310, 760, 50));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\hanif\\OneDrive\\Documents\\PARENTA\\Frame Upload Informasi Webinar Administrator.png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/rsi/Image/Frame Upload Informasi Webinar Administrator.png"))); // NOI18N
         jLabel1.setText("jLabel1");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 600));
 

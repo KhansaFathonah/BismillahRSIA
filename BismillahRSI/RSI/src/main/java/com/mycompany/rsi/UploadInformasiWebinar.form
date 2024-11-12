@@ -68,7 +68,7 @@
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\hanif\OneDrive\Documents\PARENTA\Frame Upload Informasi Webinar Administrator.png"/>
+          <Image iconType="3" name="/com/mycompany/rsi/Image/Frame Upload Informasi Webinar Administrator.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="jLabel1"/>
       </Properties>
