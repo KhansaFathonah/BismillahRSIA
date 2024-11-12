@@ -31,6 +31,7 @@ public class DashboardPR extends javax.swing.JFrame {
         namaAnak = new javax.swing.JLabel();
         CBBulan = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
+        BInfoWeb = new javax.swing.JButton();
         BgDashboardPR = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -60,6 +61,13 @@ public class DashboardPR extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("2024");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 170, -1, -1));
+
+        BInfoWeb.setBackground(new java.awt.Color(204, 204, 204));
+        BInfoWeb.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
+        BInfoWeb.setForeground(new java.awt.Color(51, 51, 0));
+        BInfoWeb.setText("Informasi Webinar");
+        BInfoWeb.setToolTipText("");
+        getContentPane().add(BInfoWeb, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 530, 200, 30));
 
         BgDashboardPR.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/rsi/Image/Frame Dashboard.png"))); // NOI18N
         BgDashboardPR.setText("jLabel1");
@@ -108,6 +116,7 @@ public class DashboardPR extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BInfoWeb;
     private javax.swing.JLabel BgDashboardPR;
     private javax.swing.JComboBox<String> CBBulan;
     private javax.swing.JLabel NamaPR;
