@@ -70,7 +70,6 @@ public class DashboardPR extends javax.swing.JFrame {
         getContentPane().add(BInfoWeb, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 530, 200, 30));
 
         BgDashboardPR.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/rsi/Image/Frame Dashboard.png"))); // NOI18N
-        BgDashboardPR.setText("jLabel1");
         getContentPane().add(BgDashboardPR, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
