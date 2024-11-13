@@ -41,13 +41,16 @@ public class DashboardPR extends javax.swing.JFrame {
         getContentPane().add(Profil, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         NamaPR.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        NamaPR.setForeground(new java.awt.Color(0, 0, 0));
         NamaPR.setText("NAMA PENGGUNA");
         getContentPane().add(NamaPR, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, -1, -1));
 
         namaAnak.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        namaAnak.setForeground(new java.awt.Color(0, 0, 0));
         namaAnak.setText("NAMA ANAK");
         getContentPane().add(namaAnak, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 50, -1, -1));
 
+        CBBulan.setBackground(new java.awt.Color(0, 51, 51));
         CBBulan.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
         CBBulan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember" }));
         CBBulan.addActionListener(new java.awt.event.ActionListener() {
@@ -55,16 +58,16 @@ public class DashboardPR extends javax.swing.JFrame {
                 CBBulanActionPerformed(evt);
             }
         });
-        getContentPane().add(CBBulan, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 220, 150, 30));
+        getContentPane().add(CBBulan, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, 270, 30));
 
         jLabel1.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("2024");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 170, -1, -1));
 
-        BInfoWeb.setBackground(new java.awt.Color(204, 204, 204));
+        BInfoWeb.setBackground(new java.awt.Color(0, 51, 51));
         BInfoWeb.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
-        BInfoWeb.setForeground(new java.awt.Color(51, 51, 0));
+        BInfoWeb.setForeground(new java.awt.Color(255, 255, 255));
         BInfoWeb.setText("Informasi Webinar");
         BInfoWeb.setToolTipText("");
         getContentPane().add(BInfoWeb, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 530, 200, 30));
