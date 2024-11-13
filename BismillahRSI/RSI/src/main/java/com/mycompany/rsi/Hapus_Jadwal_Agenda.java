@@ -122,6 +122,8 @@ public class Hapus_Jadwal_Agenda extends javax.swing.JFrame {
         } else {
             javax.swing.JOptionPane.showMessageDialog(this, "Gagal menghapus agenda. Nama agenda tidak boleh kosong.", "Gagal", javax.swing.JOptionPane.ERROR_MESSAGE);
         }
+        DashboardAdministrator dashboardAdmin = new DashboardAdministrator();
+        dashboardAdmin.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -131,6 +133,8 @@ public class Hapus_Jadwal_Agenda extends javax.swing.JFrame {
         if (response == javax.swing.JOptionPane.YES_OPTION) {
             this.dispose();  
         }
+        DashboardAdministrator dashboardAdmin = new DashboardAdministrator();
+        dashboardAdmin.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
