@@ -58,7 +58,7 @@ public class LogIn extends javax.swing.JFrame {
         getContentPane().add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 210, 450, -1));
 
         jLabel3.setFont(new java.awt.Font("Arial", 1, 48)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(102, 255, 102));
+        jLabel3.setForeground(new java.awt.Color(178, 233, 75));
         jLabel3.setText("SIGN IN");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 60, -1, -1));
 
