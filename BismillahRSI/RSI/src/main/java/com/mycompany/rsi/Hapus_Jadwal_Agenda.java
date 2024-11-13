@@ -15,6 +15,8 @@ public class Hapus_Jadwal_Agenda extends javax.swing.JFrame {
      */
     public Hapus_Jadwal_Agenda() {
         initComponents();
+        jButton1.setForeground(java.awt.Color.WHITE); 
+        jButton2.setForeground(java.awt.Color.WHITE);
     }
 
     /**
@@ -97,7 +99,7 @@ public class Hapus_Jadwal_Agenda extends javax.swing.JFrame {
         });
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 450, 120, 40));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/rsi/Image/Frame Hapus Jadwal Agenda.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("D:\\RISI2024\\BismillahRSIA\\BismillahRSI\\RSI\\src\\main\\java\\com\\mycompany\\rsi\\Image\\Frame Hapus Jadwal Agenda.png")); // NOI18N
         jLabel1.setText("jLabel1");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, -1));
 
