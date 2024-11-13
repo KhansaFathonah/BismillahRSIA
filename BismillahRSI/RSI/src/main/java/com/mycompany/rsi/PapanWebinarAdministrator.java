@@ -56,6 +56,11 @@ public class PapanWebinarAdministrator extends javax.swing.JFrame {
 
         jButton2.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
         jButton2.setText("Upload");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 270, -1, -1));
 
         jButton3.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
@@ -69,10 +74,20 @@ public class PapanWebinarAdministrator extends javax.swing.JFrame {
 
         jButton4.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
         jButton4.setText("edit");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 460, -1, -1));
 
         jButton5.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
         jButton5.setText("edit");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 340, -1, -1));
 
         jButton6.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
@@ -86,6 +101,11 @@ public class PapanWebinarAdministrator extends javax.swing.JFrame {
 
         jButton7.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
         jButton7.setText("edit");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 400, -1, -1));
 
         jButton8.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
@@ -137,6 +157,34 @@ public class PapanWebinarAdministrator extends javax.swing.JFrame {
         dashboardAdmin.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        UploadWebinar upWebinarAdmin = new UploadWebinar();
+        upWebinarAdmin.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+        UploadWebinar upWebinarAdmin = new UploadWebinar();
+        upWebinarAdmin.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        // TODO add your handling code here:
+        UploadWebinar upWebinarAdmin = new UploadWebinar();
+        upWebinarAdmin.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        UploadWebinar upWebinarAdmin = new UploadWebinar();
+        upWebinarAdmin.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
