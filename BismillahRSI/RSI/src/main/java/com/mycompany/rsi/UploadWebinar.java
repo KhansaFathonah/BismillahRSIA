@@ -29,78 +29,73 @@ public class UploadWebinar extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jTextField4 = new javax.swing.JTextField();
-        LinkPendaftaran = new javax.swing.JLabel();
-        TextBoxTanggalWaktu = new javax.swing.JTextField();
-        TanggalWaktu = new javax.swing.JLabel();
-        TextboxDeskripsi = new javax.swing.JTextField();
-        Deskripsi = new javax.swing.JLabel();
-        TextboxJudul = new javax.swing.JTextField();
-        Judul = new javax.swing.JLabel();
-        BackgroundUpload = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jTextField3 = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton2.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(153, 153, 0));
+        jButton2.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         jButton2.setText("SIMPAN");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 440, 100, 30));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 440, -1, -1));
 
-        jButton1.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(153, 153, 0));
+        jButton1.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         jButton1.setText("KEMBALI");
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 440, -1, 30));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 440, -1, -1));
 
-        jTextField4.setBackground(new java.awt.Color(172, 189, 155));
         jTextField4.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         getContentPane().add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 370, 570, 30));
 
-        LinkPendaftaran.setFont(new java.awt.Font("Verdana", 1, 20)); // NOI18N
-        LinkPendaftaran.setForeground(new java.awt.Color(255, 255, 255));
-        LinkPendaftaran.setText("LINK PENDAFTARAN");
-        getContentPane().add(LinkPendaftaran, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 370, -1, -1));
+        jLabel5.setFont(new java.awt.Font("Verdana", 1, 20)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("LINK PENDAFTARAN");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 370, -1, -1));
 
-        TextBoxTanggalWaktu.setBackground(new java.awt.Color(172, 189, 155));
-        TextBoxTanggalWaktu.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        getContentPane().add(TextBoxTanggalWaktu, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 310, 570, 30));
+        jTextField3.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 310, 570, 30));
 
-        TanggalWaktu.setFont(new java.awt.Font("Verdana", 1, 20)); // NOI18N
-        TanggalWaktu.setForeground(new java.awt.Color(255, 255, 255));
-        TanggalWaktu.setText("TANGGAL, WAKTU");
-        getContentPane().add(TanggalWaktu, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 310, -1, -1));
+        jLabel4.setFont(new java.awt.Font("Verdana", 1, 20)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("TANGGAL, WAKTU");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 310, -1, -1));
 
-        TextboxDeskripsi.setBackground(new java.awt.Color(172, 189, 155));
-        TextboxDeskripsi.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        getContentPane().add(TextboxDeskripsi, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 250, 570, 30));
+        jTextField2.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 250, 570, 30));
 
-        Deskripsi.setFont(new java.awt.Font("Verdana", 1, 20)); // NOI18N
-        Deskripsi.setForeground(new java.awt.Color(255, 255, 255));
-        Deskripsi.setText("DESKRIPSI");
-        getContentPane().add(Deskripsi, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 250, -1, -1));
+        jLabel3.setFont(new java.awt.Font("Verdana", 1, 20)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("DESKRIPSI");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 250, -1, -1));
 
-        TextboxJudul.setBackground(new java.awt.Color(172, 189, 155));
-        TextboxJudul.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        TextboxJudul.setCaretColor(new java.awt.Color(255, 255, 255));
-        TextboxJudul.addActionListener(new java.awt.event.ActionListener() {
+        jTextField1.setBackground(new java.awt.Color(172, 189, 115));
+        jTextField1.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        jTextField1.setCaretColor(new java.awt.Color(255, 255, 255));
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TextboxJudulActionPerformed(evt);
+                jTextField1ActionPerformed(evt);
             }
         });
-        getContentPane().add(TextboxJudul, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 190, 570, 30));
+        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 190, 570, 30));
 
-        Judul.setFont(new java.awt.Font("Verdana", 1, 20)); // NOI18N
-        Judul.setForeground(new java.awt.Color(255, 255, 255));
-        Judul.setText("JUDUL");
-        getContentPane().add(Judul, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 190, -1, -1));
+        jLabel2.setFont(new java.awt.Font("Verdana", 1, 20)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("JUDUL");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 190, -1, -1));
 
-        BackgroundUpload.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/rsi/Image/Frame Upload Informasi Webinar Administrator.png"))); // NOI18N
-        BackgroundUpload.setText("jLabel1");
-        getContentPane().add(BackgroundUpload, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, -1));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/rsi/Image/Frame Upload Informasi Webinar Administrator.png"))); // NOI18N
+        jLabel1.setText("jLabel1");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -109,9 +104,9 @@ public class UploadWebinar extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void TextboxJudulActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextboxJudulActionPerformed
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_TextboxJudulActionPerformed
+    }//GEN-LAST:event_jTextField1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -149,16 +144,16 @@ public class UploadWebinar extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel BackgroundUpload;
-    private javax.swing.JLabel Deskripsi;
-    private javax.swing.JLabel Judul;
-    private javax.swing.JLabel LinkPendaftaran;
-    private javax.swing.JLabel TanggalWaktu;
-    private javax.swing.JTextField TextBoxTanggalWaktu;
-    private javax.swing.JTextField TextboxDeskripsi;
-    private javax.swing.JTextField TextboxJudul;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     // End of variables declaration//GEN-END:variables
 }
