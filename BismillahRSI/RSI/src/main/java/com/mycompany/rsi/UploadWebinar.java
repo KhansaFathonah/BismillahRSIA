@@ -55,7 +55,6 @@ public class UploadWebinar extends javax.swing.JFrame {
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 440, -1, -1));
 
         jTextField4.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        jTextField4.setText("jTextField4");
         getContentPane().add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 370, 570, 30));
 
         jLabel5.setFont(new java.awt.Font("Verdana", 1, 20)); // NOI18N
@@ -64,7 +63,6 @@ public class UploadWebinar extends javax.swing.JFrame {
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 370, -1, -1));
 
         jTextField3.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        jTextField3.setText("jTextField3");
         getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 310, 570, 30));
 
         jLabel4.setFont(new java.awt.Font("Verdana", 1, 20)); // NOI18N
@@ -73,7 +71,6 @@ public class UploadWebinar extends javax.swing.JFrame {
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 310, -1, -1));
 
         jTextField2.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        jTextField2.setText("jTextField2");
         getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 250, 570, 30));
 
         jLabel3.setFont(new java.awt.Font("Verdana", 1, 20)); // NOI18N
@@ -81,8 +78,14 @@ public class UploadWebinar extends javax.swing.JFrame {
         jLabel3.setText("DESKRIPSI");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 250, -1, -1));
 
+        jTextField1.setBackground(new java.awt.Color(172, 189, 115));
         jTextField1.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        jTextField1.setText("jTextField1");
+        jTextField1.setCaretColor(new java.awt.Color(255, 255, 255));
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 190, 570, 30));
 
         jLabel2.setFont(new java.awt.Font("Verdana", 1, 20)); // NOI18N
@@ -100,6 +103,10 @@ public class UploadWebinar extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
 
     /**
      * @param args the command line arguments

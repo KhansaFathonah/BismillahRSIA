@@ -45,15 +45,11 @@ public class LogIn extends javax.swing.JFrame {
         jLabel2.setText("Belum punya akun? Daftar yuk!");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 480, -1, -1));
 
-        jTextField2.setBackground(new java.awt.Color(255, 255, 255));
         jTextField2.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jTextField2.setForeground(new java.awt.Color(0, 0, 0));
         jTextField2.setText("Your Email");
         getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 150, 450, -1));
 
-        jPasswordField1.setBackground(new java.awt.Color(255, 255, 255));
         jPasswordField1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jPasswordField1.setForeground(new java.awt.Color(0, 0, 0));
         jPasswordField1.setText("jPasswordField1");
         getContentPane().add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 210, 450, -1));
 
