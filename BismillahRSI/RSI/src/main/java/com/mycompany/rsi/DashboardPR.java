@@ -32,7 +32,7 @@ public class DashboardPR extends javax.swing.JFrame {
         CBBulan = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
         BInfoWeb = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         BgDashboardPR = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -73,10 +73,16 @@ public class DashboardPR extends javax.swing.JFrame {
         BInfoWeb.setToolTipText("");
         getContentPane().add(BInfoWeb, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 530, 200, 30));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/rsi/Image/Log out.png"))); // NOI18N
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 80, 30, 30));
+        jButton1.setBackground(new java.awt.Color(255, 255, 255));
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/rsi/Image/Log out.png"))); // NOI18N
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 80, -1, -1));
 
-        BgDashboardPR.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/rsi/Image/Frame Dashboard.png"))); // NOI18N
+        BgDashboardPR.setIcon(new javax.swing.ImageIcon("D:\\BAEKHYUN\\BismillahRSIA\\BismillahRSI\\RSI\\src\\main\\java\\com\\mycompany\\rsi\\Image\\Frame Dashboard.png")); // NOI18N
         getContentPane().add(BgDashboardPR, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
@@ -85,6 +91,13 @@ public class DashboardPR extends javax.swing.JFrame {
     private void CBBulanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CBBulanActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_CBBulanActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        LogIn LogIn = new LogIn();
+        LogIn.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -127,8 +140,8 @@ public class DashboardPR extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> CBBulan;
     private javax.swing.JLabel NamaPR;
     private javax.swing.JLabel Profil;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel namaAnak;
     // End of variables declaration//GEN-END:variables
 }

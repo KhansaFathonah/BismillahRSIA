@@ -124,6 +124,7 @@ public class Hapus_Jadwal_Agenda extends javax.swing.JFrame {
         }
         DashboardAdministrator dashboardAdmin = new DashboardAdministrator();
         dashboardAdmin.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -135,6 +136,7 @@ public class Hapus_Jadwal_Agenda extends javax.swing.JFrame {
         }
         DashboardAdministrator dashboardAdmin = new DashboardAdministrator();
         dashboardAdmin.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
