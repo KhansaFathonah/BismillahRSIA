@@ -32,6 +32,7 @@ public class DashboardPR extends javax.swing.JFrame {
         CBBulan = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
         BInfoWeb = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
         BgDashboardPR = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -71,6 +72,9 @@ public class DashboardPR extends javax.swing.JFrame {
         BInfoWeb.setText("Informasi Webinar");
         BInfoWeb.setToolTipText("");
         getContentPane().add(BInfoWeb, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 530, 200, 30));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/rsi/Image/Log out.png"))); // NOI18N
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 80, 30, 30));
 
         BgDashboardPR.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/rsi/Image/Frame Dashboard.png"))); // NOI18N
         getContentPane().add(BgDashboardPR, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -124,6 +128,7 @@ public class DashboardPR extends javax.swing.JFrame {
     private javax.swing.JLabel NamaPR;
     private javax.swing.JLabel Profil;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel namaAnak;
     // End of variables declaration//GEN-END:variables
 }
