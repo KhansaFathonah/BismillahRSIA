@@ -33,6 +33,7 @@ public class UpdateJadwal extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
         BgUpdateJadwal = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -94,6 +95,7 @@ public class UpdateJadwal extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 450, 130, 40));
+        getContentPane().add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 350, 520, -1));
 
         BgUpdateJadwal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/rsi/Image/Frame Update Jadwal Agenda.png"))); // NOI18N
         getContentPane().add(BgUpdateJadwal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -168,6 +170,7 @@ public class UpdateJadwal extends javax.swing.JFrame {
     private javax.swing.JLabel BgUpdateJadwal;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
