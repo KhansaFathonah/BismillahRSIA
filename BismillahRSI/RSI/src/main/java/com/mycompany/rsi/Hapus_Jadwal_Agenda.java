@@ -16,7 +16,6 @@ public class Hapus_Jadwal_Agenda extends javax.swing.JFrame {
     public Hapus_Jadwal_Agenda() {
         initComponents();
         jButton1.setForeground(java.awt.Color.WHITE); 
-        jButton2.setForeground(java.awt.Color.WHITE);
         jDateChooser1.setForeground(java.awt.Color.WHITE);
     }
 
@@ -35,7 +34,6 @@ public class Hapus_Jadwal_Agenda extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
         jLabel1 = new javax.swing.JLabel();
 
@@ -45,6 +43,7 @@ public class Hapus_Jadwal_Agenda extends javax.swing.JFrame {
         jTextField1.setBackground(new java.awt.Color(204, 204, 204));
         jTextField1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jTextField1.setForeground(new java.awt.Color(0, 0, 0));
+        jTextField1.setText("Waktu Agenda");
         jTextField1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -56,6 +55,7 @@ public class Hapus_Jadwal_Agenda extends javax.swing.JFrame {
         jTextField2.setBackground(new java.awt.Color(204, 204, 204));
         jTextField2.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jTextField2.setForeground(new java.awt.Color(0, 0, 0));
+        jTextField2.setText("Nama Agenda");
         jTextField2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -88,21 +88,9 @@ public class Hapus_Jadwal_Agenda extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 450, 120, 40));
+        getContentPane().add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 360, 520, -1));
 
-        jButton2.setBackground(new java.awt.Color(51, 0, 0));
-        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jButton2.setText("BATAL");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 450, 120, 40));
-
-        jDateChooser1.setForeground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 350, 520, -1));
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/rsi/Image/Frame Hapus Jadwal Agenda.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("D:\\RISI2024\\BismillahRSIA\\BismillahRSI\\RSI\\src\\main\\java\\com\\mycompany\\rsi\\Image\\Frame Hapus Jadwal Agenda.png")); // NOI18N
         jLabel1.setText("jLabel1");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, -1));
 
@@ -119,29 +107,24 @@ public class Hapus_Jadwal_Agenda extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        String namaAgenda = jTextField2.getText();  
+        String namaAgenda = jTextField2.getText();
+        String waktuAgenda = jTextField1.getText();
+        java.util.Date tanggalAgenda = jDateChooser1.getDate();
 
-        if (!namaAgenda.isEmpty()) {
-            javax.swing.JOptionPane.showMessageDialog(this, "Agenda berhasil dihapus.", "Sukses", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+        if (namaAgenda.isEmpty()) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Nama agenda tidak boleh kosong.", "Peringatan", javax.swing.JOptionPane.WARNING_MESSAGE);
+        } else if (waktuAgenda.isEmpty()) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Waktu agenda tidak boleh kosong.", "Peringatan", javax.swing.JOptionPane.WARNING_MESSAGE);
+        } else if (tanggalAgenda == null) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Tanggal agenda tidak boleh kosong.", "Peringatan", javax.swing.JOptionPane.WARNING_MESSAGE);
         } else {
-            javax.swing.JOptionPane.showMessageDialog(this, "Gagal menghapus agenda. Nama agenda tidak boleh kosong.", "Gagal", javax.swing.JOptionPane.ERROR_MESSAGE);
-        }
-        DashboardAdministrator dashboardAdmin = new DashboardAdministrator();
-        dashboardAdmin.setVisible(true);
-        this.dispose();
+            // Jika semua field terisi, lanjutkan ke proses hapus
+            javax.swing.JOptionPane.showMessageDialog(this, "Agenda berhasil dihapus.", "Sukses", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+
+            DashboardAdministrator dashboardAdmin = new DashboardAdministrator();
+            dashboardAdmin.setVisible(true);
+            this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-        int response = javax.swing.JOptionPane.showConfirmDialog(this, "Apakah Anda yakin ingin membatalkan penghapusan jadwal agenda?", "Konfirmasi", javax.swing.JOptionPane.YES_NO_OPTION, javax.swing.JOptionPane.QUESTION_MESSAGE);
-
-        if (response == javax.swing.JOptionPane.YES_OPTION) {
-            this.dispose();  
-        }
-        DashboardAdministrator dashboardAdmin = new DashboardAdministrator();
-        dashboardAdmin.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -180,7 +163,6 @@ public class Hapus_Jadwal_Agenda extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
