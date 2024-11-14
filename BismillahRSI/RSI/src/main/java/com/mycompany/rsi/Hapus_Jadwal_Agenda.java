@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package com.mycompany.rsi;
+
 /**
  *
  * @author Asus
@@ -16,6 +17,7 @@ public class Hapus_Jadwal_Agenda extends javax.swing.JFrame {
         initComponents();
         jButton1.setForeground(java.awt.Color.WHITE); 
         jButton2.setForeground(java.awt.Color.WHITE);
+        jDateChooser1.setForeground(java.awt.Color.WHITE);
     }
 
     /**
@@ -34,6 +36,7 @@ public class Hapus_Jadwal_Agenda extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -97,6 +100,9 @@ public class Hapus_Jadwal_Agenda extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 450, 120, 40));
+
+        jDateChooser1.setForeground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 350, 520, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon("D:\\RISI2024\\BismillahRSIA\\BismillahRSI\\RSI\\src\\main\\java\\com\\mycompany\\rsi\\Image\\Frame Hapus Jadwal Agenda.png")); // NOI18N
         jLabel1.setText("jLabel1");
@@ -177,6 +183,7 @@ public class Hapus_Jadwal_Agenda extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
