@@ -28,6 +28,8 @@ public class DashboardAdministrator extends javax.swing.JFrame {
     private void initComponents() {
 
         jButton1 = new javax.swing.JButton();
+        CBBulan = new javax.swing.JComboBox<>();
+        jCalendar1 = new com.toedter.calendar.JCalendar();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -42,6 +44,19 @@ public class DashboardAdministrator extends javax.swing.JFrame {
         });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 530, -1, -1));
 
+        CBBulan.setBackground(new java.awt.Color(0, 51, 51));
+        CBBulan.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
+        CBBulan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "BULAN ", "Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember" }));
+        CBBulan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CBBulanActionPerformed(evt);
+            }
+        });
+        getContentPane().add(CBBulan, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, 270, 30));
+
+        jCalendar1.setBackground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(jCalendar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 320, 240));
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/rsi/Image/Frame Dashboard Administrator.png"))); // NOI18N
         jLabel1.setText("jLabel1");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 600));
@@ -55,6 +70,10 @@ public class DashboardAdministrator extends javax.swing.JFrame {
         webinarAdmin.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void CBBulanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CBBulanActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CBBulanActionPerformed
 
     /**
      * @param args the command line arguments
@@ -92,7 +111,9 @@ public class DashboardAdministrator extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> CBBulan;
     private javax.swing.JButton jButton1;
+    private com.toedter.calendar.JCalendar jCalendar1;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
