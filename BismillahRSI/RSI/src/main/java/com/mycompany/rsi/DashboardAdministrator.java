@@ -47,7 +47,6 @@ public class DashboardAdministrator extends javax.swing.JFrame {
         getContentPane().add(BInfoWeb, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 530, 200, 30));
 
         NamaPR.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
-        NamaPR.setForeground(new java.awt.Color(0, 0, 0));
         NamaPR.setText("Administrator");
         getContentPane().add(NamaPR, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, -1, -1));
 
