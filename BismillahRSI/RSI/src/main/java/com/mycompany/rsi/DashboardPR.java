@@ -68,7 +68,7 @@ public class DashboardPR extends javax.swing.JFrame {
 
         jCalendar1.setBackground(new java.awt.Color(255, 255, 255));
         jCalendar1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        getContentPane().add(jCalendar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 310, 260));
+        getContentPane().add(jCalendar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 310, 260));
 
         BgDashboardPR.setIcon(new javax.swing.ImageIcon("D:\\BAEKHYUN\\BismillahRSIA\\BismillahRSI\\RSI\\src\\main\\java\\com\\mycompany\\rsi\\Image\\Frame Dashboard.png")); // NOI18N
         getContentPane().add(BgDashboardPR, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
