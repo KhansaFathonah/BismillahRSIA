@@ -55,6 +55,11 @@ public class DashboardPR extends javax.swing.JFrame {
         BInfoWeb.setForeground(new java.awt.Color(255, 255, 255));
         BInfoWeb.setText("Informasi Webinar");
         BInfoWeb.setToolTipText("");
+        BInfoWeb.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BInfoWebActionPerformed(evt);
+            }
+        });
         getContentPane().add(BInfoWeb, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 530, 200, 30));
 
         jButton1.setBackground(new java.awt.Color(255, 255, 255));
@@ -78,10 +83,11 @@ public class DashboardPR extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        LogIn LogIn = new LogIn();
-        LogIn.setVisible(true);
-        this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void BInfoWebActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BInfoWebActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BInfoWebActionPerformed
 
     /**
      * @param args the command line arguments
