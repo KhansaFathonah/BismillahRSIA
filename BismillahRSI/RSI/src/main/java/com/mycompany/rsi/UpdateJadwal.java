@@ -46,7 +46,6 @@ public class UpdateJadwal extends javax.swing.JFrame {
         jTextField2.setBackground(new java.awt.Color(204, 204, 204));
         jTextField2.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jTextField2.setForeground(new java.awt.Color(0, 0, 0));
-        jTextField2.setText("Nama Agenda");
         jTextField2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -58,7 +57,6 @@ public class UpdateJadwal extends javax.swing.JFrame {
         jTextField1.setBackground(new java.awt.Color(204, 204, 204));
         jTextField1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jTextField1.setForeground(new java.awt.Color(0, 0, 0));
-        jTextField1.setText("Waktu Agenda");
         jTextField1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
