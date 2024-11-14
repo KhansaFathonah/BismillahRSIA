@@ -10,6 +10,7 @@ package com.mycompany.rsi;
  */
 public class DashboardPR extends javax.swing.JFrame {
 
+    
     /**
      * Creates new form DashboardPR
      */
