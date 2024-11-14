@@ -26,21 +26,43 @@ public class DashboardAdministrator extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        BInfoWeb = new javax.swing.JButton();
+        NamaPR = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1041, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        BInfoWeb.setBackground(new java.awt.Color(0, 51, 51));
+        BInfoWeb.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
+        BInfoWeb.setForeground(new java.awt.Color(255, 255, 255));
+        BInfoWeb.setText("Informasi Webinar");
+        BInfoWeb.setToolTipText("");
+        BInfoWeb.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BInfoWebActionPerformed(evt);
+            }
+        });
+        getContentPane().add(BInfoWeb, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 530, 200, 30));
+
+        NamaPR.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        NamaPR.setForeground(new java.awt.Color(0, 0, 0));
+        NamaPR.setText("Administrator");
+        getContentPane().add(NamaPR, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, -1, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon("D:\\BAEKHYUN\\BismillahRSIA\\BismillahRSI\\RSI\\src\\main\\java\\com\\mycompany\\rsi\\Image\\Frame Dashboard Administrator.png")); // NOI18N
+        jLabel1.setText("jLabel1");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void BInfoWebActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BInfoWebActionPerformed
+        // TODO add your handling code here:
+        PapanWebinarAdministrator webinarAdmin = new PapanWebinarAdministrator();
+        webinarAdmin.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_BInfoWebActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +100,8 @@ public class DashboardAdministrator extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BInfoWeb;
+    private javax.swing.JLabel NamaPR;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
