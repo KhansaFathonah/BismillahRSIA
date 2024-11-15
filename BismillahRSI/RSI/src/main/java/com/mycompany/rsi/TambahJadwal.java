@@ -97,7 +97,7 @@ public class TambahJadwal extends javax.swing.JFrame {
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 450, 140, 40));
         getContentPane().add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 350, 520, -1));
 
-        BgTambahJadwal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/rsi/Image/Frame Tambah Jadwal Agenda.png"))); // NOI18N
+        BgTambahJadwal.setIcon(new javax.swing.ImageIcon("D:\\image\\Frame Tambah Jadwal Agenda.png")); // NOI18N
         BgTambahJadwal.setText("jLabel1");
         getContentPane().add(BgTambahJadwal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 600));
 
@@ -124,12 +124,30 @@ public class TambahJadwal extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         String namaAgenda = jTextField2.getText();
+        String waktuAgenda = jTextField1.getText();
+        java.util.Date tanggalAgenda = jDateChooser1.getDate();
 
-        if (!namaAgenda.isEmpty()) {
-            javax.swing.JOptionPane.showMessageDialog(this, "Agenda berhasil ditambahkan.", "Sukses", javax.swing.JOptionPane.INFORMATION_MESSAGE);
-        } else {
-            javax.swing.JOptionPane.showMessageDialog(this, "Gagal menambahkan agenda. Nama agenda tidak boleh kosong.", "Gagal", javax.swing.JOptionPane.ERROR_MESSAGE);
+        if (namaAgenda.isEmpty()) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Nama agenda tidak boleh kosong.", "Gagal", javax.swing.JOptionPane.ERROR_MESSAGE);
+            return;
         }
+        if (waktuAgenda.isEmpty()) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Waktu agenda tidak boleh kosong.", "Gagal", javax.swing.JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        if (tanggalAgenda == null) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Tanggal belum dipilih.", "Gagal", javax.swing.JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd");
+        String tanggalFormatted = sdf.format(tanggalAgenda);
+        String message = "Nama Agenda : " + namaAgenda + "\nWaktu Agenda : " + waktuAgenda + "\nTanggal : " + tanggalFormatted;
+        javax.swing.JOptionPane.showMessageDialog(this, message, "Agenda berhasil diupdate", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+        
+        DashboardAdministrator dashboardAdmin = new DashboardAdministrator();
+        dashboardAdmin.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

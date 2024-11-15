@@ -97,7 +97,7 @@ public class HapusJadwalAgenda extends javax.swing.JFrame {
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 450, 130, 40));
         getContentPane().add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 350, 520, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/rsi/image/Frame Hapus Jadwal Agenda.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("D:\\image\\Frame Hapus Jadwal Agenda.png")); // NOI18N
         jLabel1.setText("jLabel1");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, -1));
 
@@ -144,6 +144,9 @@ public class HapusJadwalAgenda extends javax.swing.JFrame {
         String tanggalFormatted = sdf.format(tanggalAgenda);
         String message = "Nama Agenda : " + namaAgenda + "\nWaktu Agenda : " + waktuAgenda + "\nTanggal : " + tanggalFormatted;
         javax.swing.JOptionPane.showMessageDialog(this, message, "Agenda berhasil diupdate", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+        
+        DashboardAdministrator dashboardAdmin = new DashboardAdministrator();
+        dashboardAdmin.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 

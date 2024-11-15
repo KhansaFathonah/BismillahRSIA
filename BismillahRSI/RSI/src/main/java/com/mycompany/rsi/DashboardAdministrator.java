@@ -52,6 +52,7 @@ public class DashboardAdministrator extends javax.swing.JFrame {
         getContentPane().add(BInfoWeb, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 530, 200, 30));
 
         NamaPR.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        NamaPR.setForeground(new java.awt.Color(0, 0, 0));
         NamaPR.setText("ADMINISTRATOR");
         getContentPane().add(NamaPR, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, -1, -1));
 
@@ -63,22 +64,44 @@ public class DashboardAdministrator extends javax.swing.JFrame {
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, 70));
 
         bUpdate.setBackground(new java.awt.Color(255, 222, 89));
+        bUpdate.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        bUpdate.setForeground(new java.awt.Color(0, 0, 0));
         bUpdate.setText("UPDATE");
+        bUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bUpdateActionPerformed(evt);
+            }
+        });
         getContentPane().add(bUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 490, 90, 30));
 
         bTambah.setBackground(new java.awt.Color(160, 254, 76));
+        bTambah.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        bTambah.setForeground(new java.awt.Color(0, 0, 0));
         bTambah.setText("TAMBAH");
+        bTambah.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bTambahActionPerformed(evt);
+            }
+        });
         getContentPane().add(bTambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 490, 90, 30));
 
         namaAdmin.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        namaAdmin.setForeground(new java.awt.Color(0, 0, 0));
         namaAdmin.setText("NAMA ADMIN");
         getContentPane().add(namaAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 50, -1, -1));
 
         bHapus.setBackground(new java.awt.Color(255, 189, 89));
+        bHapus.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        bHapus.setForeground(new java.awt.Color(0, 0, 0));
         bHapus.setText("HAPUS");
+        bHapus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bHapusActionPerformed(evt);
+            }
+        });
         getContentPane().add(bHapus, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 490, 90, 30));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/rsi/image/Frame Dashboard General.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("D:\\image\\Frame Dashboard General.png")); // NOI18N
         jLabel1.setText("jLabel1");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, -1));
 
@@ -91,6 +114,27 @@ public class DashboardAdministrator extends javax.swing.JFrame {
         webinarAdmin.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_BInfoWebActionPerformed
+
+    private void bTambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bTambahActionPerformed
+        // TODO add your handling code here:
+        TambahJadwal tambahJadwal = new TambahJadwal();
+        tambahJadwal.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_bTambahActionPerformed
+
+    private void bUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bUpdateActionPerformed
+        // TODO add your handling code here:
+        UpdateJadwal updateJadwal = new UpdateJadwal();
+        updateJadwal.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_bUpdateActionPerformed
+
+    private void bHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bHapusActionPerformed
+        // TODO add your handling code here:
+        HapusJadwalAgenda hapusAgenda = new HapusJadwalAgenda();
+        hapusAgenda.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_bHapusActionPerformed
 
     /**
      * @param args the command line arguments
