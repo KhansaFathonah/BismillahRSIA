@@ -145,9 +145,14 @@ public class HapusJadwalAgenda extends javax.swing.JFrame {
         String message = "Nama Agenda : " + namaAgenda + "\nWaktu Agenda : " + waktuAgenda + "\nTanggal : " + tanggalFormatted;
         javax.swing.JOptionPane.showMessageDialog(this, message, "Agenda berhasil diupdate", javax.swing.JOptionPane.INFORMATION_MESSAGE);
         
-        DashboardAdministrator dashboardAdmin = new DashboardAdministrator();
-        dashboardAdmin.setVisible(true);
-        this.dispose();
+        try {
+            DashboardAdministrator dashboardAdmin = new DashboardAdministrator();
+            dashboardAdmin.setVisible(true);
+            this.dispose(); // Menutup halaman saat ini
+        } catch (Exception e) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Terjadi kesalahan saat membuka halaman Dashboard.", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+            e.printStackTrace(); // Debugging error jika terjadi
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
