@@ -30,7 +30,6 @@ public class DashboardPR extends javax.swing.JFrame {
         NamaPR = new javax.swing.JLabel();
         namaAnak = new javax.swing.JLabel();
         BInfoWeb = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
         jCalendar1 = new com.toedter.calendar.JCalendar();
         jLabel6 = new javax.swing.JLabel();
         BgDashboardPR = new javax.swing.JLabel();
@@ -58,14 +57,6 @@ public class DashboardPR extends javax.swing.JFrame {
         });
         getContentPane().add(BInfoWeb, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 530, 200, 30));
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/rsi/Image/Log out.png"))); // NOI18N
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 80, -1, -1));
-
         jCalendar1.setBackground(new java.awt.Color(255, 255, 255));
         jCalendar1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         getContentPane().add(jCalendar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 310, 260));
@@ -78,10 +69,6 @@ public class DashboardPR extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
 
     private void BInfoWebActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BInfoWebActionPerformed
         // TODO add your handling code here:
@@ -126,7 +113,6 @@ public class DashboardPR extends javax.swing.JFrame {
     private javax.swing.JButton BInfoWeb;
     private javax.swing.JLabel BgDashboardPR;
     private javax.swing.JLabel NamaPR;
-    private javax.swing.JButton jButton1;
     private com.toedter.calendar.JCalendar jCalendar1;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel namaAnak;
