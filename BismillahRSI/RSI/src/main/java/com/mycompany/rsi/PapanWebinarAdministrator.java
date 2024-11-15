@@ -40,6 +40,7 @@ public class PapanWebinarAdministrator extends javax.swing.JFrame {
         jTextField1 = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -128,6 +129,9 @@ public class PapanWebinarAdministrator extends javax.swing.JFrame {
         jTextField3.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
         jTextField3.setText("Judul Webinar 2");
         getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 390, 600, 50));
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/rsi/image/orang.png"))); // NOI18N
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, 70));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/rsi/image/Frame Papan Webinar Administrator.png"))); // NOI18N
         jLabel2.setText("jLabel2");
@@ -231,6 +235,7 @@ public class PapanWebinarAdministrator extends javax.swing.JFrame {
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
