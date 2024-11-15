@@ -15,6 +15,8 @@ public class HapusJadwalAgenda extends javax.swing.JFrame {
      */
     public HapusJadwalAgenda() {
         initComponents();
+        jButton1.setForeground(java.awt.Color.WHITE);
+        jButton2.setForeground(java.awt.Color.WHITE);
     }
 
     /**
@@ -40,14 +42,17 @@ public class HapusJadwalAgenda extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Nama Agenda    :");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 200, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Waktu Agenda   :");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 270, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Tanggal              :");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 340, -1, -1));
 
@@ -119,12 +124,27 @@ public class HapusJadwalAgenda extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         String namaAgenda = jTextField2.getText();
+        String waktuAgenda = jTextField1.getText();
+        java.util.Date tanggalAgenda = jDateChooser1.getDate();
 
-        if (!namaAgenda.isEmpty()) {
-            javax.swing.JOptionPane.showMessageDialog(this, "Agenda berhasil diupdate.", "Sukses", javax.swing.JOptionPane.INFORMATION_MESSAGE);
-        } else {
-            javax.swing.JOptionPane.showMessageDialog(this, "Gagal menghapus agenda. Nama agenda tidak boleh kosong.", "Gagal", javax.swing.JOptionPane.ERROR_MESSAGE);
+        if (namaAgenda.isEmpty()) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Nama agenda tidak boleh kosong.", "Gagal", javax.swing.JOptionPane.ERROR_MESSAGE);
+            return;
         }
+        if (waktuAgenda.isEmpty()) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Waktu agenda tidak boleh kosong.", "Gagal", javax.swing.JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        if (tanggalAgenda == null) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Tanggal belum dipilih.", "Gagal", javax.swing.JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd");
+        String tanggalFormatted = sdf.format(tanggalAgenda);
+        String message = "Nama Agenda : " + namaAgenda + "\nWaktu Agenda : " + waktuAgenda + "\nTanggal : " + tanggalFormatted;
+        javax.swing.JOptionPane.showMessageDialog(this, message, "Agenda berhasil diupdate", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+        this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
