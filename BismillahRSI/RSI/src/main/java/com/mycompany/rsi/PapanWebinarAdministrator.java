@@ -130,7 +130,7 @@ public class PapanWebinarAdministrator extends javax.swing.JFrame {
         jTextField3.setText("Judul Webinar 2");
         getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 390, 600, 50));
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/rsi/image/orang.png"))); // NOI18N
+        jLabel6.setIcon(new javax.swing.ImageIcon("D:\\image\\orang.png")); // NOI18N
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, 70));
 
         jLabel2.setIcon(new javax.swing.ImageIcon("D:\\image\\Frame Papan Webinar Administrator.png")); // NOI18N

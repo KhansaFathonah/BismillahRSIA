@@ -15,6 +15,8 @@ public class UpdateJadwal extends javax.swing.JFrame {
      */
     public UpdateJadwal() {
         initComponents();
+        jButton1.setForeground(java.awt.Color.WHITE);
+        jButton2.setForeground(java.awt.Color.WHITE);
     }
 
     /**

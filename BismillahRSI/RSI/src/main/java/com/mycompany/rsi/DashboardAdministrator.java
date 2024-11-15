@@ -60,7 +60,7 @@ public class DashboardAdministrator extends javax.swing.JFrame {
         jCalendar1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         getContentPane().add(jCalendar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 310, 260));
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/rsi/image/orang.png"))); // NOI18N
+        jLabel6.setIcon(new javax.swing.ImageIcon("D:\\image\\orang.png")); // NOI18N
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, 70));
 
         bUpdate.setBackground(new java.awt.Color(255, 222, 89));

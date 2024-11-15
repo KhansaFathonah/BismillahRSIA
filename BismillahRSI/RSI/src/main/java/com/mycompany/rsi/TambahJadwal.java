@@ -15,6 +15,8 @@ public class TambahJadwal extends javax.swing.JFrame {
      */
     public TambahJadwal() {
         initComponents();
+        jButton1.setForeground(java.awt.Color.WHITE);
+        jButton2.setForeground(java.awt.Color.WHITE);
     }
 
     /**

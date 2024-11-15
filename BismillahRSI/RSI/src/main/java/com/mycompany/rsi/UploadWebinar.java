@@ -104,7 +104,7 @@ public class UploadWebinar extends javax.swing.JFrame {
         jLabel2.setText("JUDUL");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 190, -1, -1));
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/rsi/image/orang.png"))); // NOI18N
+        jLabel6.setIcon(new javax.swing.ImageIcon("D:\\image\\orang.png")); // NOI18N
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, 70));
 
         jLabel1.setIcon(new javax.swing.ImageIcon("D:\\image\\Frame Upload Informasi Webinar.png")); // NOI18N
@@ -120,6 +120,7 @@ public class UploadWebinar extends javax.swing.JFrame {
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
