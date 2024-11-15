@@ -97,7 +97,7 @@ public class UpdateJadwal extends javax.swing.JFrame {
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 450, 130, 40));
         getContentPane().add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 350, 520, -1));
 
-        BgUpdateJadwal.setIcon(new javax.swing.ImageIcon("D:\\image\\Frame Update Jadwal Agenda.png")); // NOI18N
+        BgUpdateJadwal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/rsi/image/Frame Update Jadwal Agenda.png"))); // NOI18N
         getContentPane().add(BgUpdateJadwal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
