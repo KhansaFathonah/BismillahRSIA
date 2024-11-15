@@ -42,12 +42,10 @@ public class DashboardPR extends javax.swing.JFrame {
         getContentPane().add(Profil, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         NamaPR.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
-        NamaPR.setForeground(new java.awt.Color(0, 0, 0));
         NamaPR.setText("NAMA PENGGUNA");
         getContentPane().add(NamaPR, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, -1, -1));
 
         namaAnak.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        namaAnak.setForeground(new java.awt.Color(0, 0, 0));
         namaAnak.setText("NAMA ANAK");
         getContentPane().add(namaAnak, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 50, -1, -1));
 
@@ -63,7 +61,6 @@ public class DashboardPR extends javax.swing.JFrame {
         });
         getContentPane().add(BInfoWeb, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 530, 200, 30));
 
-        jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/rsi/Image/Log out.png"))); // NOI18N
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -76,7 +73,7 @@ public class DashboardPR extends javax.swing.JFrame {
         jCalendar1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         getContentPane().add(jCalendar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 310, 260));
 
-        BgDashboardPR.setIcon(new javax.swing.ImageIcon("D:\\BAEKHYUN\\BismillahRSIA\\BismillahRSI\\RSI\\src\\main\\java\\com\\mycompany\\rsi\\Image\\Frame Dashboard.png")); // NOI18N
+        BgDashboardPR.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/rsi/image/Frame Dashboard General.png"))); // NOI18N
         getContentPane().add(BgDashboardPR, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
