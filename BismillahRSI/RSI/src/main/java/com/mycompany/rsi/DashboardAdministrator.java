@@ -35,6 +35,7 @@ public class DashboardAdministrator extends javax.swing.JFrame {
         namaAdmin = new javax.swing.JLabel();
         bHapus = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -104,6 +105,9 @@ public class DashboardAdministrator extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon("D:\\image\\Frame Dashboard General.png")); // NOI18N
         jLabel1.setText("jLabel1");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, -1));
+
+        jLabel2.setText("jLabel2");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 20, 510, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -179,6 +183,7 @@ public class DashboardAdministrator extends javax.swing.JFrame {
     private javax.swing.JButton bUpdate;
     private com.toedter.calendar.JCalendar jCalendar1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel namaAdmin;
     // End of variables declaration//GEN-END:variables
