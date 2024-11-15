@@ -27,19 +27,16 @@ public class DashboardPR extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        Profil = new javax.swing.JLabel();
         NamaPR = new javax.swing.JLabel();
         namaAnak = new javax.swing.JLabel();
         BInfoWeb = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jCalendar1 = new com.toedter.calendar.JCalendar();
+        jLabel6 = new javax.swing.JLabel();
         BgDashboardPR = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        Profil.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/rsi/Image/image 1 nava.png"))); // NOI18N
-        getContentPane().add(Profil, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         NamaPR.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         NamaPR.setText("NAMA PENGGUNA");
@@ -72,6 +69,9 @@ public class DashboardPR extends javax.swing.JFrame {
         jCalendar1.setBackground(new java.awt.Color(255, 255, 255));
         jCalendar1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         getContentPane().add(jCalendar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 310, 260));
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/rsi/image/orang.png"))); // NOI18N
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, 70));
 
         BgDashboardPR.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/rsi/image/Frame Dashboard General.png"))); // NOI18N
         getContentPane().add(BgDashboardPR, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -126,9 +126,9 @@ public class DashboardPR extends javax.swing.JFrame {
     private javax.swing.JButton BInfoWeb;
     private javax.swing.JLabel BgDashboardPR;
     private javax.swing.JLabel NamaPR;
-    private javax.swing.JLabel Profil;
     private javax.swing.JButton jButton1;
     private com.toedter.calendar.JCalendar jCalendar1;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel namaAnak;
     // End of variables declaration//GEN-END:variables
 }

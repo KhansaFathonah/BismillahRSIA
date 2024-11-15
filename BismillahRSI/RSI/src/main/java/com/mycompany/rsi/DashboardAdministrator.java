@@ -29,6 +29,7 @@ public class DashboardAdministrator extends javax.swing.JFrame {
         BInfoWeb = new javax.swing.JButton();
         NamaPR = new javax.swing.JLabel();
         jCalendar1 = new com.toedter.calendar.JCalendar();
+        jLabel6 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -53,6 +54,9 @@ public class DashboardAdministrator extends javax.swing.JFrame {
         jCalendar1.setBackground(new java.awt.Color(255, 255, 255));
         jCalendar1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         getContentPane().add(jCalendar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 310, 260));
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/rsi/image/orang.png"))); // NOI18N
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, 70));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/rsi/image/Frame Dashboard General.png"))); // NOI18N
         jLabel1.setText("jLabel1");
@@ -108,5 +112,6 @@ public class DashboardAdministrator extends javax.swing.JFrame {
     private javax.swing.JLabel NamaPR;
     private com.toedter.calendar.JCalendar jCalendar1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel6;
     // End of variables declaration//GEN-END:variables
 }

@@ -8,12 +8,12 @@ package com.mycompany.rsi;
  *
  * @author Asus
  */
-public class Hapus_Jadwal_Agenda extends javax.swing.JFrame {
+public class HapusJadwalAgenda extends javax.swing.JFrame {
 
     /**
      * Creates new form Hapus_Jadwal_Agenda
      */
-    public Hapus_Jadwal_Agenda() {
+    public HapusJadwalAgenda() {
         initComponents();
     }
 
@@ -144,20 +144,21 @@ public class Hapus_Jadwal_Agenda extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Hapus_Jadwal_Agenda.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(HapusJadwalAgenda.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Hapus_Jadwal_Agenda.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(HapusJadwalAgenda.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Hapus_Jadwal_Agenda.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(HapusJadwalAgenda.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Hapus_Jadwal_Agenda.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(HapusJadwalAgenda.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Hapus_Jadwal_Agenda().setVisible(true);
+                new HapusJadwalAgenda().setVisible(true);
             }
         });
     }
