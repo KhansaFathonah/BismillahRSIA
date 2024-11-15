@@ -30,6 +30,10 @@ public class DashboardAdministrator extends javax.swing.JFrame {
         NamaPR = new javax.swing.JLabel();
         jCalendar1 = new com.toedter.calendar.JCalendar();
         jLabel6 = new javax.swing.JLabel();
+        bUpdate = new javax.swing.JButton();
+        bTambah = new javax.swing.JButton();
+        namaAdmin = new javax.swing.JLabel();
+        bHapus = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -48,15 +52,31 @@ public class DashboardAdministrator extends javax.swing.JFrame {
         getContentPane().add(BInfoWeb, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 530, 200, 30));
 
         NamaPR.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
-        NamaPR.setText("Administrator");
+        NamaPR.setText("ADMINISTRATOR");
         getContentPane().add(NamaPR, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, -1, -1));
 
         jCalendar1.setBackground(new java.awt.Color(255, 255, 255));
         jCalendar1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        getContentPane().add(jCalendar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 310, 260));
+        getContentPane().add(jCalendar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 310, 260));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/rsi/image/orang.png"))); // NOI18N
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, 70));
+
+        bUpdate.setBackground(new java.awt.Color(255, 222, 89));
+        bUpdate.setText("UPDATE");
+        getContentPane().add(bUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 490, 90, 30));
+
+        bTambah.setBackground(new java.awt.Color(160, 254, 76));
+        bTambah.setText("TAMBAH");
+        getContentPane().add(bTambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 490, 90, 30));
+
+        namaAdmin.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        namaAdmin.setText("NAMA ADMIN");
+        getContentPane().add(namaAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 50, -1, -1));
+
+        bHapus.setBackground(new java.awt.Color(255, 189, 89));
+        bHapus.setText("HAPUS");
+        getContentPane().add(bHapus, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 490, 90, 30));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/rsi/image/Frame Dashboard General.png"))); // NOI18N
         jLabel1.setText("jLabel1");
@@ -110,8 +130,12 @@ public class DashboardAdministrator extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BInfoWeb;
     private javax.swing.JLabel NamaPR;
+    private javax.swing.JButton bHapus;
+    private javax.swing.JButton bTambah;
+    private javax.swing.JButton bUpdate;
     private com.toedter.calendar.JCalendar jCalendar1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel namaAdmin;
     // End of variables declaration//GEN-END:variables
 }
