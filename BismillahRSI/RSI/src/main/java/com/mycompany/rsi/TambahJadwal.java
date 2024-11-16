@@ -119,6 +119,8 @@ public class TambahJadwal extends javax.swing.JFrame {
         int response = javax.swing.JOptionPane.showConfirmDialog(this, "Apakah Anda yakin ingin membatalkan penambahan jadwal agenda?", "Konfirmasi", javax.swing.JOptionPane.YES_NO_OPTION, javax.swing.JOptionPane.QUESTION_MESSAGE);
 
         if (response == javax.swing.JOptionPane.YES_OPTION) {
+            DashboardAdministrator dashboardAdmin = new DashboardAdministrator();
+            dashboardAdmin.setVisible(true);
             this.dispose();
         }
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -145,7 +147,7 @@ public class TambahJadwal extends javax.swing.JFrame {
         java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd");
         String tanggalFormatted = sdf.format(tanggalAgenda);
         String message = "Nama Agenda : " + namaAgenda + "\nWaktu Agenda : " + waktuAgenda + "\nTanggal : " + tanggalFormatted;
-        javax.swing.JOptionPane.showMessageDialog(this, message, "Agenda berhasil diupdate", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+        javax.swing.JOptionPane.showMessageDialog(this, message, "Agenda berhasil ditambahkan", javax.swing.JOptionPane.INFORMATION_MESSAGE);
         
         DashboardAdministrator dashboardAdmin = new DashboardAdministrator();
         dashboardAdmin.setVisible(true);

@@ -20,10 +20,13 @@ public class DashboardAdministrator extends javax.swing.JFrame {
      */
     public DashboardAdministrator() {
         initComponents();
-        jCalendar1.addPropertyChangeListener("calendar", new PropertyChangeListener() {
+        jCalendar2.getDayChooser().getDayPanel().setVisible(true); 
+        jCalendar2.getMonthChooser().setVisible(true); 
+        jCalendar2.getYearChooser().setVisible(true);
+        jCalendar2.addPropertyChangeListener("calendar", new PropertyChangeListener() {
             @Override
             public void propertyChange(PropertyChangeEvent evt) {
-                Date selectedDate = jCalendar1.getDate(); // Dapatkan tanggal yang dipilih
+                Date selectedDate = jCalendar2.getDate(); // Dapatkan tanggal yang dipilih
                 showDateDetails(selectedDate);           // Tampilkan detail untuk tanggal tersebut
             }
         });
@@ -45,7 +48,6 @@ public class DashboardAdministrator extends javax.swing.JFrame {
         bTambah = new javax.swing.JButton();
         namaAdmin = new javax.swing.JLabel();
         bHapus = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
         jCalendar2 = new com.toedter.calendar.JCalendar();
         jLabel1 = new javax.swing.JLabel();
 
@@ -110,8 +112,8 @@ public class DashboardAdministrator extends javax.swing.JFrame {
         });
         getContentPane().add(bHapus, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 490, 90, 30));
 
-        jLabel2.setText("jLabel2");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 20, 510, -1));
+        jCalendar2.setForeground(new java.awt.Color(0, 0, 0));
+        jCalendar2.setAutoscrolls(true);
         getContentPane().add(jCalendar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 310, 280));
 
         jLabel1.setIcon(new javax.swing.ImageIcon("D:\\image\\Frame Dashboard General.png")); // NOI18N
@@ -155,19 +157,21 @@ public class DashboardAdministrator extends javax.swing.JFrame {
         
         // Contoh menampilkan detail informasi
         String detail = getDetailsForDate(formattedDate);
-        JOptionPane.showMessageDialog(this, "Detail untuk tanggal " + formattedDate + ":\n" + detail, 
+        JOptionPane.showMessageDialog(this, "Detail tanggal " + formattedDate + ":\n" + detail, 
                 "Informasi Tanggal", JOptionPane.INFORMATION_MESSAGE);
     }
     
     private String getDetailsForDate(String date) {
         // Contoh data detail untuk tanggal tertentu (dapat diganti dengan database)
         switch (date) {
+            case "9-11-2024":
+                return "- Webinar pukul 11.00.";
             case "16-11-2024":
-                return "Contoh: Webinar Teknologi pukul 10.00.";
+                return "- Webinar pukul 10.00.";
             case "17-11-2024":
-                return "Contoh: Rapat Bulanan pukul 14.00.";
+                return "- Webinar Bulanan pukul 14.00.";
             default:
-                return "Tidak ada acara terjadwal.";
+                return "- Tidak ada acara terjadwal.";
         }
     }
     
@@ -214,7 +218,6 @@ public class DashboardAdministrator extends javax.swing.JFrame {
     private javax.swing.JButton bUpdate;
     private com.toedter.calendar.JCalendar jCalendar2;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel namaAdmin;
     // End of variables declaration//GEN-END:variables

@@ -116,6 +116,8 @@ public class UpdateJadwal extends javax.swing.JFrame {
         int response = javax.swing.JOptionPane.showConfirmDialog(this, "Apakah Anda yakin ingin membatalkan pengupdatean jadwal agenda?", "Konfirmasi", javax.swing.JOptionPane.YES_NO_OPTION, javax.swing.JOptionPane.QUESTION_MESSAGE);
 
         if (response == javax.swing.JOptionPane.YES_OPTION) {
+            DashboardAdministrator dashboardAdmin = new DashboardAdministrator();
+            dashboardAdmin.setVisible(true);
             this.dispose();
         }
     }//GEN-LAST:event_jButton2ActionPerformed
