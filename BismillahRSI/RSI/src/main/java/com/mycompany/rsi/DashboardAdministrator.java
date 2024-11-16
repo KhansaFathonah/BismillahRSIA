@@ -155,17 +155,15 @@ public class DashboardAdministrator extends javax.swing.JFrame {
         SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
         String formattedDate = sdf.format(date);
         
-        // Contoh menampilkan detail informasi
         String detail = getDetailsForDate(formattedDate);
         JOptionPane.showMessageDialog(this, "Detail tanggal " + formattedDate + ":\n" + detail, 
                 "Informasi Tanggal", JOptionPane.INFORMATION_MESSAGE);
     }
     
     private String getDetailsForDate(String date) {
-        // Contoh data detail untuk tanggal tertentu (dapat diganti dengan database)
         switch (date) {
-            case "9-11-2024":
-                return "- Webinar pukul 11.00.";
+            case "09-11-2024":
+                return "- Webinar pukul 10.00.";
             case "16-11-2024":
                 return "- Webinar pukul 10.00.";
             case "17-11-2024":
