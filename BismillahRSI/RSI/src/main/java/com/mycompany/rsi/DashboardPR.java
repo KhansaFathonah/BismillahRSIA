@@ -74,6 +74,9 @@ public class DashboardPR extends javax.swing.JFrame {
 
     private void BInfoWebActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BInfoWebActionPerformed
         // TODO add your handling code here:
+        PapanWebinarPR webinarPR = new PapanWebinarPR();
+        webinarPR.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_BInfoWebActionPerformed
 
     /**
