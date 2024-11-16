@@ -199,7 +199,7 @@
     <Component class="javax.swing.JLabel" name="jLabel6">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="D:\image\orang.png"/>
+          <Image iconType="3" name="/com/mycompany/rsi/image/orang.png"/>
         </Property>
       </Properties>
       <Constraints>
@@ -211,7 +211,7 @@
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="D:\image\Frame Upload Informasi Webinar.png"/>
+          <Image iconType="3" name="/com/mycompany/rsi/image/Frame Upload Informasi Webinar.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="jLabel1"/>
       </Properties>
