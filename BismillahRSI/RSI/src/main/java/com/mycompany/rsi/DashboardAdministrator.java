@@ -26,8 +26,8 @@ public class DashboardAdministrator extends javax.swing.JFrame {
         jCalendar2.addPropertyChangeListener("calendar", new PropertyChangeListener() {
             @Override
             public void propertyChange(PropertyChangeEvent evt) {
-                Date selectedDate = jCalendar2.getDate(); // Dapatkan tanggal yang dipilih
-                showDateDetails(selectedDate);           // Tampilkan detail untuk tanggal tersebut
+                Date selectedDate = jCalendar2.getDate(); 
+                showDateDetails(selectedDate);          
             }
         });
     }
