@@ -129,9 +129,11 @@ public class PapanWebinarAdministrator extends javax.swing.JFrame {
         jTextField3.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
         jTextField3.setText("Judul Webinar 2");
         getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 390, 600, 50));
+
+        jLabel6.setIcon(new javax.swing.ImageIcon("C:\\Users\\WINDOWS 11\\Pictures\\PARENTA\\Profile.png")); // NOI18N
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, 70));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("D:\\image\\Frame Papan Webinar Administrator.png")); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\WINDOWS 11\\Pictures\\PARENTA\\Frame Papan Webinar Administrator.png")); // NOI18N
         jLabel2.setText("jLabel2");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 600));
 

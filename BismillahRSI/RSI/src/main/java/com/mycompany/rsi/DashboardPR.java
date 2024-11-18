@@ -38,12 +38,10 @@ public class DashboardPR extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         NamaPR.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
-        NamaPR.setForeground(new java.awt.Color(0, 0, 0));
         NamaPR.setText("NAMA PENGGUNA");
         getContentPane().add(NamaPR, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, -1, -1));
 
         namaAnak.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        namaAnak.setForeground(new java.awt.Color(0, 0, 0));
         namaAnak.setText("NAMA ANAK");
         getContentPane().add(namaAnak, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 50, -1, -1));
 
@@ -63,10 +61,10 @@ public class DashboardPR extends javax.swing.JFrame {
         jCalendar1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         getContentPane().add(jCalendar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 310, 260));
 
-        jLabel6.setIcon(new javax.swing.ImageIcon("D:\\image\\orang.png")); // NOI18N
+        jLabel6.setIcon(new javax.swing.ImageIcon("C:\\Users\\WINDOWS 11\\Pictures\\PARENTA\\Profile.png")); // NOI18N
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, 70));
 
-        BgDashboardPR.setIcon(new javax.swing.ImageIcon("D:\\image\\Frame Dashboard General.png")); // NOI18N
+        BgDashboardPR.setIcon(new javax.swing.ImageIcon("C:\\Users\\WINDOWS 11\\Pictures\\PARENTA\\Frame Dashboard General.png")); // NOI18N
         getContentPane().add(BgDashboardPR, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();

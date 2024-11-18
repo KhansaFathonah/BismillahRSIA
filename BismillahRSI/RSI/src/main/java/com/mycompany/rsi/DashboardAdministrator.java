@@ -68,14 +68,12 @@ public class DashboardAdministrator extends javax.swing.JFrame {
         getContentPane().add(BInfoWeb, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 530, 200, 30));
 
         NamaPR.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
-        NamaPR.setForeground(new java.awt.Color(0, 0, 0));
         NamaPR.setText("ADMINISTRATOR");
         getContentPane().add(NamaPR, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, -1, -1));
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, 70));
 
         bUpdate.setBackground(new java.awt.Color(255, 222, 89));
         bUpdate.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        bUpdate.setForeground(new java.awt.Color(0, 0, 0));
         bUpdate.setText("UPDATE");
         bUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -86,7 +84,6 @@ public class DashboardAdministrator extends javax.swing.JFrame {
 
         bTambah.setBackground(new java.awt.Color(160, 254, 76));
         bTambah.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        bTambah.setForeground(new java.awt.Color(0, 0, 0));
         bTambah.setText("TAMBAH");
         bTambah.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -96,13 +93,11 @@ public class DashboardAdministrator extends javax.swing.JFrame {
         getContentPane().add(bTambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 490, 90, 30));
 
         namaAdmin.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        namaAdmin.setForeground(new java.awt.Color(0, 0, 0));
         namaAdmin.setText("NAMA ADMIN");
         getContentPane().add(namaAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 50, -1, -1));
 
         bHapus.setBackground(new java.awt.Color(255, 189, 89));
         bHapus.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        bHapus.setForeground(new java.awt.Color(0, 0, 0));
         bHapus.setText("HAPUS");
         bHapus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -114,10 +109,10 @@ public class DashboardAdministrator extends javax.swing.JFrame {
         jCalendar2.setAutoscrolls(true);
         getContentPane().add(jCalendar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 310, 280));
 
-        jLabel7.setIcon(new javax.swing.ImageIcon("D:\\image\\orang.png")); // NOI18N
+        jLabel7.setIcon(new javax.swing.ImageIcon("C:\\Users\\WINDOWS 11\\Pictures\\PARENTA\\Profile.png")); // NOI18N
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, 70));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("D:\\image\\Frame Dashboard General.png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\WINDOWS 11\\Pictures\\PARENTA\\Frame Dashboard General.png")); // NOI18N
         jLabel1.setText("jLabel1");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, -1));
 
@@ -155,9 +150,18 @@ public class DashboardAdministrator extends javax.swing.JFrame {
     private void showDateDetails(Date date) {
         SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
         String formattedDate = sdf.format(date);
-        
+
         String detail = getDetailsForDate(formattedDate);
-        JOptionPane.showMessageDialog(this, "Detail tanggal " + formattedDate + ":\n" + detail, 
+
+        // Ubah warna tombol jika ada detail
+        if (!detail.equals("- Tidak ada acara terjadwal.")) {
+            BInfoWeb.setBackground(new java.awt.Color(0, 0, 255)); // Warna biru
+        } else {
+            BInfoWeb.setBackground(new java.awt.Color(0, 51, 51)); // Warna default
+        }
+
+        // Tampilkan detail tanggal
+        JOptionPane.showMessageDialog(this, "Detail tanggal " + formattedDate + ":\n" + detail,
                 "Informasi Tanggal", JOptionPane.INFORMATION_MESSAGE);
     }
     
