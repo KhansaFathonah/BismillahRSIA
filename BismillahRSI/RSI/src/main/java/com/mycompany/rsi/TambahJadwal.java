@@ -99,7 +99,7 @@ public class TambahJadwal extends javax.swing.JFrame {
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 450, 140, 40));
         getContentPane().add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 350, 520, -1));
 
-        BgTambahJadwal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/rsi/image/Frame Tambah Jadwal Agenda.png"))); // NOI18N
+        BgTambahJadwal.setIcon(new javax.swing.ImageIcon("D:\\image\\Frame Tambah Jadwal Agenda.png")); // NOI18N
         BgTambahJadwal.setText("jLabel1");
         getContentPane().add(BgTambahJadwal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 600));
 

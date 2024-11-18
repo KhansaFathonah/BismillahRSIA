@@ -28,11 +28,11 @@ public class UploadWebinar extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
         jButton2 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jTextField4 = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
+        jTextField3 = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
@@ -43,7 +43,6 @@ public class UploadWebinar extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 310, 570, 30));
 
         jButton2.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         jButton2.setForeground(new java.awt.Color(153, 153, 0));
@@ -67,17 +66,16 @@ public class UploadWebinar extends javax.swing.JFrame {
 
         jTextField4.setBackground(new java.awt.Color(172, 189, 115));
         jTextField4.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
-            }
-        });
         getContentPane().add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 370, 570, 30));
 
         jLabel5.setFont(new java.awt.Font("Verdana", 1, 20)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("LINK PENDAFTARAN");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 370, -1, -1));
+
+        jTextField3.setBackground(new java.awt.Color(172, 189, 115));
+        jTextField3.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 310, 570, 30));
 
         jLabel4.setFont(new java.awt.Font("Verdana", 1, 20)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
@@ -113,10 +111,10 @@ public class UploadWebinar extends javax.swing.JFrame {
         jLabel2.setText("JUDUL");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 190, -1, -1));
 
-        jLabel6.setIcon(new javax.swing.ImageIcon("C:\\Users\\DEVINDA HERAST\\Documents\\NetBeansProjects\\BismillahRSIA\\BismillahRSI\\RSI\\src\\main\\java\\com\\mycompany\\rsi\\image\\orang.png")); // NOI18N
+        jLabel6.setIcon(new javax.swing.ImageIcon("D:\\image\\orang.png")); // NOI18N
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, 70));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\DEVINDA HERAST\\Documents\\NetBeansProjects\\BismillahRSIA\\BismillahRSI\\RSI\\src\\main\\java\\com\\mycompany\\rsi\\image\\Frame Upload Informasi Webinar.png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("D:\\image\\Frame Upload Informasi Webinar.png")); // NOI18N
         jLabel1.setText("jLabel1");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, -1));
 
@@ -220,7 +218,6 @@ public class UploadWebinar extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -229,6 +226,7 @@ public class UploadWebinar extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     // End of variables declaration//GEN-END:variables
 }
