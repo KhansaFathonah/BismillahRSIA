@@ -26,25 +26,30 @@ public class PapanWebinarPR extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        bHome = new javax.swing.JButton();
+        bLogout = new javax.swing.JButton();
+        profilePR = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        bHome.setBackground(new java.awt.Color(255, 249, 243));
+        bHome.setIcon(new javax.swing.ImageIcon("C:\\Users\\WINDOWS 11\\Pictures\\PARENTA\\Home.png")); // NOI18N
+        bHome.setBorder(null);
+        getContentPane().add(bHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 470, 60, -1));
+
+        bLogout.setBackground(new java.awt.Color(255, 249, 243));
+        bLogout.setIcon(new javax.swing.ImageIcon("C:\\Users\\WINDOWS 11\\Pictures\\PARENTA\\Logout.png")); // NOI18N
+        bLogout.setBorder(null);
+        getContentPane().add(bLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 530, 60, -1));
+
+        profilePR.setIcon(new javax.swing.ImageIcon("C:\\Users\\WINDOWS 11\\Pictures\\PARENTA\\Profile.png")); // NOI18N
+        getContentPane().add(profilePR, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, 70));
 
         jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\WINDOWS 11\\Pictures\\PARENTA\\Frame Papan Webinar Pengguna.png")); // NOI18N
         jLabel1.setText("jLabel1");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1000, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel1)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -85,6 +90,9 @@ public class PapanWebinarPR extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bHome;
+    private javax.swing.JButton bLogout;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel profilePR;
     // End of variables declaration//GEN-END:variables
 }

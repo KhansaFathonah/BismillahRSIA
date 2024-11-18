@@ -40,8 +40,10 @@ public class PapanWebinarAdministrator extends javax.swing.JFrame {
         jTextField1 = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        bLogout = new javax.swing.JButton();
+        bHome = new javax.swing.JButton();
+        profileAdmin = new javax.swing.JLabel();
+        bgPapanWebinar = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -130,12 +132,21 @@ public class PapanWebinarAdministrator extends javax.swing.JFrame {
         jTextField3.setText("Judul Webinar 2");
         getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 390, 600, 50));
 
-        jLabel6.setIcon(new javax.swing.ImageIcon("C:\\Users\\WINDOWS 11\\Pictures\\PARENTA\\Profile.png")); // NOI18N
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, 70));
+        bLogout.setBackground(new java.awt.Color(255, 249, 243));
+        bLogout.setIcon(new javax.swing.ImageIcon("C:\\Users\\WINDOWS 11\\Pictures\\PARENTA\\Logout.png")); // NOI18N
+        bLogout.setBorder(null);
+        getContentPane().add(bLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 530, 60, -1));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\WINDOWS 11\\Pictures\\PARENTA\\Frame Papan Webinar Administrator.png")); // NOI18N
-        jLabel2.setText("jLabel2");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 600));
+        bHome.setBackground(new java.awt.Color(255, 249, 243));
+        bHome.setIcon(new javax.swing.ImageIcon("C:\\Users\\WINDOWS 11\\Pictures\\PARENTA\\Home.png")); // NOI18N
+        bHome.setBorder(null);
+        getContentPane().add(bHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 470, 60, -1));
+
+        profileAdmin.setIcon(new javax.swing.ImageIcon("C:\\Users\\WINDOWS 11\\Pictures\\PARENTA\\Profile.png")); // NOI18N
+        getContentPane().add(profileAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, 70));
+
+        bgPapanWebinar.setIcon(new javax.swing.ImageIcon("C:\\Users\\WINDOWS 11\\Pictures\\PARENTA\\Frame Papan Webinar Administrator.png")); // NOI18N
+        getContentPane().add(bgPapanWebinar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 600));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -226,6 +237,9 @@ public class PapanWebinarAdministrator extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bHome;
+    private javax.swing.JButton bLogout;
+    private javax.swing.JLabel bgPapanWebinar;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -234,10 +248,9 @@ public class PapanWebinarAdministrator extends javax.swing.JFrame {
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
+    private javax.swing.JLabel profileAdmin;
     // End of variables declaration//GEN-END:variables
 }
