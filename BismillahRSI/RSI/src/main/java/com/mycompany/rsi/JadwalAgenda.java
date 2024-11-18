@@ -10,7 +10,47 @@ import java.util.Date;
  * @author Asus
  */
 public class JadwalAgenda {
-   public String showDateDetails(Date date) {
+    private String namaAgenda;
+    private String waktuAgenda;
+    private Date tanggalAgenda;
+    
+    public JadwalAgenda() {
+        this.namaAgenda = "";
+        this.waktuAgenda = "";
+        this.tanggalAgenda = new Date();
+    }
+    
+    public JadwalAgenda(String namaAgenda, String waktuAgenda, Date tanggalAgenda) {
+        this.namaAgenda = namaAgenda;
+        this.waktuAgenda = waktuAgenda;
+        this.tanggalAgenda = tanggalAgenda;
+    }
+    
+    public String getNamaAgenda() {
+        return namaAgenda;
+    }
+    
+    public void setNamaAgenda(String namaAgenda) {
+        this.namaAgenda = namaAgenda;
+    }
+
+    public String getWaktuAgenda() {
+        return waktuAgenda;
+    }
+
+    public void setWaktuAgenda(String waktuAgenda) {
+        this.waktuAgenda = waktuAgenda;
+    }
+
+    public Date getTanggalAgenda() {
+        return tanggalAgenda;
+    }
+
+    public void setTanggalAgenda(Date tanggalAgenda) {
+        this.tanggalAgenda = tanggalAgenda;
+    }
+
+    public String showDateDetails(Date date) {
         SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
         String formattedDate = sdf.format(date);
 

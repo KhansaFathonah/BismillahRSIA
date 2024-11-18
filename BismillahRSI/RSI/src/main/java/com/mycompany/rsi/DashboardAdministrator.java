@@ -20,7 +20,7 @@ public class DashboardAdministrator extends javax.swing.JFrame {
      */
     public DashboardAdministrator() {
         initComponents();
-        jadwalAgenda = new JadwalAgenda(); // Inisialisasi objek JadwalAgenda
+        jadwalAgenda = new JadwalAgenda(); 
         jCalendar2.getDayChooser().getDayPanel().setVisible(true);
         jCalendar2.getMonthChooser().setVisible(true);
         jCalendar2.getYearChooser().setVisible(true);
