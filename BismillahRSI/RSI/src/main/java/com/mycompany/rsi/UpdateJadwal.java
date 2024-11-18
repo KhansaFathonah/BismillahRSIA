@@ -9,12 +9,27 @@ package com.mycompany.rsi;
  * @author WINDOWS 11
  */
 public class UpdateJadwal extends javax.swing.JFrame {
-
+    private String prevNamaAgenda;
+    private String prevWaktuAgenda;
+    private java.util.Date prevTanggalAgenda;
     /**
      * Creates new form UpdateJadwal
      */
+    
     public UpdateJadwal() {
+    this("", "", null); // Panggil constructor utama dengan nilai default
+    }
+    
+    public UpdateJadwal(String namaAgenda, String waktuAgenda, java.util.Date tanggalAgenda) {
         initComponents();
+        prevNamaAgenda = namaAgenda;
+        prevWaktuAgenda = waktuAgenda;
+        prevTanggalAgenda = tanggalAgenda;
+        
+        txtAgenda.setText(namaAgenda);
+        txtWaktu.setText(waktuAgenda);
+        jDateChooser1.setDate(tanggalAgenda);
+    
         bUpdate.setForeground(java.awt.Color.WHITE);
         bBatal.setForeground(java.awt.Color.WHITE);
     }
@@ -135,6 +150,12 @@ public class UpdateJadwal extends javax.swing.JFrame {
         }
         if (tanggalAgenda == null) {
             javax.swing.JOptionPane.showMessageDialog(this, "Tanggal belum dipilih.", "Gagal", javax.swing.JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        // Pengecekan data lama dengan data baru
+        if (namaAgenda.equals(prevNamaAgenda) && waktuAgenda.equals(prevWaktuAgenda) && tanggalAgenda.equals(prevTanggalAgenda)) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Data yang anda masukkan sama.", "Peringatan", javax.swing.JOptionPane.WARNING_MESSAGE);
             return;
         }
 
