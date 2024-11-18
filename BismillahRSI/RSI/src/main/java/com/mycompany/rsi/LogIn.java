@@ -17,7 +17,6 @@ public class LogIn extends javax.swing.JFrame {
         initComponents();
         jButton1.setForeground(java.awt.Color.WHITE);
         jButton2.setForeground(java.awt.Color.WHITE);
-        jButton3.setForeground(java.awt.Color.WHITE);
         jLabel2.setForeground(java.awt.Color.WHITE); 
         jLabel4.setForeground(java.awt.Color.WHITE); 
         jLabel5.setForeground(java.awt.Color.WHITE); 
