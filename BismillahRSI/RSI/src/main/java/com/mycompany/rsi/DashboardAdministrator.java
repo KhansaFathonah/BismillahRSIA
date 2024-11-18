@@ -3,10 +3,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package com.mycompany.rsi;
+import com.mycompany.rsi.JadwalAgenda;
 import javax.swing.JOptionPane;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -14,20 +14,21 @@ import java.util.Date;
  * @author Asus
  */
 public class DashboardAdministrator extends javax.swing.JFrame {
-
+    private JadwalAgenda jadwalAgenda;
     /**
      * Creates new form DashboardAdministrator
      */
     public DashboardAdministrator() {
         initComponents();
-        jCalendar2.getDayChooser().getDayPanel().setVisible(true); 
-        jCalendar2.getMonthChooser().setVisible(true); 
+        jadwalAgenda = new JadwalAgenda(); // Inisialisasi objek JadwalAgenda
+        jCalendar2.getDayChooser().getDayPanel().setVisible(true);
+        jCalendar2.getMonthChooser().setVisible(true);
         jCalendar2.getYearChooser().setVisible(true);
         jCalendar2.addPropertyChangeListener("calendar", new PropertyChangeListener() {
             @Override
-            public void propertyChange(PropertyChangeEvent evt) { //mendeteksi dari kelender
-                Date selectedDate = jCalendar2.getDate(); 
-                showDateDetails(selectedDate);          
+            public void propertyChange(PropertyChangeEvent evt) { 
+                Date selectedDate = jCalendar2.getDate();
+                displayDateDetails(selectedDate);
             }
         });
     }
@@ -147,35 +148,9 @@ public class DashboardAdministrator extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_bHapusActionPerformed
 
-    private void showDateDetails(Date date) {
-        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
-        String formattedDate = sdf.format(date);
-
-        String detail = getDetailsForDate(formattedDate);
-
-        // Ubah warna tombol jika ada detail
-        if (!detail.equals("- Tidak ada acara terjadwal.")) {
-            BInfoWeb.setBackground(new java.awt.Color(0, 0, 255)); // Warna biru
-        } else {
-            BInfoWeb.setBackground(new java.awt.Color(0, 51, 51)); // Warna default
-        }
-
-        // Tampilkan detail tanggal
-        JOptionPane.showMessageDialog(this, "Detail tanggal " + formattedDate + ":\n" + detail,
-                "Informasi Tanggal", JOptionPane.INFORMATION_MESSAGE);
-    }
-    
-    private String getDetailsForDate(String date) {
-        switch (date) {
-            case "09-11-2024":
-                return "- Webinar pukul 10.00.";
-            case "16-11-2024":
-                return "- Webinar pukul 10.00.";
-            case "17-11-2024":
-                return "- Webinar Bulanan pukul 14.00.";
-            default:
-                return "- Tidak ada acara terjadwal.";
-        }
+    private void displayDateDetails(Date date) {
+        String message = jadwalAgenda.showDateDetails(date); 
+        JOptionPane.showMessageDialog(this, message, "Informasi Tanggal", JOptionPane.INFORMATION_MESSAGE);
     }
     
     /**
