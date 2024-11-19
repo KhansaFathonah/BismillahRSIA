@@ -9,24 +9,32 @@ package com.mycompany.rsi;
  * @author Asus
  */
 import java.sql.Connection;
-import java.sql.PreparedStatement;
+import java.sql.PreparedStatement;  
 import java.sql.SQLException;
-import java.util.Date;
+import java.sql.Date;
 
 public class Webinar {
+//    private int id;
     private String judul;
     private String deskripsi;
-    private String linkPendaftaran;
-    private Date tanggal;
-    private String waktu;
+    private String link_daftar;
+    private Date hari_tgl;
     
-    public Webinar(String judul, String deskripsi, String linkPendaftaran, Date tanggal, String waktu) {
+    public Webinar(String judul, String deskripsi, String linkPendaftaran, Date tanggal) {
+//        this.id = id;
         this.judul = judul;
         this.deskripsi = deskripsi;
-        this.linkPendaftaran = linkPendaftaran;
-        this.tanggal = tanggal;
-        this.waktu = waktu;
+        this.link_daftar = linkPendaftaran;
+        this.hari_tgl = tanggal;
     }
+    
+//    public void setId(int id){
+//        this.id = id;
+//    }
+//    
+//    public String getId() {
+//        return judul;
+//    }
     
     public void setJudul(String judul){
         this.judul = judul;
@@ -45,40 +53,32 @@ public class Webinar {
     }
     
     public void setLinkPendaftaran(String linkPendaftaran) {
-        this.linkPendaftaran = linkPendaftaran;
+        this.link_daftar = linkPendaftaran;
     }
     
     public String getLinkPendaftaran() {
-        return linkPendaftaran;
+        return link_daftar;
     }
     
-    public void setTanggal(java.util.Date tanggal) {
-        this.tanggal = tanggal;
+    public void setTanggal(java.sql.Date tanggal) {
+        this.hari_tgl = tanggal;
     }
     
     public java.util.Date getTanggal() {
-        return tanggal;
+        return hari_tgl;
     }
     
-    public void setWaktu(String waktu) {
-        this.waktu = waktu;
-    }
-    
-    public String getWaktu() {
-        return waktu;
-    }
-
-    public void insertWebinar() {
-        String sql = "INSERT INTO webinar (judul, deskripsi, link_pendaftaran, tanggal, waktu) VALUES (?, ?, ?, ?, ?)";
+    public void insertWebinar(String judul, String deskripsi, String link_daftar, java.util.Date hari_tgl){
+        {
+        String sql = "INSERT INTO webinar ( judul, deskripsi, link_daftar, hari_tgl) VALUES (?, ?, ?, ?)";
 
         try (Connection conn = DatabaseConnection.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
-
+            PreparedStatement stmt = conn.prepareStatement(sql)) {
+            
             stmt.setString(1, judul);
             stmt.setString(2, deskripsi);
-            stmt.setString(3, linkPendaftaran);
-            stmt.setDate(4, new java.sql.Date(tanggal.getTime())); // Konversi java.util.Date ke java.sql.Date
-            stmt.setString(5, waktu);
+            stmt.setString(3, link_daftar);
+            stmt.setDate(4, new java.sql.Date(hari_tgl.getTime())); // Konversi java.util.Date ke java.sql.Date
 
             int rowsInserted = stmt.executeUpdate();
             if (rowsInserted > 0) {
@@ -88,4 +88,5 @@ public class Webinar {
             System.err.println("Terjadi kesalahan saat menyisipkan data: " + e.getMessage());
         }
     }
+  }
 }

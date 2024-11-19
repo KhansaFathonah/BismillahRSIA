@@ -223,11 +223,6 @@
       </Constraints>
     </Component>
     <Component class="javax.swing.JLabel" name="profileAdmin">
-      <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="D:\image\orang.png"/>
-        </Property>
-      </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
           <AbsoluteConstraints x="10" y="10" width="-1" height="70"/>
@@ -237,7 +232,7 @@
     <Component class="javax.swing.JLabel" name="bgPapanWebinar">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="D:\image\Frame Papan Webinar Administrator.png"/>
+          <Image iconType="2" name="C:\Users\hanif\OneDrive\Documents\PARENTA\Frame Papan Webinar Administrator.png"/>
         </Property>
       </Properties>
       <Constraints>

@@ -5,6 +5,9 @@
 package com.mycompany.rsi;
 
 import javax.swing.JOptionPane;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Date;
 
 /**
  *
@@ -117,11 +120,9 @@ public class UploadWebinar extends javax.swing.JFrame {
         bLogout.setBorder(null);
         getContentPane().add(bLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 530, 60, -1));
         getContentPane().add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 310, 570, -1));
-
-        jLabel6.setIcon(new javax.swing.ImageIcon("D:\\image\\orang.png")); // NOI18N
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, 70));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("D:\\image\\Frame Upload Informasi Webinar.png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\hanif\\OneDrive\\Documents\\PARENTA\\Frame Upload Informasi Webinar Administrator.png")); // NOI18N
         jLabel1.setText("jLabel1");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, -1));
 
@@ -130,34 +131,37 @@ public class UploadWebinar extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        String judulWebinar = jTextField1.getText();
-        String deskripsiWebinar = jTextField2.getText();
-        java.util.Date tanggalWebinar = jDateChooser1.getDate();
-        String linkWebinar = jTextField4.getText();
+        String judul = jTextField1.getText();
+        String deskripsi = jTextField2.getText();
+        java.util.Date hari = jDateChooser1.getDate();
+        java.sql.Date hari_tgl = new java.sql.Date(hari.getTime());
+        String link_daftar = jTextField4.getText();
+        Webinar webinar = new Webinar(judul, deskripsi, link_daftar, hari_tgl);
 
-        if (judulWebinar.isEmpty()) {
+        if (judul.isEmpty()) {
             javax.swing.JOptionPane.showMessageDialog(this, "Judul webinar tidak boleh kosong.", "Gagal", javax.swing.JOptionPane.ERROR_MESSAGE);
             return;
         }
-        if (deskripsiWebinar.isEmpty()) {
+        if (deskripsi.isEmpty()) {
             javax.swing.JOptionPane.showMessageDialog(this, "Deskripsi webinar tidak boleh kosong.", "Gagal", javax.swing.JOptionPane.ERROR_MESSAGE);
             return;
         }
-        if (tanggalWebinar == null) {
+        if (hari_tgl == null) {
             javax.swing.JOptionPane.showMessageDialog(this, "Tanggal belum dipilih.", "Gagal", javax.swing.JOptionPane.ERROR_MESSAGE);
             return;
         }
-        if (linkWebinar.isEmpty()) {
+        if (link_daftar.isEmpty()) {
             javax.swing.JOptionPane.showMessageDialog(this, "Link pendaftaran webinar tidak boleh kosong.", "Gagal", javax.swing.JOptionPane.ERROR_MESSAGE);
             return;
         }
         
         java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd");
-        String tanggalFormatted = sdf.format(tanggalWebinar);
-        String message = "Nama Webinar : " + judulWebinar + "\nDeskripsi Webinar : " + deskripsiWebinar + "\nTanggal : " + tanggalFormatted + "\n Link Pendaftaran : " + linkWebinar;
+        String tanggalFormatted = sdf.format(hari_tgl);
+        String message = "Nama Webinar : " + judul + "\nDeskripsi Webinar : " + deskripsi + "\nTanggal : " + tanggalFormatted + "\n Link Pendaftaran : " + link_daftar;
         javax.swing.JOptionPane.showMessageDialog(this, message, "Agenda berhasil ditambahkan", javax.swing.JOptionPane.INFORMATION_MESSAGE);
-        
+                
         try {
+            webinar.insertWebinar(judul, deskripsi, link_daftar, hari_tgl);
             DashboardAdministrator dashboardAdmin = new DashboardAdministrator();
             dashboardAdmin.setVisible(true);
             this.dispose(); // Menutup halaman saat ini
