@@ -70,7 +70,7 @@ public class Webinar {
     
     public void insertWebinar(String judul, String deskripsi, String link_daftar, java.util.Date hari_tgl){
         {
-        String sql = "INSERT INTO webinar ( judul, deskripsi, link_daftar, hari_tgl) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO webinar (judul, deskripsi, link_daftar, hari_tgl) VALUES (?, ?, ?, ?)";
 
         try (Connection conn = DatabaseConnection.getConnection();
             PreparedStatement stmt = conn.prepareStatement(sql)) {
@@ -88,5 +88,6 @@ public class Webinar {
             System.err.println("Terjadi kesalahan saat menyisipkan data: " + e.getMessage());
         }
     }
-  }
+    
+    }
 }
