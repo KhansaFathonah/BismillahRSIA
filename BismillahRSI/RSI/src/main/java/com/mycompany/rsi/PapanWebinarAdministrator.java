@@ -5,6 +5,7 @@
  */
 package com.mycompany.rsi;
 
+import java.util.Date;
 import javax.swing.JOptionPane;
 
 /**
@@ -18,6 +19,19 @@ public class PapanWebinarAdministrator extends javax.swing.JFrame {
      */
     public PapanWebinarAdministrator() {
         initComponents();
+        tombolUpdate.setEnabled(false);
+        tombolDelete.setEnabled(false);
+    }
+    
+    public void validateField(){
+        String judul = txtJudul.getText();
+        String deskripsi = txtDeskripsi.getText();
+        Date hari_tgl = jTanggalWebinar.getDate();
+        String link_daftar = txtLinkPendaftaran.getText();
+        if(!judul.equals("") && !deskripsi.equals("") && hari_tgl !=null && !link_daftar.equals(""))
+            tombolUpdate.setEnabled(true);
+        else
+            tombolUpdate.setEnabled(false);
     }
 
     /**
@@ -31,11 +45,11 @@ public class PapanWebinarAdministrator extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
+        jTanggalWebinar = new com.toedter.calendar.JDateChooser();
+        txtLinkPendaftaran = new javax.swing.JTextField();
+        txtDeskripsi = new javax.swing.JTextField();
+        txtJudul = new javax.swing.JTextField();
+        lblId = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -43,9 +57,9 @@ public class PapanWebinarAdministrator extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        tombolDelete = new javax.swing.JButton();
+        tombolReset = new javax.swing.JButton();
+        tombolUpdate = new javax.swing.JButton();
         bLogout = new javax.swing.JButton();
         bHome = new javax.swing.JButton();
         bgPapanWebinar = new javax.swing.JLabel();
@@ -66,21 +80,33 @@ public class PapanWebinarAdministrator extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTable1);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(622, 320, 340, 200));
-        getContentPane().add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 420, 300, -1));
-        getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 450, 300, -1));
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 390, 300, -1));
+        getContentPane().add(jTanggalWebinar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 420, 300, -1));
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+        txtLinkPendaftaran.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtLinkPendaftaranKeyReleased(evt);
             }
         });
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 360, 300, -1));
+        getContentPane().add(txtLinkPendaftaran, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 450, 300, -1));
 
-        jLabel6.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("00");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 330, -1, -1));
+        txtDeskripsi.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtDeskripsiKeyReleased(evt);
+            }
+        });
+        getContentPane().add(txtDeskripsi, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 390, 300, -1));
+
+        txtJudul.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtJudulKeyReleased(evt);
+            }
+        });
+        getContentPane().add(txtJudul, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 360, 300, -1));
+
+        lblId.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        lblId.setForeground(new java.awt.Color(255, 255, 255));
+        lblId.setText("00");
+        getContentPane().add(lblId, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 330, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
@@ -125,33 +151,33 @@ public class PapanWebinarAdministrator extends javax.swing.JFrame {
         });
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 270, -1, -1));
 
-        jButton3.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
-        jButton3.setText("DELETE");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        tombolDelete.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
+        tombolDelete.setText("DELETE");
+        tombolDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                tombolDeleteActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 490, 80, 30));
+        getContentPane().add(tombolDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 490, 80, 30));
 
-        jButton4.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
-        jButton4.setText("RESET");
-        jButton4.setToolTipText("");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        tombolReset.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
+        tombolReset.setText("RESET");
+        tombolReset.setToolTipText("");
+        tombolReset.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                tombolResetActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 490, 80, 30));
+        getContentPane().add(tombolReset, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 490, 80, 30));
 
-        jButton5.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
-        jButton5.setText("UPDATE");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        tombolUpdate.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
+        tombolUpdate.setText("UPDATE");
+        tombolUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                tombolUpdateActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 490, 90, 30));
+        getContentPane().add(tombolUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 490, 90, 30));
 
         bLogout.setBackground(new java.awt.Color(255, 249, 243));
         bLogout.setIcon(new javax.swing.ImageIcon("C:\\Users\\DEVINDA HERAST\\Documents\\NetBeansProjects\\BismillahRSIA\\BismillahRSI\\RSI\\src\\main\\java\\com\\mycompany\\rsi\\image\\logout.png")); // NOI18N
@@ -191,29 +217,40 @@ public class PapanWebinarAdministrator extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void tombolDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tombolDeleteActionPerformed
         // TODO add your handling code here:
         JOptionPane.showMessageDialog(this, "Webinar berhasil dihapus", "Informasi", JOptionPane.INFORMATION_MESSAGE);
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_tombolDeleteActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void tombolResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tombolResetActionPerformed
         // TODO add your handling code here:
         UploadWebinar upWebinarAdmin = new UploadWebinar();
         upWebinarAdmin.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_tombolResetActionPerformed
 
     private void bLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bLogoutActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_bLogoutActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void tombolUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tombolUpdateActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_tombolUpdateActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void txtJudulKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtJudulKeyReleased
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+        validateField();
+    }//GEN-LAST:event_txtJudulKeyReleased
+
+    private void txtDeskripsiKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDeskripsiKeyReleased
+        // TODO add your handling code here:
+        validateField();
+    }//GEN-LAST:event_txtDeskripsiKeyReleased
+
+    private void txtLinkPendaftaranKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtLinkPendaftaranKeyReleased
+        // TODO add your handling code here:
+        validateField();
+    }//GEN-LAST:event_txtLinkPendaftaranKeyReleased
 
     /**
      * @param args the command line arguments
@@ -256,21 +293,21 @@ public class PapanWebinarAdministrator extends javax.swing.JFrame {
     private javax.swing.JLabel bgPapanWebinar;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    private com.toedter.calendar.JDateChooser jTanggalWebinar;
+    private javax.swing.JLabel lblId;
     private javax.swing.JLabel profileAdmin;
+    private javax.swing.JButton tombolDelete;
+    private javax.swing.JButton tombolReset;
+    private javax.swing.JButton tombolUpdate;
+    private javax.swing.JTextField txtDeskripsi;
+    private javax.swing.JTextField txtJudul;
+    private javax.swing.JTextField txtLinkPendaftaran;
     // End of variables declaration//GEN-END:variables
 }

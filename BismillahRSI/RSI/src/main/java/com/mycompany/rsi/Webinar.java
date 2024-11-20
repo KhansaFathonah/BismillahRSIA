@@ -8,38 +8,48 @@ package com.mycompany.rsi;
  *
  * @author Asus
  */
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;  
 import java.sql.SQLException;
 import java.sql.Date;
-import java.sql.ResultSet;
-import java.util.ArrayList;
-import java.sql.*;
-import com.mycompany.rsi.tampilanWebinar;
-import javax.swing.JOptionPane;
+
 
 public class Webinar {
-//    private int id;
+    private int id;
     private String judul;
     private String deskripsi;
     private String link_daftar;
     private Date hari_tgl;
     
+    public Webinar(){}
+    
     public Webinar(String judul, String deskripsi, String linkPendaftaran, Date tanggal) {
-//        this.id = id;
         this.judul = judul;
         this.deskripsi = deskripsi;
         this.link_daftar = linkPendaftaran;
         this.hari_tgl = tanggal;
     }
     
-//    public void setId(int id){
-//        this.id = id;
-//    }
-//    
-//    public String getId() {
-//        return judul;
-//    }
+    public Webinar(int id, String judul, String deskripsi, String linkPendaftaran, Date tanggal) {
+        this.id = id;
+        this.judul = judul;
+        this.deskripsi = deskripsi;
+        this.link_daftar = linkPendaftaran;
+        this.hari_tgl = tanggal;
+    }
+    
+    public Webinar(int id) {
+        this.id = id;
+    }
+    
+    public void setId(int id){
+        this.id = id;
+    }
+    
+    public String getId() {
+        return judul;
+    }
     
     public void setJudul(String judul){
         this.judul = judul;
@@ -83,7 +93,7 @@ public class Webinar {
             stmt.setString(1, judul);
             stmt.setString(2, deskripsi);
             stmt.setString(3, link_daftar);
-            stmt.setDate(4, new java.sql.Date(hari_tgl.getTime())); // Konversi java.util.Date ke java.sql.Date
+            stmt.setDate(4, new java.sql.Date(hari_tgl.getTime())); 
 
             int rowsInserted = stmt.executeUpdate();
             if (rowsInserted > 0) {
@@ -92,6 +102,48 @@ public class Webinar {
         } catch (SQLException e) {
             System.err.println("Terjadi kesalahan saat menyisipkan data: " + e.getMessage());
              }
+        }
+    }
+    
+    public void updateWebinar(int id, String judul, String deskripsi, String link_daftar, java.util.Date hari_tgl) {
+    String sql = "UPDATE webinar SET judul = ?, deskripsi = ?, link_daftar = ?, hari_tgl = ? WHERE id = ?";
+
+    try (Connection conn = DatabaseConnection.getConnection();
+            PreparedStatement stmt = conn.prepareStatement(sql)) {
+      
+            stmt.setString(1, judul);
+            stmt.setString(2, deskripsi);
+            stmt.setString(3, link_daftar);
+            stmt.setDate(4, new java.sql.Date(hari_tgl.getTime())); 
+            stmt.setInt(5, id); 
+
+            int rowsUpdated = stmt.executeUpdate();
+            if (rowsUpdated > 0) {
+                System.out.println("Webinar dengan ID " + id + " berhasil diperbarui.");
+            } else {
+                System.out.println("Webinar dengan ID " + id + " tidak ditemukan.");
+            }
+        } catch (SQLException e) {
+            System.err.println("Terjadi kesalahan saat memperbarui data: " + e.getMessage());
+        }
+    }
+    
+    public void deleteWebinar(int id) {
+    String sql = "DELETE FROM webinar WHERE id = ?";
+
+    try (Connection conn = DatabaseConnection.getConnection();
+            PreparedStatement stmt = conn.prepareStatement(sql)) {
+      
+            stmt.setInt(1, id); 
+
+            int rowsUpdated = stmt.executeUpdate();
+            if (rowsUpdated > 0) {
+                System.out.println("Webinar dengan ID " + id + " berhasil dihapus.");
+            } else {
+                System.out.println("Webinar dengan ID " + id + " tidak ditemukan.");
+            }
+        } catch (SQLException e) {
+            System.err.println("Terjadi kesalahan saat menghapus data: " + e.getMessage());
         }
     }
 }
