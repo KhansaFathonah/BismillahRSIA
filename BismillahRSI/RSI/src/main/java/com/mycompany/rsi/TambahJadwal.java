@@ -130,6 +130,7 @@ public class TambahJadwal extends javax.swing.JFrame {
         String waktuAgenda = txtWaktu.getText();
         java.util.Date tanggalAgenda = jDateChooser1.getDate();
 
+        // Validasi input
         if (namaAgenda.isEmpty()) {
             javax.swing.JOptionPane.showMessageDialog(this, "Nama agenda tidak boleh kosong.", "Gagal", javax.swing.JOptionPane.ERROR_MESSAGE);
             return;
@@ -143,11 +144,29 @@ public class TambahJadwal extends javax.swing.JFrame {
             return;
         }
 
+        // Format tanggal menjadi java.sql.Date
+        java.sql.Date sqlDate = new java.sql.Date(tanggalAgenda.getTime());
+
+        // Simpan data ke database
+        DatabaseConnection db = new DatabaseConnection();
+        boolean isSuccess = db.tambahAgenda(namaAgenda, waktuAgenda, sqlDate);
+
+        if (isSuccess) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Agenda berhasil ditambahkan.", "Sukses", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+            clearFields(); // Mengosongkan form setelah menambah data
+        } else {
+            javax.swing.JOptionPane.showMessageDialog(this, "Gagal menambahkan agenda.", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+        }
+
+        db.close();
+
+        // Menampilkan pesan konfirmasi
         java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd");
         String tanggalFormatted = sdf.format(tanggalAgenda);
         String message = "Nama Agenda : " + namaAgenda + "\nWaktu Agenda : " + waktuAgenda + "\nTanggal : " + tanggalFormatted;
         javax.swing.JOptionPane.showMessageDialog(this, message, "Agenda berhasil ditambah", javax.swing.JOptionPane.INFORMATION_MESSAGE);
-        
+
+        // Kembali ke dashboard
         try {
             DashboardAdministrator dashboardAdmin = new DashboardAdministrator();
             dashboardAdmin.setVisible(true);
@@ -157,6 +176,12 @@ public class TambahJadwal extends javax.swing.JFrame {
             e.printStackTrace(); // Debugging error jika terjadi
         }
     }//GEN-LAST:event_bTambahActionPerformed
+
+    private void clearFields() {
+        txtAgenda.setText("");
+        txtWaktu.setText("");
+        jDateChooser1.setDate(null);
+    }
 
     /**
      * @param args the command line arguments

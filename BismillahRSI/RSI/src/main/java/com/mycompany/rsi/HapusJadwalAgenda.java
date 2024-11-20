@@ -129,31 +129,31 @@ public class HapusJadwalAgenda extends javax.swing.JFrame {
         String waktuAgenda = jTextField1.getText();
         java.util.Date tanggalAgenda = jDateChooser1.getDate();
 
-        if (namaAgenda.isEmpty()) {
-            javax.swing.JOptionPane.showMessageDialog(this, "Nama agenda tidak boleh kosong.", "Gagal", javax.swing.JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-        if (waktuAgenda.isEmpty()) {
-            javax.swing.JOptionPane.showMessageDialog(this, "Waktu agenda tidak boleh kosong.", "Gagal", javax.swing.JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-        if (tanggalAgenda == null) {
-            javax.swing.JOptionPane.showMessageDialog(this, "Tanggal belum dipilih.", "Gagal", javax.swing.JOptionPane.ERROR_MESSAGE);
+        if (namaAgenda.isEmpty() || waktuAgenda.isEmpty() || tanggalAgenda == null) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Semua field harus diisi!", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
             return;
         }
 
-        java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd");
-        String tanggalFormatted = sdf.format(tanggalAgenda);
-        String message = "Nama Agenda : " + namaAgenda + "\nWaktu Agenda : " + waktuAgenda + "\nTanggal : " + tanggalFormatted;
-        javax.swing.JOptionPane.showMessageDialog(this, message, "Agenda berhasil dihapus", javax.swing.JOptionPane.INFORMATION_MESSAGE);
-        
-        try {
-            DashboardAdministrator dashboardAdmin = new DashboardAdministrator();
-            dashboardAdmin.setVisible(true);
-            this.dispose(); // Menutup halaman saat ini
+        // Buat koneksi ke database dan hapus agenda
+        try (DatabaseConnection db = new DatabaseConnection()) {
+            boolean success = db.hapusAgenda(namaAgenda, waktuAgenda, tanggalAgenda);
+            if (success) {
+                javax.swing.JOptionPane.showMessageDialog(this, "Agenda berhasil dihapus!", "Sukses", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+
+                // Pindah ke halaman DashboardAdministrator di dalam SwingUtilities
+                javax.swing.SwingUtilities.invokeLater(new Runnable() {
+                    public void run() {
+                        DashboardAdministrator dashboard = new DashboardAdministrator();
+                        dashboard.setVisible(true);
+                        dispose(); // Menutup form saat ini setelah beralih ke dashboard
+                    }
+                });
+            } else {
+                javax.swing.JOptionPane.showMessageDialog(this, "Agenda tidak ditemukan atau gagal dihapus.", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+            }
         } catch (Exception e) {
-            javax.swing.JOptionPane.showMessageDialog(this, "Terjadi kesalahan saat membuka halaman Dashboard.", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
-            e.printStackTrace(); // Debugging error jika terjadi
+            e.printStackTrace();
+            javax.swing.JOptionPane.showMessageDialog(this, "Terjadi kesalahan saat menghapus agenda.", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 

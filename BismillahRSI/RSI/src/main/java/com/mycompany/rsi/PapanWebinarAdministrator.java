@@ -48,8 +48,8 @@ public class PapanWebinarAdministrator extends javax.swing.JFrame {
         jButton5 = new javax.swing.JButton();
         bLogout = new javax.swing.JButton();
         bHome = new javax.swing.JButton();
-        bgPapanWebinar = new javax.swing.JLabel();
         profileAdmin = new javax.swing.JLabel();
+        bgPapanWebinar = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -154,7 +154,6 @@ public class PapanWebinarAdministrator extends javax.swing.JFrame {
         getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 490, 90, 30));
 
         bLogout.setBackground(new java.awt.Color(255, 249, 243));
-        bLogout.setIcon(new javax.swing.ImageIcon("C:\\Users\\DEVINDA HERAST\\Documents\\NetBeansProjects\\BismillahRSIA\\BismillahRSI\\RSI\\src\\main\\java\\com\\mycompany\\rsi\\image\\logout.png")); // NOI18N
         bLogout.setBorder(null);
         bLogout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -164,15 +163,14 @@ public class PapanWebinarAdministrator extends javax.swing.JFrame {
         getContentPane().add(bLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 530, 60, -1));
 
         bHome.setBackground(new java.awt.Color(255, 249, 243));
-        bHome.setIcon(new javax.swing.ImageIcon("C:\\Users\\DEVINDA HERAST\\Documents\\NetBeansProjects\\BismillahRSIA\\BismillahRSI\\RSI\\src\\main\\java\\com\\mycompany\\rsi\\image\\image.png")); // NOI18N
         bHome.setBorder(null);
         getContentPane().add(bHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 470, 60, -1));
 
-        bgPapanWebinar.setIcon(new javax.swing.ImageIcon("C:\\Users\\DEVINDA HERAST\\Documents\\NetBeansProjects\\BismillahRSIA\\BismillahRSI\\RSI\\src\\main\\java\\com\\mycompany\\rsi\\image\\Frame Papan Webinar Administrator.png")); // NOI18N
-        getContentPane().add(bgPapanWebinar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 600));
-
-        profileAdmin.setIcon(new javax.swing.ImageIcon("C:\\Users\\DEVINDA HERAST\\Documents\\NetBeansProjects\\BismillahRSIA\\BismillahRSI\\RSI\\src\\main\\java\\com\\mycompany\\rsi\\image\\orang.png")); // NOI18N
+        profileAdmin.setIcon(new javax.swing.ImageIcon("D:\\image\\orang.png")); // NOI18N
         getContentPane().add(profileAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, 70));
+
+        bgPapanWebinar.setIcon(new javax.swing.ImageIcon("D:\\image\\Papan webinar baru (1).png")); // NOI18N
+        getContentPane().add(bgPapanWebinar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 600));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
