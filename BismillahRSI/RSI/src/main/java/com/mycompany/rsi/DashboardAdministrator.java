@@ -111,7 +111,7 @@ public class DashboardAdministrator extends javax.swing.JFrame {
         getContentPane().add(jCalendar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 310, 280));
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, 70));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\hanif\\OneDrive\\Documents\\PARENTA\\Frame Dashboard Administrator.png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\DEVINDA HERAST\\Documents\\NetBeansProjects\\BismillahRSIA\\BismillahRSI\\RSI\\src\\main\\java\\com\\mycompany\\rsi\\image\\Frame Dashboard General.png")); // NOI18N
         jLabel1.setText("jLabel1");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, -1));
 

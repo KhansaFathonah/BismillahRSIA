@@ -80,8 +80,8 @@ public class UploadWebinar extends javax.swing.JFrame {
 
         jLabel4.setFont(new java.awt.Font("Verdana", 1, 20)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("TANGGAL, WAKTU");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 310, -1, -1));
+        jLabel4.setText("TANGGAL");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 310, -1, -1));
 
         jTextField2.setBackground(new java.awt.Color(172, 189, 115));
         jTextField2.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
@@ -120,9 +120,11 @@ public class UploadWebinar extends javax.swing.JFrame {
         bLogout.setBorder(null);
         getContentPane().add(bLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 530, 60, -1));
         getContentPane().add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 310, 570, -1));
+
+        jLabel6.setIcon(new javax.swing.ImageIcon("C:\\Users\\DEVINDA HERAST\\Documents\\NetBeansProjects\\BismillahRSIA\\BismillahRSI\\RSI\\src\\main\\java\\com\\mycompany\\rsi\\image\\orang.png")); // NOI18N
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, 70));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\hanif\\OneDrive\\Documents\\PARENTA\\Frame Upload Informasi Webinar Administrator.png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\DEVINDA HERAST\\Documents\\NetBeansProjects\\BismillahRSIA\\BismillahRSI\\RSI\\src\\main\\java\\com\\mycompany\\rsi\\image\\Frame Upload Informasi Webinar.png")); // NOI18N
         jLabel1.setText("jLabel1");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, -1));
 

@@ -12,6 +12,11 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;  
 import java.sql.SQLException;
 import java.sql.Date;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.sql.*;
+import com.mycompany.rsi.tampilanWebinar;
+import javax.swing.JOptionPane;
 
 public class Webinar {
 //    private int id;
@@ -86,7 +91,7 @@ public class Webinar {
             }
         } catch (SQLException e) {
             System.err.println("Terjadi kesalahan saat menyisipkan data: " + e.getMessage());
+             }
         }
     }
-  }
 }
