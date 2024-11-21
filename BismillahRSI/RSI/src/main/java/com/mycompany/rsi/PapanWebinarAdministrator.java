@@ -285,11 +285,15 @@ public class PapanWebinarAdministrator extends javax.swing.JFrame {
         Webinar webinar = new Webinar(idInt);
         webinar.deleteWebinar(idInt);
         JOptionPane.showMessageDialog(this, "Webinar berhasil dihapus", "Informasi", JOptionPane.INFORMATION_MESSAGE);
-    
+        lblId.setText("00");
+        txtJudul.setText("");
+        txtDeskripsi.setText("");
+        jTanggalWebinar.setDate(null);
+        txtLinkPendaftaran.setText("");
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         for (int i = 0; i < model.getRowCount(); i++) {
             if (model.getValueAt(i, 0).equals(idInt)) {
-                model.removeRow(i);  // Hapus baris yang sesuai
+                model.removeRow(i); 
                 break;
             }
         }
@@ -319,6 +323,11 @@ public class PapanWebinarAdministrator extends javax.swing.JFrame {
         webinar.setLinkPendaftaran(txtLinkPendaftaran.getText());
         webinar.updateWebinar(idInt);
         JOptionPane.showMessageDialog(this, "Webinar berhasil update", "Informasi", JOptionPane.INFORMATION_MESSAGE);
+        lblId.setText("00");
+        txtJudul.setText("");
+        txtDeskripsi.setText("");
+        jTanggalWebinar.setDate(null);
+        txtLinkPendaftaran.setText("");
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         model.setRowCount(0);  
         loadData();  
