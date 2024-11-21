@@ -141,6 +141,9 @@
     <Component class="com.toedter.calendar.JCalendar" name="jCalendar2">
       <Properties>
         <Property name="autoscrolls" type="boolean" value="true"/>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Yu Gothic UI Semibold" size="8" style="1"/>
+        </Property>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -149,6 +152,11 @@
       </Constraints>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel7">
+      <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="2" name="C:\Users\hanif\OneDrive\Documents\NetBeansProjects\aa\BismillahRSIA\BismillahRSI\RSI\src\main\java\com\mycompany\rsi\image\orang.png"/>
+        </Property>
+      </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
           <AbsoluteConstraints x="10" y="10" width="-1" height="70"/>
@@ -158,7 +166,7 @@
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\DEVINDA HERAST\Documents\NetBeansProjects\BismillahRSIA\BismillahRSI\RSI\src\main\java\com\mycompany\rsi\image\Frame Dashboard General.png"/>
+          <Image iconType="2" name="C:\Users\hanif\OneDrive\Documents\NetBeansProjects\aa\BismillahRSIA\BismillahRSI\RSI\src\main\java\com\mycompany\rsi\image\Frame Dashboard General.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="jLabel1"/>
       </Properties>

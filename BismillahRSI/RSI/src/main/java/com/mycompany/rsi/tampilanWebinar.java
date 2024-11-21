@@ -24,8 +24,8 @@ public class tampilanWebinar extends Webinar {
     
     public static ArrayList<Webinar> getAllRecords(){
         ArrayList<Webinar> arrayList = new ArrayList<>();
-        String sql = "SELECT * FROM webinar"; // Query untuk mengambil semua data dari tabel webinar
-
+        String sql = "SELECT id, judul, hari_tgl FROM webinar"; 
+        
     try (Connection conn = DatabaseConnection.getConnection();
          Statement stmt = conn.createStatement();
          ResultSet rs = stmt.executeQuery(sql)) {
@@ -34,8 +34,6 @@ public class tampilanWebinar extends Webinar {
             Webinar webinar = new Webinar();
             webinar.setId(rs.getInt("id"));
             webinar.setJudul(rs.getString("judul"));
-            webinar.setDeskripsi(rs.getString("deskripsi"));
-            webinar.setLinkPendaftaran(rs.getString("link_daftar"));
             webinar.setTanggal(rs.getDate("hari_tgl"));
 
             arrayList.add(webinar); 
@@ -44,6 +42,5 @@ public class tampilanWebinar extends Webinar {
         JOptionPane.showMessageDialog(null, "Error saat mengambil data: " + e.getMessage());
     }
     return arrayList; 
-}
-    
+}   
 }

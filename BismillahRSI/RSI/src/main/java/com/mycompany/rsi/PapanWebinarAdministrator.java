@@ -5,8 +5,17 @@
  */
 package com.mycompany.rsi;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
 /**
  *
@@ -21,6 +30,8 @@ public class PapanWebinarAdministrator extends javax.swing.JFrame {
         initComponents();
         tombolUpdate.setEnabled(false);
         tombolDelete.setEnabled(false);
+        
+        populateTable();
     }
     
     public void validateField(){
@@ -33,6 +44,46 @@ public class PapanWebinarAdministrator extends javax.swing.JFrame {
         else
             tombolUpdate.setEnabled(false);
     }
+    
+    public void populateTable() {
+    DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+    model.setRowCount(0);
+
+    ArrayList<Webinar> webinarList = tampilanWebinar.getAllRecords();
+
+    for (Webinar webinar : webinarList) {
+        Object[] row = {
+            webinar.getId(),
+            webinar.getJudul(),
+            webinar.getTanggal()
+        };
+        model.addRow(row);
+    }
+}
+    private void loadData() {
+    String sql = "SELECT id, judul, hari_tgl FROM webinar";
+    
+    try {
+        Connection conn = DatabaseConnection.getConnection();
+        PreparedStatement ps = conn.prepareStatement(sql);
+        ResultSet rs = ps.executeQuery();
+        
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        
+        while (rs.next()) {
+            Object[] row = {
+                rs.getInt("id"),          
+                rs.getString("judul"),  
+                rs.getString("hari_tgl")   
+            };
+            model.addRow(row);
+        }
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+}
+
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -58,12 +109,11 @@ public class PapanWebinarAdministrator extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         tombolDelete = new javax.swing.JButton();
-        tombolReset = new javax.swing.JButton();
         tombolUpdate = new javax.swing.JButton();
         bLogout = new javax.swing.JButton();
         bHome = new javax.swing.JButton();
-        bgPapanWebinar = new javax.swing.JLabel();
         profileAdmin = new javax.swing.JLabel();
+        bgPapanWebinar = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -76,12 +126,30 @@ public class PapanWebinarAdministrator extends javax.swing.JFrame {
             new String [] {
                 "ID", "Judul", "Tanggal"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                true, true, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(622, 320, 340, 200));
         getContentPane().add(jTanggalWebinar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 420, 300, -1));
 
+        txtLinkPendaftaran.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtLinkPendaftaranActionPerformed(evt);
+            }
+        });
         txtLinkPendaftaran.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtLinkPendaftaranKeyReleased(evt);
@@ -96,6 +164,11 @@ public class PapanWebinarAdministrator extends javax.swing.JFrame {
         });
         getContentPane().add(txtDeskripsi, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 390, 300, -1));
 
+        txtJudul.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtJudulActionPerformed(evt);
+            }
+        });
         txtJudul.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtJudulKeyReleased(evt);
@@ -158,17 +231,7 @@ public class PapanWebinarAdministrator extends javax.swing.JFrame {
                 tombolDeleteActionPerformed(evt);
             }
         });
-        getContentPane().add(tombolDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 490, 80, 30));
-
-        tombolReset.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
-        tombolReset.setText("RESET");
-        tombolReset.setToolTipText("");
-        tombolReset.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tombolResetActionPerformed(evt);
-            }
-        });
-        getContentPane().add(tombolReset, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 490, 80, 30));
+        getContentPane().add(tombolDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 490, 80, 30));
 
         tombolUpdate.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
         tombolUpdate.setText("UPDATE");
@@ -177,10 +240,9 @@ public class PapanWebinarAdministrator extends javax.swing.JFrame {
                 tombolUpdateActionPerformed(evt);
             }
         });
-        getContentPane().add(tombolUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 490, 90, 30));
+        getContentPane().add(tombolUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 490, -1, 30));
 
         bLogout.setBackground(new java.awt.Color(255, 249, 243));
-        bLogout.setIcon(new javax.swing.ImageIcon("C:\\Users\\DEVINDA HERAST\\Documents\\NetBeansProjects\\BismillahRSIA\\BismillahRSI\\RSI\\src\\main\\java\\com\\mycompany\\rsi\\image\\logout.png")); // NOI18N
         bLogout.setBorder(null);
         bLogout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -190,15 +252,14 @@ public class PapanWebinarAdministrator extends javax.swing.JFrame {
         getContentPane().add(bLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 530, 60, -1));
 
         bHome.setBackground(new java.awt.Color(255, 249, 243));
-        bHome.setIcon(new javax.swing.ImageIcon("C:\\Users\\DEVINDA HERAST\\Documents\\NetBeansProjects\\BismillahRSIA\\BismillahRSI\\RSI\\src\\main\\java\\com\\mycompany\\rsi\\image\\image.png")); // NOI18N
         bHome.setBorder(null);
         getContentPane().add(bHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 470, 60, -1));
 
-        bgPapanWebinar.setIcon(new javax.swing.ImageIcon("C:\\Users\\DEVINDA HERAST\\Documents\\NetBeansProjects\\BismillahRSIA\\BismillahRSI\\RSI\\src\\main\\java\\com\\mycompany\\rsi\\image\\Frame Papan Webinar Administrator.png")); // NOI18N
-        getContentPane().add(bgPapanWebinar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 600));
-
-        profileAdmin.setIcon(new javax.swing.ImageIcon("C:\\Users\\DEVINDA HERAST\\Documents\\NetBeansProjects\\BismillahRSIA\\BismillahRSI\\RSI\\src\\main\\java\\com\\mycompany\\rsi\\image\\orang.png")); // NOI18N
+        profileAdmin.setIcon(new javax.swing.ImageIcon("C:\\Users\\hanif\\OneDrive\\Documents\\NetBeansProjects\\aa\\BismillahRSIA\\BismillahRSI\\RSI\\src\\main\\java\\com\\mycompany\\rsi\\image\\orang.png")); // NOI18N
         getContentPane().add(profileAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, 70));
+
+        bgPapanWebinar.setIcon(new javax.swing.ImageIcon("C:\\Users\\hanif\\OneDrive\\Documents\\NetBeansProjects\\aa\\BismillahRSIA\\BismillahRSI\\RSI\\src\\main\\java\\com\\mycompany\\rsi\\image\\Frame Papan Webinar Administrator.png")); // NOI18N
+        getContentPane().add(bgPapanWebinar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 600));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -219,15 +280,22 @@ public class PapanWebinarAdministrator extends javax.swing.JFrame {
 
     private void tombolDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tombolDeleteActionPerformed
         // TODO add your handling code here:
+        String id = lblId.getText();
+        int idInt = Integer.parseInt(id);
+        Webinar webinar = new Webinar(idInt);
+        webinar.deleteWebinar(idInt);
         JOptionPane.showMessageDialog(this, "Webinar berhasil dihapus", "Informasi", JOptionPane.INFORMATION_MESSAGE);
-    }//GEN-LAST:event_tombolDeleteActionPerformed
+    
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        for (int i = 0; i < model.getRowCount(); i++) {
+            if (model.getValueAt(i, 0).equals(idInt)) {
+                model.removeRow(i);  // Hapus baris yang sesuai
+                break;
+            }
+        }
 
-    private void tombolResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tombolResetActionPerformed
-        // TODO add your handling code here:
-        UploadWebinar upWebinarAdmin = new UploadWebinar();
-        upWebinarAdmin.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_tombolResetActionPerformed
+        model.fireTableDataChanged();
+    }//GEN-LAST:event_tombolDeleteActionPerformed
 
     private void bLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bLogoutActionPerformed
         // TODO add your handling code here:
@@ -235,6 +303,27 @@ public class PapanWebinarAdministrator extends javax.swing.JFrame {
 
     private void tombolUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tombolUpdateActionPerformed
         // TODO add your handling code here:
+        Webinar webinar = new Webinar();
+        int idInt = Integer.parseInt(lblId.getText());
+        webinar.setId(idInt);
+        webinar.setJudul(txtJudul.getText());
+        webinar.setDeskripsi(txtDeskripsi.getText());
+        java.util.Date hari = jTanggalWebinar.getDate();
+        if (hari != null) {
+            java.sql.Date sqlDate = new java.sql.Date(hari.getTime()); 
+            webinar.setTanggal(sqlDate); 
+        } else {
+        JOptionPane.showMessageDialog(this, "Tanggal tidak valid!", "Peringatan", JOptionPane.WARNING_MESSAGE);
+        return; 
+        }
+        webinar.setLinkPendaftaran(txtLinkPendaftaran.getText());
+        webinar.updateWebinar(idInt);
+        JOptionPane.showMessageDialog(this, "Webinar berhasil update", "Informasi", JOptionPane.INFORMATION_MESSAGE);
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        model.setRowCount(0);  
+        loadData();  
+        model.fireTableDataChanged();  
+
     }//GEN-LAST:event_tombolUpdateActionPerformed
 
     private void txtJudulKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtJudulKeyReleased
@@ -251,6 +340,52 @@ public class PapanWebinarAdministrator extends javax.swing.JFrame {
         // TODO add your handling code here:
         validateField();
     }//GEN-LAST:event_txtLinkPendaftaranKeyReleased
+
+    private void txtJudulActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtJudulActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtJudulActionPerformed
+
+    private void txtLinkPendaftaranActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLinkPendaftaranActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtLinkPendaftaranActionPerformed
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        // TODO add your handling code here:
+        int index = jTable1.getSelectedRow();
+        TableModel model = jTable1.getModel();
+        String id = model.getValueAt(index, 0).toString();
+        lblId.setText(id);
+        String judul = model.getValueAt(index, 1).toString();
+        txtJudul.setText(judul);
+        String tanggal = model.getValueAt(index, 2).toString();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            try {
+                Date date = sdf.parse(tanggal);
+                jTanggalWebinar.setDate(date);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+        try (Connection conn = DatabaseConnection.getConnection()) {
+        String query = "SELECT deskripsi, link_daftar FROM webinar WHERE id = ?";
+        PreparedStatement ps = conn.prepareStatement(query);
+        ps.setString(1, id); 
+        ResultSet rs = ps.executeQuery();
+
+        if (rs.next()) {
+            String deskripsi = rs.getString("deskripsi");
+            txtDeskripsi.setText(deskripsi); 
+            String linkDaftar = rs.getString("link_daftar");
+            txtLinkPendaftaran.setText(linkDaftar); 
+        } else {
+            JOptionPane.showMessageDialog(null, "Data tidak ditemukan di database!");
+        }
+        } catch (SQLException ex) {
+        ex.printStackTrace();
+        JOptionPane.showMessageDialog(null, "Error saat mengambil data dari database: " + ex.getMessage());
+        }
+        tombolUpdate.setEnabled(true);
+        tombolDelete.setEnabled(true);
+    }//GEN-LAST:event_jTable1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -304,7 +439,6 @@ public class PapanWebinarAdministrator extends javax.swing.JFrame {
     private javax.swing.JLabel lblId;
     private javax.swing.JLabel profileAdmin;
     private javax.swing.JButton tombolDelete;
-    private javax.swing.JButton tombolReset;
     private javax.swing.JButton tombolUpdate;
     private javax.swing.JTextField txtDeskripsi;
     private javax.swing.JTextField txtJudul;

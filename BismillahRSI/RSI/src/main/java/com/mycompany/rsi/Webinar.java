@@ -47,8 +47,8 @@ public class Webinar {
         this.id = id;
     }
     
-    public String getId() {
-        return judul;
+    public int getId() {
+        return id;
     }
     
     public void setJudul(String judul){
@@ -85,7 +85,7 @@ public class Webinar {
     
     public void insertWebinar(String judul, String deskripsi, String link_daftar, java.util.Date hari_tgl){
         {
-        String sql = "INSERT INTO webinar ( judul, deskripsi, link_daftar, hari_tgl) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO webinar (judul, deskripsi, link_daftar, hari_tgl) VALUES (?, ?, ?, ?)";
 
         try (Connection conn = DatabaseConnection.getConnection();
             PreparedStatement stmt = conn.prepareStatement(sql)) {
@@ -105,7 +105,7 @@ public class Webinar {
         }
     }
     
-    public void updateWebinar(int id, String judul, String deskripsi, String link_daftar, java.util.Date hari_tgl) {
+    public void updateWebinar(int id) {
     String sql = "UPDATE webinar SET judul = ?, deskripsi = ?, link_daftar = ?, hari_tgl = ? WHERE id = ?";
 
     try (Connection conn = DatabaseConnection.getConnection();
@@ -113,7 +113,7 @@ public class Webinar {
       
             stmt.setString(1, judul);
             stmt.setString(2, deskripsi);
-            stmt.setString(3, link_daftar);
+            stmt.setString(3, link_daftar); 
             stmt.setDate(4, new java.sql.Date(hari_tgl.getTime())); 
             stmt.setInt(5, id); 
 
@@ -146,4 +146,5 @@ public class Webinar {
             System.err.println("Terjadi kesalahan saat menghapus data: " + e.getMessage());
         }
     }
+    
 }
