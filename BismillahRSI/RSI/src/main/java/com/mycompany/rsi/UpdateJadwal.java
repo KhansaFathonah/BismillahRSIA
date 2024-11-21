@@ -156,25 +156,33 @@ public class UpdateJadwal extends javax.swing.JFrame {
             javax.swing.JOptionPane.showMessageDialog(this, "Tanggal belum dipilih.", "Gagal", javax.swing.JOptionPane.ERROR_MESSAGE);
             return;
         }
-        
-        // Pengecekan data lama dengan data baru
-        if (namaAgenda.equals(prevNamaAgenda) && waktuAgenda.equals(prevWaktuAgenda) && tanggalAgenda.equals(prevTanggalAgenda)) {
-            javax.swing.JOptionPane.showMessageDialog(this, "Data yang anda masukkan sama.", "Peringatan", javax.swing.JOptionPane.WARNING_MESSAGE);
-            return;
-        }
 
-        java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd");
-        String tanggalFormatted = sdf.format(tanggalAgenda);
-        String message = "Nama Agenda : " + namaAgenda + "\nWaktu Agenda : " + waktuAgenda + "\nTanggal : " + tanggalFormatted;
-        javax.swing.JOptionPane.showMessageDialog(this, message, "Agenda berhasil diupdate", javax.swing.JOptionPane.INFORMATION_MESSAGE);
-        
-        try {
-            DashboardAdministrator dashboardAdmin = new DashboardAdministrator();
-            dashboardAdmin.setVisible(true);
-            this.dispose(); // Menutup halaman saat ini
+        try (DatabaseConnection db = new DatabaseConnection()) {
+            boolean exists = db.isAgendaExists(namaAgenda, waktuAgenda, tanggalAgenda);
+            if (exists) {
+                javax.swing.JOptionPane.showMessageDialog(this, "Agenda dengan nama dan waktu ini sudah ada. Silakan masukkan data baru.");
+
+                txtAgenda.setText("");
+                txtWaktu.setText("");
+                jDateChooser1.setDate(null);
+
+                return;
+            }
+
+            boolean updated = db.updateAgenda(prevNamaAgenda, prevWaktuAgenda, prevTanggalAgenda, namaAgenda, waktuAgenda, tanggalAgenda);
+
+            if (updated) {
+                javax.swing.JOptionPane.showMessageDialog(this, "Agenda berhasil diupdate.", "Sukses", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+                DashboardAdministrator dashboardAdmin = new DashboardAdministrator();
+                dashboardAdmin.setVisible(true);
+                this.dispose();
+            } else {
+                javax.swing.JOptionPane.showMessageDialog(this, "Gagal memperbarui data. Data mungkin tidak valid atau terjadi kesalahan.", "Gagal", javax.swing.JOptionPane.ERROR_MESSAGE);
+            }
+
         } catch (Exception e) {
-            javax.swing.JOptionPane.showMessageDialog(this, "Terjadi kesalahan saat membuka halaman Dashboard.", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
-            e.printStackTrace(); // Debugging error jika terjadi
+            javax.swing.JOptionPane.showMessageDialog(this, "Terjadi kesalahan saat mengakses database: " + e.getMessage(), "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+            e.printStackTrace();
         }
     }//GEN-LAST:event_bUpdateActionPerformed
 
