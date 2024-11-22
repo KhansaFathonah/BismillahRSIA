@@ -138,7 +138,7 @@ public class PapanWebinarPR extends javax.swing.JFrame {
         lbljudul.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         getContentPane().add(lbljudul, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 220, 470, 30));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("D:\\Chanbaek\\BismillahRSIA\\BismillahRSI\\RSI\\src\\main\\java\\com\\mycompany\\rsi\\image\\Frame Papan Webinar Administrator.png")); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon("D:\\Chanbaek\\BismillahRSIA\\BismillahRSI\\RSI\\src\\main\\java\\com\\mycompany\\rsi\\image\\Frame Papan Webinar Pengguna.png")); // NOI18N
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
