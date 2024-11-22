@@ -161,16 +161,17 @@ public class PapanWebinarPR extends javax.swing.JFrame {
         
         try (Connection conn = DatabaseConnection.getConnection()) {
             
-    String query = "SELECT id, deskripsi, link_daftar, hari_tgl FROM webinar WHERE judul = ?";
+        String query = "SELECT deskripsi, link_daftar, hari_tgl FROM webinar WHERE judul = ?";
     
         PreparedStatement ps = conn.prepareStatement(query);
-        int id = Integer.parseInt(model.getValueAt(index, 0).toString());
-        ps.setInt(1, id);
+        ps.setString(1, judul);
         ResultSet rs = ps.executeQuery();
 
         if (rs.next()) {
             String deskripsi = rs.getString("deskripsi");
             lbldeskripsi.setText(deskripsi); 
+            String tanggal = rs.getString("hari_tgl");
+            lbltanggal.setText(tanggal); 
             String linkDaftar = rs.getString("link_daftar");
             lbllinkPendaftaran.setText(linkDaftar); 
         } else {
