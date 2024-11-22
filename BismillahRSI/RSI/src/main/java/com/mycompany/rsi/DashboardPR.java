@@ -3,19 +3,48 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package com.mycompany.rsi;
+import javax.swing.JOptionPane;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.sql.SQLException;
 
 /**
  *
  * @author WINDOWS 11
  */
 public class DashboardPR extends javax.swing.JFrame {
-
+    private ControlAgenda jadwalAgenda;
+    private Date selectedDate;
     
     /**
      * Creates new form DashboardPR
      */
     public DashboardPR() {
         initComponents();
+        try {
+            jadwalAgenda = new ControlAgenda();
+        } catch (SQLException e) {
+            System.err.println("Gagal menginisialisasi ControlAgenda: " + e.getMessage());
+            e.printStackTrace();
+        }
+        jCalendar2.getDayChooser().getDayPanel().setVisible(true);
+        jCalendar2.getMonthChooser().setVisible(true);
+        jCalendar2.getYearChooser().setVisible(true);
+        jCalendar2.addPropertyChangeListener("calendar", new PropertyChangeListener() {
+            @Override
+            public void propertyChange(PropertyChangeEvent evt) {
+                Date selectedDate = jCalendar2.getDate();
+                displayDateDetails(selectedDate);
+            }
+        });
+    }
+    
+    public String getDate() {
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+        String formattedDate = sdf.format(selectedDate);
+        return formattedDate;
     }
 
     /**
@@ -30,8 +59,8 @@ public class DashboardPR extends javax.swing.JFrame {
         NamaPR = new javax.swing.JLabel();
         namaAnak = new javax.swing.JLabel();
         BInfoWeb = new javax.swing.JButton();
-        jCalendar1 = new com.toedter.calendar.JCalendar();
         jLabel6 = new javax.swing.JLabel();
+        jCalendar2 = new com.toedter.calendar.JCalendar();
         BgDashboardPR = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -59,12 +88,12 @@ public class DashboardPR extends javax.swing.JFrame {
         });
         getContentPane().add(BInfoWeb, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 530, 200, 30));
 
-        jCalendar1.setBackground(new java.awt.Color(255, 255, 255));
-        jCalendar1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        getContentPane().add(jCalendar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 310, 260));
-
         jLabel6.setIcon(new javax.swing.ImageIcon("D:\\image\\orang.png")); // NOI18N
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, 70));
+
+        jCalendar2.setAutoscrolls(true);
+        jCalendar2.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 8)); // NOI18N
+        getContentPane().add(jCalendar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 310, 280));
 
         BgDashboardPR.setIcon(new javax.swing.ImageIcon("D:\\image\\Frame Dashboard General.png")); // NOI18N
         getContentPane().add(BgDashboardPR, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -114,11 +143,16 @@ public class DashboardPR extends javax.swing.JFrame {
         });
     }
 
+    private void displayDateDetails(Date date) {
+        String message = jadwalAgenda.showDateDetails(date);
+        JOptionPane.showMessageDialog(this, message, "Informasi Tanggal", JOptionPane.INFORMATION_MESSAGE);
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BInfoWeb;
     private javax.swing.JLabel BgDashboardPR;
     private javax.swing.JLabel NamaPR;
-    private com.toedter.calendar.JCalendar jCalendar1;
+    private com.toedter.calendar.JCalendar jCalendar2;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel namaAnak;
     // End of variables declaration//GEN-END:variables
