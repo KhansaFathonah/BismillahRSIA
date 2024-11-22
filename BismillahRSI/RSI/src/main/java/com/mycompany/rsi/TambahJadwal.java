@@ -36,6 +36,7 @@ public class TambahJadwal extends javax.swing.JFrame {
         bBatal = new javax.swing.JButton();
         bTambah = new javax.swing.JButton();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        bKembali = new javax.swing.JButton();
         BgTambahJadwal = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -97,6 +98,18 @@ public class TambahJadwal extends javax.swing.JFrame {
         getContentPane().add(bTambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 450, 140, 40));
         getContentPane().add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 350, 520, -1));
 
+        bKembali.setBackground(new java.awt.Color(152, 143, 129));
+        bKembali.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        bKembali.setForeground(new java.awt.Color(255, 255, 255));
+        bKembali.setText("KEMBALI");
+        bKembali.setBorder(null);
+        bKembali.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bKembaliActionPerformed(evt);
+            }
+        });
+        getContentPane().add(bKembali, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 550, 80, 30));
+
         BgTambahJadwal.setForeground(new java.awt.Color(0, 0, 0));
         BgTambahJadwal.setIcon(new javax.swing.ImageIcon("D:\\image\\Frame Tambah Jadwal Agenda.png")); // NOI18N
         BgTambahJadwal.setText("jLabel1");
@@ -130,7 +143,6 @@ public class TambahJadwal extends javax.swing.JFrame {
         String waktuAgenda = txtWaktu.getText();
         java.util.Date tanggalAgenda = jDateChooser1.getDate();
 
-        // Validasi input
         if (namaAgenda.isEmpty()) {
             javax.swing.JOptionPane.showMessageDialog(this, "Nama agenda tidak boleh kosong.", "Gagal", javax.swing.JOptionPane.ERROR_MESSAGE);
             return;
@@ -148,34 +160,35 @@ public class TambahJadwal extends javax.swing.JFrame {
         java.sql.Date sqlDate = new java.sql.Date(tanggalAgenda.getTime());
 
         // Simpan data ke database
-        DatabaseConnection db = new DatabaseConnection();
-        boolean isSuccess = db.tambahAgenda(namaAgenda, waktuAgenda, sqlDate);
+        try (ControlAgenda db = new ControlAgenda()) {
+//            boolean isSuccess = db.tambahAgenda(namaAgenda, waktuAgenda, sqlDate);
 
-        if (isSuccess) {
+//            if (isSuccess) {
             javax.swing.JOptionPane.showMessageDialog(this, "Agenda berhasil ditambahkan.", "Sukses", javax.swing.JOptionPane.INFORMATION_MESSAGE);
-            clearFields(); // Mengosongkan form setelah menambah data
-        } else {
-            javax.swing.JOptionPane.showMessageDialog(this, "Gagal menambahkan agenda.", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
-        }
+            clearFields();
 
-        db.close();
+            // Menampilkan data agenda yang ditambahkan
+            db.tambahAgenda(namaAgenda, waktuAgenda, sqlDate);
+            java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd");
+            String tanggalFormatted = sdf.format(tanggalAgenda);
+            String message = "Nama Agenda : " + namaAgenda + "\nWaktu Agenda : " + waktuAgenda + "\nTanggal : " + tanggalFormatted;
+            javax.swing.JOptionPane.showMessageDialog(this, message, "Agenda berhasil ditambah", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+//            } else {
+//                javax.swing.JOptionPane.showMessageDialog(this, "Gagal menambahkan agenda.", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+//            }
 
-        // Menampilkan pesan konfirmasi
-        java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd");
-        String tanggalFormatted = sdf.format(tanggalAgenda);
-        String message = "Nama Agenda : " + namaAgenda + "\nWaktu Agenda : " + waktuAgenda + "\nTanggal : " + tanggalFormatted;
-        javax.swing.JOptionPane.showMessageDialog(this, message, "Agenda berhasil ditambah", javax.swing.JOptionPane.INFORMATION_MESSAGE);
-
-        // Kembali ke dashboard
-        try {
-            DashboardAdministrator dashboardAdmin = new DashboardAdministrator();
-            dashboardAdmin.setVisible(true);
-            this.dispose(); // Menutup halaman saat ini
         } catch (Exception e) {
-            javax.swing.JOptionPane.showMessageDialog(this, "Terjadi kesalahan saat membuka halaman Dashboard.", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
-            e.printStackTrace(); // Debugging error jika terjadi
+            javax.swing.JOptionPane.showMessageDialog(this, "Terjadi kesalahan saat menambahkan agenda.", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+            e.printStackTrace();
         }
     }//GEN-LAST:event_bTambahActionPerformed
+
+    private void bKembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bKembaliActionPerformed
+        // TODO add your handling code here:
+        DashboardAdministrator dashboard = new DashboardAdministrator();
+        dashboard.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_bKembaliActionPerformed
 
     private void clearFields() {
         txtAgenda.setText("");
@@ -221,6 +234,7 @@ public class TambahJadwal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel BgTambahJadwal;
     private javax.swing.JButton bBatal;
+    private javax.swing.JButton bKembali;
     private javax.swing.JButton bTambah;
     private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel2;

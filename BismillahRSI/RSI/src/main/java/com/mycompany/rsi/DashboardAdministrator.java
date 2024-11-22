@@ -8,27 +8,34 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.sql.SQLException;
+
 
 /**
  *
  * @author Asus
  */
 public class DashboardAdministrator extends javax.swing.JFrame {
-    private JadwalControl jadwalAgenda;
+    private ControlAgenda jadwalAgenda;
     private Date selectedDate;
     /**
      * Creates new form DashboardAdministrator
      */
     public DashboardAdministrator() {
         initComponents();
-         jadwalAgenda = new JadwalControl(); 
-        //jCalendar2.getDayChooser().getDayPanel().setVisible(true);
-        //jCalendar2.getMonthChooser().setVisible(true);
-        //jCalendar2.getYearChooser().setVisible(true);
+        try {
+            jadwalAgenda = new ControlAgenda();
+        } catch (SQLException e) {
+            System.err.println("Gagal menginisialisasi ControlAgenda: " + e.getMessage());
+            e.printStackTrace();
+        }
+        jCalendar2.getDayChooser().getDayPanel().setVisible(true);
+        jCalendar2.getMonthChooser().setVisible(true);
+        jCalendar2.getYearChooser().setVisible(true);
         jCalendar2.addPropertyChangeListener("calendar", new PropertyChangeListener() {
             @Override
-            public void propertyChange(PropertyChangeEvent evt) { 
-                selectedDate = jCalendar2.getDate();
+            public void propertyChange(PropertyChangeEvent evt) {
+                Date selectedDate = jCalendar2.getDate();
                 displayDateDetails(selectedDate);
             }
         });

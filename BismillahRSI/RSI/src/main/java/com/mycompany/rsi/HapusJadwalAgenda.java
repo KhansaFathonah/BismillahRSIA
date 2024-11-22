@@ -36,6 +36,7 @@ public class HapusJadwalAgenda extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        bKembali = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -97,6 +98,18 @@ public class HapusJadwalAgenda extends javax.swing.JFrame {
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 450, 130, 40));
         getContentPane().add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 350, 520, -1));
 
+        bKembali.setBackground(new java.awt.Color(152, 143, 129));
+        bKembali.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        bKembali.setForeground(new java.awt.Color(255, 255, 255));
+        bKembali.setText("KEMBALI");
+        bKembali.setBorder(null);
+        bKembali.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bKembaliActionPerformed(evt);
+            }
+        });
+        getContentPane().add(bKembali, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 550, 80, 30));
+
         jLabel1.setIcon(new javax.swing.ImageIcon("D:\\image\\Frame Hapus Jadwal Agenda.png")); // NOI18N
         jLabel1.setText("jLabel1");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, -1));
@@ -135,7 +148,7 @@ public class HapusJadwalAgenda extends javax.swing.JFrame {
         }
 
         // Buat koneksi ke database dan hapus agenda
-        try (DatabaseConnection db = new DatabaseConnection()) {
+        try (ControlAgenda db = new ControlAgenda()) {
             boolean success = db.hapusAgenda(namaAgenda, waktuAgenda, tanggalAgenda);
             if (success) {
                 javax.swing.JOptionPane.showMessageDialog(this, "Agenda berhasil dihapus!", "Sukses", javax.swing.JOptionPane.INFORMATION_MESSAGE);
@@ -156,6 +169,13 @@ public class HapusJadwalAgenda extends javax.swing.JFrame {
             javax.swing.JOptionPane.showMessageDialog(this, "Terjadi kesalahan saat menghapus agenda.", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void bKembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bKembaliActionPerformed
+        // TODO add your handling code here:
+        DashboardAdministrator dashboard = new DashboardAdministrator();
+        dashboard.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_bKembaliActionPerformed
 
     /**
      * @param args the command line arguments
@@ -194,6 +214,7 @@ public class HapusJadwalAgenda extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bKembali;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private com.toedter.calendar.JDateChooser jDateChooser1;
