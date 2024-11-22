@@ -17,6 +17,7 @@ public class DatabaseConnection implements AutoCloseable {
     private static final String DB_URL = "jdbc:mysql://localhost:3306/parenta";
     private static final String DB_USER = "root";
     private static final String DB_PASSWORD = "";
+    List<String[]> data = new ArrayList<>();
 
     private Connection connection;
 
@@ -154,8 +155,7 @@ public class DatabaseConnection implements AutoCloseable {
         return false;
     }
 
-    public List<String[]> tampilAgenda() {
-        List<String[]> data = new ArrayList<>();
+    public List<String[]> tampilAgenda() {        
         String query = "SELECT * FROM agenda";
         try (Statement stmt = connection.createStatement();
              ResultSet rs = stmt.executeQuery(query)) {
@@ -173,6 +173,32 @@ public class DatabaseConnection implements AutoCloseable {
             e.printStackTrace();
         }
         return data;
+    }
+    
+    public String getDetailsForDate(String date) {        
+         List<String[]> result = new ArrayList<>();
+        String kalimat = "";
+        // Iterasi melalui data dan filter berdasarkan tanggal
+        for (String[] row : tampilAgenda()) {
+            String id = row[0];      // ID agenda (tidak digunakan di sini)
+            String nama = row[1];    // Nama agenda
+            String waktu = row[2];   // Waktu agenda
+            String tanggal = row[3]; // Tanggal agenda
+            
+            // Jika tanggal cocok, tambahkan nama dan waktu ke result
+            if (tanggal.equals(date)) {
+                result.add(new String[] {nama, waktu});
+            }
+        }
+        if(result.isEmpty()){
+            kalimat = "Tidak ada agenda di tanggal ini";
+        }
+        
+        for (String[] entry : result) {
+            kalimat += "-> Nama  : " + entry[0] + 
+                       "\n    Waktu  : " + entry[1] +"\n";
+        }
+        return kalimat;
     }
 
     @Override

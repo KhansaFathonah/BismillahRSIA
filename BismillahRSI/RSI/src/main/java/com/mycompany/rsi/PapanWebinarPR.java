@@ -110,12 +110,10 @@ public class PapanWebinarPR extends javax.swing.JFrame {
         getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 140, 340, 430));
 
         bHome.setBackground(new java.awt.Color(255, 249, 243));
-        bHome.setIcon(new javax.swing.ImageIcon("C:\\Users\\DEVINDA HERAST\\Documents\\NetBeansProjects\\BismillahRSIA\\BismillahRSI\\RSI\\src\\main\\java\\com\\mycompany\\rsi\\image\\image.png")); // NOI18N
         bHome.setBorder(null);
         getContentPane().add(bHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 480, 50, -1));
 
         bLogout.setBackground(new java.awt.Color(255, 249, 243));
-        bLogout.setIcon(new javax.swing.ImageIcon("C:\\Users\\DEVINDA HERAST\\Documents\\NetBeansProjects\\BismillahRSIA\\BismillahRSI\\RSI\\src\\main\\java\\com\\mycompany\\rsi\\image\\logout.png")); // NOI18N
         bLogout.setBorder(null);
         bLogout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -123,8 +121,6 @@ public class PapanWebinarPR extends javax.swing.JFrame {
             }
         });
         getContentPane().add(bLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 540, 40, 40));
-
-        profilePR.setIcon(new javax.swing.ImageIcon("C:\\Users\\DEVINDA HERAST\\Documents\\NetBeansProjects\\BismillahRSIA\\BismillahRSI\\RSI\\src\\main\\java\\com\\mycompany\\rsi\\image\\orang.png")); // NOI18N
         getContentPane().add(profilePR, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, 70));
 
         lbllinkPendaftaran.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
@@ -142,7 +138,7 @@ public class PapanWebinarPR extends javax.swing.JFrame {
         lbljudul.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         getContentPane().add(lbljudul, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 220, 470, 30));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\DEVINDA HERAST\\Downloads\\Frame Papan Webinar Pengguna (5).png")); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon("D:\\Chanbaek\\BismillahRSIA\\BismillahRSI\\RSI\\src\\main\\java\\com\\mycompany\\rsi\\image\\Frame Papan Webinar Administrator.png")); // NOI18N
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
