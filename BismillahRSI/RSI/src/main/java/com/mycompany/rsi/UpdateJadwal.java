@@ -4,6 +4,14 @@
  */
 package com.mycompany.rsi;
 
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
+import java.sql.SQLException;
 /**
  *
  * @author WINDOWS 11
@@ -12,6 +20,7 @@ public class UpdateJadwal extends javax.swing.JFrame {
     private String prevNamaAgenda;
     private String prevWaktuAgenda;
     private java.util.Date prevTanggalAgenda;
+    private DefaultTableModel tableModel;
     /**
      * Creates new form UpdateJadwal
      */
@@ -25,6 +34,8 @@ public class UpdateJadwal extends javax.swing.JFrame {
         prevNamaAgenda = namaAgenda;
         prevWaktuAgenda = waktuAgenda;
         prevTanggalAgenda = tanggalAgenda;
+        
+        initializeTable();
         
         txtAgenda.setText(namaAgenda);
         txtWaktu.setText(waktuAgenda);
@@ -173,6 +184,36 @@ public class UpdateJadwal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_bBatalActionPerformed
 
+    private void initializeTable() {
+        tableModel = (DefaultTableModel) jTable1.getModel();
+        loadAgendaData();
+    }
+    
+    private void loadAgendaData() {
+        try (ControlAgenda db = new ControlAgenda()) {
+            List<DataAgenda> agendaList = db.tampilAgenda();
+            tableModel.setRowCount(0); // Clear existing data
+            
+            if (agendaList.isEmpty()) {
+                System.out.println("Tidak ada data agenda.");
+            }
+            
+            for (DataAgenda agenda : agendaList) {
+                Object[] row = {
+                    agenda.getId(),
+                    agenda.getNama(),
+                    agenda.getWaktu(),
+                    new SimpleDateFormat("dd-MM-yyyy").format(agenda.getTanggal())
+                };
+                tableModel.addRow(row);
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(this, "Terjadi kesalahan saat mengambil data agenda: " + e.getMessage(),
+                                          "Error", JOptionPane.ERROR_MESSAGE);
+            e.printStackTrace();
+        }
+    }
+    
     private void bUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bUpdateActionPerformed
         // TODO add your handling code here:
         String namaAgenda = txtAgenda.getText();
@@ -196,11 +237,9 @@ public class UpdateJadwal extends javax.swing.JFrame {
             boolean exists = db.isAgendaExists(namaAgenda, waktuAgenda, tanggalAgenda);
             if (exists) {
                 javax.swing.JOptionPane.showMessageDialog(this, "Agenda dengan nama dan waktu ini sudah ada. Silakan masukkan data baru.");
-
                 txtAgenda.setText("");
                 txtWaktu.setText("");
                 jDateChooser1.setDate(null);
-
                 return;
             }
 
@@ -208,6 +247,8 @@ public class UpdateJadwal extends javax.swing.JFrame {
 
             if (updated) {
                 javax.swing.JOptionPane.showMessageDialog(this, "Agenda berhasil diupdate.", "Sukses", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+                loadAgendaData();
+                clearFields();
                 DashboardAdministrator dashboardAdmin = new DashboardAdministrator();
                 dashboardAdmin.setVisible(true);
                 this.dispose();
@@ -230,9 +271,41 @@ public class UpdateJadwal extends javax.swing.JFrame {
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         // TODO add your handling code here:
-        
+        int selectedRow = jTable1.getSelectedRow();
+        if (selectedRow >= 0) {
+            // Ambil data dari tabel berdasarkan baris yang dipilih
+            int id = (int) tableModel.getValueAt(selectedRow, 0);
+            String namaAgenda = (String) tableModel.getValueAt(selectedRow, 1);
+            String waktuAgenda = (String) tableModel.getValueAt(selectedRow, 2);
+            String tanggalStr = (String) tableModel.getValueAt(selectedRow, 3);
+
+            // Konversi string tanggal ke java.util.Date
+            Date tanggalAgenda = null;
+            try {
+                tanggalAgenda = new SimpleDateFormat("dd-MM-yyyy").parse(tanggalStr);
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(this, "Format tanggal tidak valid.", "Error", JOptionPane.ERROR_MESSAGE);
+                e.printStackTrace();
+            }
+
+            // Set data ke form
+            txtAgenda.setText(namaAgenda);
+            txtWaktu.setText(waktuAgenda);
+            jDateChooser1.setDate(tanggalAgenda);
+
+            // Simpan data sebelumnya untuk pengecekan
+            prevNamaAgenda = namaAgenda;
+            prevWaktuAgenda = waktuAgenda;
+            prevTanggalAgenda = tanggalAgenda;
+        }
     }//GEN-LAST:event_jTable1MouseClicked
 
+    private void clearFields() {
+        txtAgenda.setText("");
+        txtWaktu.setText("");
+        jDateChooser1.setDate(null);
+    }
+    
     /**
      * @param args the command line arguments
      */

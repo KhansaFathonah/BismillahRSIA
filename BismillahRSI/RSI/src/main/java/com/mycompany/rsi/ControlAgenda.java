@@ -165,19 +165,18 @@ public class ControlAgenda implements AutoCloseable {
         return "Detail Agenda Tanggal " + formattedDate + ":\n" + detail;
     }
     
-    public List<String[]> tampilAgenda() {
-        List<String[]> data = new ArrayList<>();
+    public List<DataAgenda> tampilAgenda() {
+        List<DataAgenda> data = new ArrayList<>();
         String query = "SELECT * FROM agenda";
-        try (Statement stmt = connection.createStatement();
-             ResultSet rs = stmt.executeQuery(query)) {
+        try (PreparedStatement stmt = connection.prepareStatement(query);
+             ResultSet rs = stmt.executeQuery()) {
             while (rs.next()) {
-                String[] row = {
-                        String.valueOf(rs.getInt("id")),
-                        rs.getString("nama"),
-                        rs.getString("waktu"),
-                        rs.getDate("tanggal").toString()
-                };
-                data.add(row);
+                int id = rs.getInt("id");
+                String nama = rs.getString("nama");
+                String waktu = rs.getString("waktu");
+                Date tanggal = rs.getDate("tanggal");
+                DataAgenda agenda = new DataAgenda(id, nama, waktu, tanggal);
+                data.add(agenda);
             }
         } catch (SQLException e) {
             System.err.println("Gagal menampilkan data: " + e.getMessage());
@@ -188,25 +187,25 @@ public class ControlAgenda implements AutoCloseable {
 
     // Method untuk mendapatkan detail agenda berdasarkan tanggal
     public String getDetailsForDate(String date) {
-        List<String[]> result = new ArrayList<>();
+        List<DataAgenda> result = new ArrayList<>();
         StringBuilder kalimat = new StringBuilder();
 
-        for (String[] row : tampilAgenda()) {
-            String nama = row[1];
-            String waktu = row[2];
-            String tanggal = row[3];
+        for (DataAgenda row : tampilAgenda()) {
+            String nama = row.getNama();
+            String waktu = row.getWaktu();
+            String tanggal = row.getTanggal().toString();
 
             if (tanggal.equals(date)) {
-                result.add(new String[] {nama, waktu});
+                result.add(row);
             }
         }
 
         if (result.isEmpty()) {
             kalimat.append("Tidak ada agenda di tanggal ini");
         } else {
-            for (String[] entry : result) {
-                kalimat.append("-> Nama  : ").append(entry[0])
-                        .append("\n    Waktu  : ").append(entry[1]).append("\n");
+            for (DataAgenda entry : result) {
+                kalimat.append("-> Nama  : ").append(entry.getNama())
+                        .append("\n    Waktu  : ").append(entry.getWaktu());
             }
         }
         return kalimat.toString();
