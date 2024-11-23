@@ -3,20 +3,45 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package com.mycompany.rsi;
+import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
 
 /**
  *
  * @author Asus
  */
 public class HapusJadwalAgenda extends javax.swing.JFrame {
+    private DefaultTableModel tableModel;
 
     /**
      * Creates new form Hapus_Jadwal_Agenda
      */
+    
     public HapusJadwalAgenda() {
+        this("", "", null); // Panggil constructor utama dengan nilai default
+    }
+    
+    public HapusJadwalAgenda(String namaAgenda, String waktuAgenda, java.util.Date tanggalAgenda) {
         initComponents();
+        initializeTable();
+        jTextField2.setText(namaAgenda);
+        jTextField1.setText(waktuAgenda);
+        jDateChooser1.setDate(tanggalAgenda);
         jButton1.setForeground(java.awt.Color.WHITE);
         jButton2.setForeground(java.awt.Color.WHITE);
+    }
+    
+    private void centerTableHeader() {
+        JTableHeader header = jTable1.getTableHeader();
+        DefaultTableCellRenderer headerRenderer = new DefaultTableCellRenderer(); 
+        headerRenderer.setHorizontalAlignment(javax.swing.JLabel.CENTER); 
+        header.setDefaultRenderer(headerRenderer);
     }
 
     /**
@@ -36,26 +61,27 @@ public class HapusJadwalAgenda extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
-        bKembali = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Nama Agenda    :");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 200, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 170, -1, -1));
 
-        jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Waktu Agenda   :");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 270, -1, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 270, -1, -1));
 
-        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Tanggal              :");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 340, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 370, -1, -1));
 
         jTextField2.setBackground(new java.awt.Color(204, 204, 204));
         jTextField2.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
@@ -65,7 +91,7 @@ public class HapusJadwalAgenda extends javax.swing.JFrame {
                 jTextField2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 200, 520, 40));
+        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 210, 410, 40));
 
         jTextField1.setBackground(new java.awt.Color(204, 204, 204));
         jTextField1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
@@ -75,17 +101,17 @@ public class HapusJadwalAgenda extends javax.swing.JFrame {
                 jTextField1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 270, 520, 40));
+        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 310, 410, 40));
 
         jButton2.setBackground(new java.awt.Color(51, 0, 0));
         jButton2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jButton2.setText("BATAL");
+        jButton2.setText("KEMBALI");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 450, 120, 40));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 490, 140, 40));
 
         jButton1.setBackground(new java.awt.Color(0, 51, 51));
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -95,20 +121,28 @@ public class HapusJadwalAgenda extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 450, 130, 40));
-        getContentPane().add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 350, 520, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 490, 130, 40));
+        getContentPane().add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 410, 410, -1));
 
-        bKembali.setBackground(new java.awt.Color(152, 143, 129));
-        bKembali.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        bKembali.setForeground(new java.awt.Color(255, 255, 255));
-        bKembali.setText("KEMBALI");
-        bKembali.setBorder(null);
-        bKembali.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bKembaliActionPerformed(evt);
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "ID", "NAMA", "WAKTU", "TANGGAL"
+            }
+        ));
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
             }
         });
-        getContentPane().add(bKembali, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 550, 80, 30));
+        jScrollPane1.setViewportView(jTable1);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, 400, 280));
 
         jLabel1.setIcon(new javax.swing.ImageIcon("D:\\image\\Frame Hapus Jadwal Agenda.png")); // NOI18N
         jLabel1.setText("jLabel1");
@@ -147,36 +181,109 @@ public class HapusJadwalAgenda extends javax.swing.JFrame {
             return;
         }
 
-        // Buat koneksi ke database dan hapus agenda
-        try (ControlAgenda db = new ControlAgenda()) {
-            boolean success = db.hapusAgenda(namaAgenda, waktuAgenda, tanggalAgenda);
-            if (success) {
-                javax.swing.JOptionPane.showMessageDialog(this, "Agenda berhasil dihapus!", "Sukses", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+        // Tampilkan pesan konfirmasi sebelum menghapus
+        int response = javax.swing.JOptionPane.showConfirmDialog(
+                this,
+                "Apakah Anda yakin ingin menghapus agenda ini? Data tidak akan dikembalikan.",
+                "Konfirmasi Penghapusan",
+                javax.swing.JOptionPane.YES_NO_OPTION,
+                javax.swing.JOptionPane.WARNING_MESSAGE
+        );
 
-                // Pindah ke halaman DashboardAdministrator di dalam SwingUtilities
-                javax.swing.SwingUtilities.invokeLater(new Runnable() {
-                    public void run() {
-                        DashboardAdministrator dashboard = new DashboardAdministrator();
-                        dashboard.setVisible(true);
-                        dispose(); // Menutup form saat ini setelah beralih ke dashboard
-                    }
-                });
-            } else {
-                javax.swing.JOptionPane.showMessageDialog(this, "Agenda tidak ditemukan atau gagal dihapus.", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+        if (response == javax.swing.JOptionPane.YES_OPTION) {
+            try (ControlAgenda db = new ControlAgenda()) {
+                boolean success = db.hapusAgenda(namaAgenda, waktuAgenda, tanggalAgenda);
+                if (success) {
+                    javax.swing.JOptionPane.showMessageDialog(this, "Agenda berhasil dihapus!", "Sukses", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+
+                    // Perbarui tabel tanpa meninggalkan halaman
+                    loadAgendaData();
+
+                    // Kosongkan input field setelah penghapusan
+                    jTextField2.setText("");
+                    jTextField1.setText("");
+                    jDateChooser1.setDate(null);
+                } else {
+                    javax.swing.JOptionPane.showMessageDialog(this, "Agenda tidak ditemukan atau gagal dihapus.", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+                javax.swing.JOptionPane.showMessageDialog(this, "Terjadi kesalahan saat menghapus agenda.", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
             }
-        } catch (Exception e) {
-            e.printStackTrace();
-            javax.swing.JOptionPane.showMessageDialog(this, "Terjadi kesalahan saat menghapus agenda.", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void bKembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bKembaliActionPerformed
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         // TODO add your handling code here:
-        DashboardAdministrator dashboard = new DashboardAdministrator();
-        dashboard.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_bKembaliActionPerformed
+        int selectedRow = jTable1.getSelectedRow();
+        if (selectedRow >= 0) {
+            // Ambil data dari tabel berdasarkan baris yang dipilih
+            int id = (int) tableModel.getValueAt(selectedRow, 0);
+            String namaAgenda = (String) tableModel.getValueAt(selectedRow, 1);
+            String waktuAgenda = (String) tableModel.getValueAt(selectedRow, 2);
+            String tanggalStr = (String) tableModel.getValueAt(selectedRow, 3);
 
+            // Konversi string tanggal ke java.util.Date
+            Date tanggalAgenda = null;
+            try {
+                tanggalAgenda = new SimpleDateFormat("dd-MM-yyyy").parse(tanggalStr);
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(this, "Format tanggal tidak valid.", "Error", JOptionPane.ERROR_MESSAGE);
+                e.printStackTrace();
+            }
+
+            // Set data ke form
+            jTextField2.setText(namaAgenda);
+            jTextField1.setText(waktuAgenda);
+            jDateChooser1.setDate(tanggalAgenda);
+        }
+    }//GEN-LAST:event_jTable1MouseClicked
+
+    private void initializeTable() {
+        tableModel = (DefaultTableModel) jTable1.getModel();
+        loadAgendaData();
+        centerTableHeader();
+    }
+
+    private void loadAgendaData() {
+        try (ControlAgenda db = new ControlAgenda()) {
+            List<DataAgenda> agendaList = db.tampilAgenda();
+            tableModel.setRowCount(0); // Clear existing data
+
+            if (agendaList.isEmpty()) {
+                System.out.println("Tidak ada data agenda.");
+            }
+
+            for (DataAgenda agenda : agendaList) {
+                Object[] row = {
+                    agenda.getId(),
+                    agenda.getNama(),
+                    agenda.getWaktu(),
+                    new SimpleDateFormat("dd-MM-yyyy").format(agenda.getTanggal())
+                };
+                tableModel.addRow(row);
+            }
+
+            // Panggil untuk menyesuaikan lebar kolom setelah data dimuat
+            adjustTableColumnWidths();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(this, "Terjadi kesalahan saat mengambil data agenda: " + e.getMessage(),
+                    "Error", JOptionPane.ERROR_MESSAGE);
+            e.printStackTrace();
+        }
+    }
+    
+    private void adjustTableColumnWidths() {
+        // Dapatkan column model dari tabel
+        javax.swing.table.TableColumnModel columnModel = jTable1.getColumnModel();
+
+        // Set lebar untuk setiap kolom
+        columnModel.getColumn(0).setPreferredWidth(50);  // ID lebih sempit
+        columnModel.getColumn(1).setPreferredWidth(200); // Nama lebih lebar
+        columnModel.getColumn(2).setPreferredWidth(150); // Waktu cukup lebar
+        columnModel.getColumn(3).setPreferredWidth(100); // Tanggal lebar sesuai format tanggal
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -214,7 +321,6 @@ public class HapusJadwalAgenda extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton bKembali;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private com.toedter.calendar.JDateChooser jDateChooser1;
@@ -222,6 +328,8 @@ public class HapusJadwalAgenda extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables

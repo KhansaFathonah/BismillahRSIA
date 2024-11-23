@@ -62,7 +62,6 @@ public class UpdateJadwal extends javax.swing.JFrame {
         bBatal = new javax.swing.JButton();
         bUpdate = new javax.swing.JButton();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
-        bKembali = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         BgUpdateJadwal = new javax.swing.JLabel();
@@ -107,13 +106,13 @@ public class UpdateJadwal extends javax.swing.JFrame {
 
         bBatal.setBackground(new java.awt.Color(51, 0, 0));
         bBatal.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        bBatal.setText("BATAL");
+        bBatal.setText("KEMBALI");
         bBatal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bBatalActionPerformed(evt);
             }
         });
-        getContentPane().add(bBatal, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 470, 120, 40));
+        getContentPane().add(bBatal, new org.netbeans.lib.awtextra.AbsoluteConstraints(344, 470, -1, 40));
 
         bUpdate.setBackground(new java.awt.Color(0, 51, 51));
         bUpdate.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -125,18 +124,6 @@ public class UpdateJadwal extends javax.swing.JFrame {
         });
         getContentPane().add(bUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 470, 130, 40));
         getContentPane().add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 410, 360, -1));
-
-        bKembali.setBackground(new java.awt.Color(152, 143, 129));
-        bKembali.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        bKembali.setForeground(new java.awt.Color(255, 255, 255));
-        bKembali.setText("KEMBALI");
-        bKembali.setBorder(null);
-        bKembali.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bKembaliActionPerformed(evt);
-            }
-        });
-        getContentPane().add(bKembali, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 550, 80, 30));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -158,8 +145,7 @@ public class UpdateJadwal extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, 430, 280));
 
-        BgUpdateJadwal.setForeground(new java.awt.Color(0, 0, 0));
-        BgUpdateJadwal.setIcon(new javax.swing.ImageIcon("D:\\image\\Frame Update Jadwal Agenda.png")); // NOI18N
+        BgUpdateJadwal.setIcon(new javax.swing.ImageIcon("D:\\Chanbaek\\BismillahRSIA\\BismillahRSI\\RSI\\src\\main\\java\\com\\mycompany\\rsi\\image\\Frame Update Jadwal Agenda.png")); // NOI18N
         getContentPane().add(BgUpdateJadwal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
@@ -262,13 +248,6 @@ public class UpdateJadwal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_bUpdateActionPerformed
 
-    private void bKembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bKembaliActionPerformed
-        // TODO add your handling code here:
-        DashboardAdministrator dashboard = new DashboardAdministrator();
-        dashboard.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_bKembaliActionPerformed
-
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         // TODO add your handling code here:
         int selectedRow = jTable1.getSelectedRow();
@@ -344,7 +323,6 @@ public class UpdateJadwal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel BgUpdateJadwal;
     private javax.swing.JButton bBatal;
-    private javax.swing.JButton bKembali;
     private javax.swing.JButton bUpdate;
     private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel2;

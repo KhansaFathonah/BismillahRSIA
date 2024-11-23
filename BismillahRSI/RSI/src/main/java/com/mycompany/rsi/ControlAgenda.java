@@ -205,7 +205,7 @@ public class ControlAgenda implements AutoCloseable {
         } else {
             for (DataAgenda entry : result) {
                 kalimat.append("-> Nama  : ").append(entry.getNama())
-                        .append("\n    Waktu  : ").append(entry.getWaktu());
+                        .append("\n    Waktu  : ").append(entry.getWaktu() + "\n");
             }
         }
         return kalimat.toString();

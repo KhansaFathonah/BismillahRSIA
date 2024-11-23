@@ -36,7 +36,6 @@ public class TambahJadwal extends javax.swing.JFrame {
         bBatal = new javax.swing.JButton();
         bTambah = new javax.swing.JButton();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
-        bKembali = new javax.swing.JButton();
         BgTambahJadwal = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -79,13 +78,13 @@ public class TambahJadwal extends javax.swing.JFrame {
 
         bBatal.setBackground(new java.awt.Color(51, 0, 0));
         bBatal.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        bBatal.setText("BATAL");
+        bBatal.setText("KEMBALI");
         bBatal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bBatalActionPerformed(evt);
             }
         });
-        getContentPane().add(bBatal, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 450, 120, 40));
+        getContentPane().add(bBatal, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 450, 140, 40));
 
         bTambah.setBackground(new java.awt.Color(0, 51, 51));
         bTambah.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -97,18 +96,6 @@ public class TambahJadwal extends javax.swing.JFrame {
         });
         getContentPane().add(bTambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 450, 140, 40));
         getContentPane().add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 350, 520, -1));
-
-        bKembali.setBackground(new java.awt.Color(152, 143, 129));
-        bKembali.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        bKembali.setForeground(new java.awt.Color(255, 255, 255));
-        bKembali.setText("KEMBALI");
-        bKembali.setBorder(null);
-        bKembali.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bKembaliActionPerformed(evt);
-            }
-        });
-        getContentPane().add(bKembali, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 550, 80, 30));
 
         BgTambahJadwal.setForeground(new java.awt.Color(0, 0, 0));
         BgTambahJadwal.setIcon(new javax.swing.ImageIcon("D:\\image\\Frame Tambah Jadwal Agenda.png")); // NOI18N
@@ -183,13 +170,6 @@ public class TambahJadwal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_bTambahActionPerformed
 
-    private void bKembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bKembaliActionPerformed
-        // TODO add your handling code here:
-        DashboardAdministrator dashboard = new DashboardAdministrator();
-        dashboard.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_bKembaliActionPerformed
-
     private void clearFields() {
         txtAgenda.setText("");
         txtWaktu.setText("");
@@ -234,7 +214,6 @@ public class TambahJadwal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel BgTambahJadwal;
     private javax.swing.JButton bBatal;
-    private javax.swing.JButton bKembali;
     private javax.swing.JButton bTambah;
     private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel2;
