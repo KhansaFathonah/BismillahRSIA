@@ -111,7 +111,7 @@ public class HapusJadwalAgenda extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 490, 140, 40));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 480, 140, 40));
 
         jButton1.setBackground(new java.awt.Color(0, 51, 51));
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -121,7 +121,7 @@ public class HapusJadwalAgenda extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 490, 130, 40));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 480, 130, 40));
         getContentPane().add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 410, 410, -1));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -135,6 +135,7 @@ public class HapusJadwalAgenda extends javax.swing.JFrame {
                 "ID", "NAMA", "WAKTU", "TANGGAL"
             }
         ));
+        jTable1.setSelectionBackground(new java.awt.Color(0, 0, 102));
         jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTable1MouseClicked(evt);

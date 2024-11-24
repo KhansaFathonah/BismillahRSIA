@@ -39,6 +39,7 @@ public class DashboardAdministrator extends javax.swing.JFrame {
                 displayDateDetails(selectedDate);
             }
         });
+
     }
 
     public String getDate(){

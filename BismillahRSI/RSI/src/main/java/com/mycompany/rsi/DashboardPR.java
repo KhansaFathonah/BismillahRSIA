@@ -93,6 +93,11 @@ public class DashboardPR extends javax.swing.JFrame {
 
         jCalendar2.setAutoscrolls(true);
         jCalendar2.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 8)); // NOI18N
+        jCalendar2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jCalendar2MouseClicked(evt);
+            }
+        });
         getContentPane().add(jCalendar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 310, 280));
 
         BgDashboardPR.setIcon(new javax.swing.ImageIcon("D:\\image\\Frame Dashboard General.png")); // NOI18N
@@ -107,6 +112,10 @@ public class DashboardPR extends javax.swing.JFrame {
         webinarPR.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_BInfoWebActionPerformed
+
+    private void jCalendar2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCalendar2MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCalendar2MouseClicked
 
     /**
      * @param args the command line arguments

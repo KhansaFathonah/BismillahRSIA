@@ -162,7 +162,7 @@ public class ControlAgenda implements AutoCloseable {
 
         // Mengambil detail agenda untuk tanggal tertentu
         String detail = getDetailsForDate(date2);
-        return "Detail Agenda Tanggal " + formattedDate + ":\n" + detail;
+        return "Detail Agenda Tanggal " + formattedDate + "\n" + detail;
     }
     
     public List<DataAgenda> tampilAgenda() {
