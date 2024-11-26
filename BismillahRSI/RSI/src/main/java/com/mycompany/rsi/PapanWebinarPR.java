@@ -121,6 +121,8 @@ public class PapanWebinarPR extends javax.swing.JFrame {
             }
         });
         getContentPane().add(bLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 540, 40, 40));
+
+        profilePR.setIcon(new javax.swing.ImageIcon("D:\\Chanbaek\\BismillahRSIA\\BismillahRSI\\RSI\\src\\main\\java\\com\\mycompany\\rsi\\image\\orang.png")); // NOI18N
         getContentPane().add(profilePR, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, 70));
 
         lbllinkPendaftaran.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N

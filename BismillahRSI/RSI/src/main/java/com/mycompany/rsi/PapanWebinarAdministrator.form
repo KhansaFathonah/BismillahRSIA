@@ -294,9 +294,6 @@
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="f3" green="f9" red="ff" type="rgb"/>
         </Property>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\hanif\OneDrive\Documents\NetBeansProjects\rsiA\BismillahRSIA\BismillahRSI\RSI\src\main\java\com\mycompany\rsi\image\logout.png"/>
-        </Property>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="null"/>
         </Property>
@@ -315,9 +312,6 @@
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="f3" green="f9" red="ff" type="rgb"/>
         </Property>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\hanif\OneDrive\Documents\NetBeansProjects\rsiA\BismillahRSIA\BismillahRSI\RSI\src\main\java\com\mycompany\rsi\image\image.png"/>
-        </Property>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="null"/>
         </Property>
@@ -334,7 +328,7 @@
     <Component class="javax.swing.JLabel" name="profileAdmin">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\hanif\OneDrive\Documents\NetBeansProjects\rsiA\BismillahRSIA\BismillahRSI\RSI\src\main\java\com\mycompany\rsi\image\orang.png"/>
+          <Image iconType="2" name="D:\Chanbaek\BismillahRSIA\BismillahRSI\RSI\src\main\java\com\mycompany\rsi\image\orang.png"/>
         </Property>
       </Properties>
       <Constraints>
@@ -346,7 +340,7 @@
     <Component class="javax.swing.JLabel" name="bgPapanWebinar">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\hanif\OneDrive\Documents\NetBeansProjects\rsiA\BismillahRSIA\BismillahRSI\RSI\src\main\java\com\mycompany\rsi\image\Frame Papan Webinar Administrator.png"/>
+          <Image iconType="2" name="D:\Chanbaek\BismillahRSIA\BismillahRSI\RSI\src\main\java\com\mycompany\rsi\image\Papan webinar baru (1).png"/>
         </Property>
       </Properties>
       <Constraints>
