@@ -28,8 +28,10 @@ public class PapanWebinarAdministrator extends javax.swing.JFrame {
      */
     public PapanWebinarAdministrator() {
         initComponents();
-        tombolUpdate.setEnabled(false);
-        tombolDelete.setEnabled(false);
+        jButton1.setForeground(java.awt.Color.WHITE);
+        jButton2.setForeground(java.awt.Color.WHITE);
+        tombolDelete.setForeground(java.awt.Color.WHITE);
+        tombolUpdate.setForeground(java.awt.Color.WHITE);
         
         populateTable();
     }
@@ -206,34 +208,38 @@ public class PapanWebinarAdministrator extends javax.swing.JFrame {
         jLabel1.setText("ID");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 330, -1, -1));
 
-        jButton1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
+        jButton1.setBackground(new java.awt.Color(51, 0, 0));
+        jButton1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 18)); // NOI18N
         jButton1.setText("Kembali");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 560, -1, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 550, -1, -1));
 
-        jButton2.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
+        jButton2.setBackground(new java.awt.Color(0, 51, 51));
+        jButton2.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 18)); // NOI18N
         jButton2.setText("Upload");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 270, -1, -1));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 210, 110, -1));
 
-        tombolDelete.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
+        tombolDelete.setBackground(new java.awt.Color(51, 0, 0));
+        tombolDelete.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 18)); // NOI18N
         tombolDelete.setText("DELETE");
         tombolDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tombolDeleteActionPerformed(evt);
             }
         });
-        getContentPane().add(tombolDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 490, 80, 30));
+        getContentPane().add(tombolDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 490, 100, 30));
 
-        tombolUpdate.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
+        tombolUpdate.setBackground(new java.awt.Color(0, 51, 51));
+        tombolUpdate.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 18)); // NOI18N
         tombolUpdate.setText("UPDATE");
         tombolUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

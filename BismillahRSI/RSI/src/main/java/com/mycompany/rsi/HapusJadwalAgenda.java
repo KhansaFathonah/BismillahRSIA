@@ -30,11 +30,8 @@ public class HapusJadwalAgenda extends javax.swing.JFrame {
     public HapusJadwalAgenda(String namaAgenda, String waktuAgenda, java.util.Date tanggalAgenda) {
         initComponents();
         initializeTable();
-        jTextField2.setText(namaAgenda);
-        jTextField1.setText(waktuAgenda);
-        jDateChooser1.setDate(tanggalAgenda);
-        jButton1.setForeground(java.awt.Color.WHITE);
-        jButton2.setForeground(java.awt.Color.WHITE);
+        Bhapus.setForeground(java.awt.Color.WHITE);
+        BKembali.setForeground(java.awt.Color.WHITE);
     }
     
     private void centerTableHeader() {
@@ -53,76 +50,55 @@ public class HapusJadwalAgenda extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField1 = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        JnamaAgenda = new javax.swing.JLabel();
+        jWaktuAgenda = new javax.swing.JLabel();
+        jTanggalAgenda = new javax.swing.JLabel();
+        BKembali = new javax.swing.JButton();
+        Bhapus = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jLabel1 = new javax.swing.JLabel();
+        IsiNamaAgenda = new javax.swing.JLabel();
+        IsiWaktuAgenda = new javax.swing.JLabel();
+        IsiTanggalAgenda1 = new javax.swing.JLabel();
+        BgHapusJadwal = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel3.setText("Nama Agenda    :");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 170, -1, -1));
+        JnamaAgenda.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        JnamaAgenda.setForeground(new java.awt.Color(0, 0, 0));
+        JnamaAgenda.setText("Nama Agenda    :");
+        getContentPane().add(JnamaAgenda, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 170, -1, -1));
 
-        jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel4.setText("Waktu Agenda   :");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 270, -1, -1));
+        jWaktuAgenda.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jWaktuAgenda.setForeground(new java.awt.Color(0, 0, 0));
+        jWaktuAgenda.setText("Waktu Agenda   :");
+        getContentPane().add(jWaktuAgenda, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 270, -1, -1));
 
-        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel2.setText("Tanggal              :");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 370, -1, -1));
+        jTanggalAgenda.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jTanggalAgenda.setForeground(new java.awt.Color(0, 0, 0));
+        jTanggalAgenda.setText("Tanggal              :");
+        getContentPane().add(jTanggalAgenda, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 370, -1, -1));
 
-        jTextField2.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField2.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jTextField2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        BKembali.setBackground(new java.awt.Color(51, 0, 0));
+        BKembali.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        BKembali.setText("KEMBALI");
+        BKembali.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                BKembaliActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 210, 410, 40));
+        getContentPane().add(BKembali, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 480, 140, 40));
 
-        jTextField1.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jTextField1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        Bhapus.setBackground(new java.awt.Color(0, 51, 51));
+        Bhapus.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        Bhapus.setText("HAPUS");
+        Bhapus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                BhapusActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 310, 410, 40));
-
-        jButton2.setBackground(new java.awt.Color(51, 0, 0));
-        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jButton2.setText("KEMBALI");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 480, 140, 40));
-
-        jButton1.setBackground(new java.awt.Color(0, 51, 51));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jButton1.setText("HAPUS");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 480, 130, 40));
-        getContentPane().add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 410, 410, -1));
+        getContentPane().add(Bhapus, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 480, 130, 40));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -145,40 +121,62 @@ public class HapusJadwalAgenda extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, 400, 280));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("D:\\image\\Frame Hapus Jadwal Agenda.png")); // NOI18N
-        jLabel1.setText("jLabel1");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, -1));
+        IsiNamaAgenda.setBackground(new java.awt.Color(153, 153, 153));
+        IsiNamaAgenda.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        getContentPane().add(IsiNamaAgenda, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 210, 400, 40));
+
+        IsiWaktuAgenda.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        getContentPane().add(IsiWaktuAgenda, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 310, 400, 40));
+
+        IsiTanggalAgenda1.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        getContentPane().add(IsiTanggalAgenda1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 410, 400, 40));
+
+        BgHapusJadwal.setIcon(new javax.swing.ImageIcon("D:\\image\\Frame Hapus Jadwal Agenda.png")); // NOI18N
+        BgHapusJadwal.setText("jLabel1");
+        getContentPane().add(BgHapusJadwal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void BKembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BKembaliActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+        String namaAgenda = IsiNamaAgenda.getText().trim(); 
+        String waktuAgenda = IsiWaktuAgenda.getText().trim(); 
+        String tanggalStr = IsiTanggalAgenda1.getText().trim(); 
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+        if (!namaAgenda.isEmpty() || !waktuAgenda.isEmpty() || !tanggalStr.isEmpty()) {
+            int response = javax.swing.JOptionPane.showConfirmDialog(this, "Apakah Anda yakin ingin membatalkan penghapusan jadwal agenda?", "Konfirmasi", javax.swing.JOptionPane.YES_NO_OPTION, javax.swing.JOptionPane.QUESTION_MESSAGE);
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-        int response = javax.swing.JOptionPane.showConfirmDialog(this, "Apakah Anda yakin ingin membatalkan penghapusan jadwal agenda?", "Konfirmasi", javax.swing.JOptionPane.YES_NO_OPTION, javax.swing.JOptionPane.QUESTION_MESSAGE);
-
-        if (response == javax.swing.JOptionPane.YES_OPTION) {
+            if (response == javax.swing.JOptionPane.YES_OPTION) {
+                DashboardAdministrator dashboardAdmin = new DashboardAdministrator();
+                dashboardAdmin.setVisible(true);
+                this.dispose(); // Tutup halaman saat ini
+            }
+        } else {
             DashboardAdministrator dashboardAdmin = new DashboardAdministrator();
             dashboardAdmin.setVisible(true);
-            this.dispose();
+            this.dispose(); // Tutup halaman saat ini
         }
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_BKembaliActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void BhapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BhapusActionPerformed
         // TODO add your handling code here:
-        String namaAgenda = jTextField2.getText();
-        String waktuAgenda = jTextField1.getText();
-        java.util.Date tanggalAgenda = jDateChooser1.getDate();
+        String namaAgenda = IsiNamaAgenda.getText();
+        String waktuAgenda = IsiWaktuAgenda.getText();
+        String tanggalStr = IsiTanggalAgenda1.getText();
 
-        if (namaAgenda.isEmpty() || waktuAgenda.isEmpty() || tanggalAgenda == null) {
+        if (namaAgenda.isEmpty() || waktuAgenda.isEmpty() || tanggalStr.isEmpty()) {
             javax.swing.JOptionPane.showMessageDialog(this, "Semua field harus diisi!", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        // Konversi string tanggal ke java.util.Date
+        java.util.Date tanggalAgenda = null;
+        try {
+            tanggalAgenda = new SimpleDateFormat("dd-MM-yyyy").parse(tanggalStr);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Format tanggal tidak valid.", "Error", JOptionPane.ERROR_MESSAGE);
+            e.printStackTrace();
             return;
         }
 
@@ -200,10 +198,10 @@ public class HapusJadwalAgenda extends javax.swing.JFrame {
                     // Perbarui tabel tanpa meninggalkan halaman
                     loadAgendaData();
 
-                    // Kosongkan input field setelah penghapusan
-                    jTextField2.setText("");
-                    jTextField1.setText("");
-                    jDateChooser1.setDate(null);
+                    // Kosongkan JLabel setelah penghapusan
+                    IsiNamaAgenda.setText("");
+                    IsiWaktuAgenda.setText("");
+                    IsiTanggalAgenda1.setText("");
                 } else {
                     javax.swing.JOptionPane.showMessageDialog(this, "Agenda tidak ditemukan atau gagal dihapus.", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
                 }
@@ -212,7 +210,7 @@ public class HapusJadwalAgenda extends javax.swing.JFrame {
                 javax.swing.JOptionPane.showMessageDialog(this, "Terjadi kesalahan saat menghapus agenda.", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
             }
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_BhapusActionPerformed
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         // TODO add your handling code here:
@@ -234,9 +232,9 @@ public class HapusJadwalAgenda extends javax.swing.JFrame {
             }
 
             // Set data ke form
-            jTextField2.setText(namaAgenda);
-            jTextField1.setText(waktuAgenda);
-            jDateChooser1.setDate(tanggalAgenda);
+            IsiNamaAgenda.setText(namaAgenda);
+            IsiWaktuAgenda.setText(waktuAgenda);
+            IsiTanggalAgenda1.setText(new SimpleDateFormat("dd-MM-yyyy").format(tanggalAgenda));
         }
     }//GEN-LAST:event_jTable1MouseClicked
 
@@ -322,16 +320,16 @@ public class HapusJadwalAgenda extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JButton BKembali;
+    private javax.swing.JLabel BgHapusJadwal;
+    private javax.swing.JButton Bhapus;
+    private javax.swing.JLabel IsiNamaAgenda;
+    private javax.swing.JLabel IsiTanggalAgenda1;
+    private javax.swing.JLabel IsiWaktuAgenda;
+    private javax.swing.JLabel JnamaAgenda;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JLabel jTanggalAgenda;
+    private javax.swing.JLabel jWaktuAgenda;
     // End of variables declaration//GEN-END:variables
 }

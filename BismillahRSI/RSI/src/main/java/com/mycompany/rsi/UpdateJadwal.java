@@ -161,9 +161,21 @@ public class UpdateJadwal extends javax.swing.JFrame {
 
     private void bBatalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bBatalActionPerformed
         // TODO add your handling code here:
-        int response = javax.swing.JOptionPane.showConfirmDialog(this, "Apakah Anda yakin ingin membatalkan pengupdatean jadwal agenda?", "Konfirmasi", javax.swing.JOptionPane.YES_NO_OPTION, javax.swing.JOptionPane.QUESTION_MESSAGE);
+        String namaAgenda = txtAgenda.getText();
+        String waktuAgenda = txtWaktu.getText();
+        java.util.Date tanggalAgenda = jDateChooser1.getDate();
 
-        if (response == javax.swing.JOptionPane.YES_OPTION) {
+        // Jika salah satu dari kolom tidak kosong, tampilkan popup konfirmasi
+        if (!namaAgenda.isEmpty() || !waktuAgenda.isEmpty() || tanggalAgenda != null) {
+            int response = javax.swing.JOptionPane.showConfirmDialog(this, "Apakah Anda yakin ingin membatalkan penambahan jadwal agenda?", "Konfirmasi", javax.swing.JOptionPane.YES_NO_OPTION, javax.swing.JOptionPane.QUESTION_MESSAGE);
+
+            if (response == javax.swing.JOptionPane.YES_OPTION) {
+                DashboardAdministrator dashboardAdmin = new DashboardAdministrator();
+                dashboardAdmin.setVisible(true);
+                this.dispose();
+            }
+        } else {
+            // Jika semua kolom kosong, langsung kembali ke dashboard tanpa konfirmasi
             DashboardAdministrator dashboardAdmin = new DashboardAdministrator();
             dashboardAdmin.setVisible(true);
             this.dispose();
