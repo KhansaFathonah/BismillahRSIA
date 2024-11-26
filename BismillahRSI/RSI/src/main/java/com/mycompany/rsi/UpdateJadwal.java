@@ -167,7 +167,7 @@ public class UpdateJadwal extends javax.swing.JFrame {
 
         // Jika salah satu dari kolom tidak kosong, tampilkan popup konfirmasi
         if (!namaAgenda.isEmpty() || !waktuAgenda.isEmpty() || tanggalAgenda != null) {
-            int response = javax.swing.JOptionPane.showConfirmDialog(this, "Apakah Anda yakin ingin membatalkan penambahan jadwal agenda?", "Konfirmasi", javax.swing.JOptionPane.YES_NO_OPTION, javax.swing.JOptionPane.QUESTION_MESSAGE);
+            int response = javax.swing.JOptionPane.showConfirmDialog(this, "Apakah Anda yakin ingin membatalkan update jadwal agenda?", "Konfirmasi", javax.swing.JOptionPane.YES_NO_OPTION, javax.swing.JOptionPane.QUESTION_MESSAGE);
 
             if (response == javax.swing.JOptionPane.YES_OPTION) {
                 DashboardAdministrator dashboardAdmin = new DashboardAdministrator();
