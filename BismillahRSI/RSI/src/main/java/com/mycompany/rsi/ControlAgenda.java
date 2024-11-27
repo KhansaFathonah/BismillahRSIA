@@ -216,7 +216,7 @@ public class ControlAgenda implements AutoCloseable {
         String query = "SELECT DISTINCT tanggal FROM agenda";
         try (PreparedStatement stmt = connection.prepareStatement(query); ResultSet rs = stmt.executeQuery()) {
             while (rs.next()) {
-                datesWithAgenda.add(rs.getDate("tanggal"));
+                datesWithAgenda.add(rs.getDate("TANGGAL"));
             }
         } catch (SQLException e) {
             System.err.println("Gagal mengambil daftar tanggal: " + e.getMessage());

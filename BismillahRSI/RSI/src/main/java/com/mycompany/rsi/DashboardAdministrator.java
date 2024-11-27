@@ -41,6 +41,13 @@ public class DashboardAdministrator extends javax.swing.JFrame {
                 displayDateDetails(selectedDate);
             }
         });
+        if (selectedDate != null) {
+            String message = jadwalAgenda.showDateDetails(selectedDate);
+
+            if (message != null && message.contains("detail")) {
+                displayDateDetails(selectedDate);
+            }
+        }
         highlightDatesWithAgenda();
     }
 
@@ -192,13 +199,14 @@ public class DashboardAdministrator extends javax.swing.JFrame {
     }
     
     private void highlightDatesWithAgenda() {
-        List<Date> datesWithAgenda = jadwalAgenda.getDatesWithAgenda();
+        List<java.util.Date> datesWithAgenda = jadwalAgenda.getDatesWithAgenda();
         for (Date date : datesWithAgenda) {
             // Misalnya, memberi warna latar belakang khusus pada tanggal
             jCalendar2.getDayChooser().getDayPanel().getComponent(date.getDate() - 1)
                     .setBackground(Color.YELLOW);
         }
     }
+    
     /**
      * @param args the command line arguments
      */
