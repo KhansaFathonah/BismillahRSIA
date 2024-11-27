@@ -211,6 +211,19 @@ public class ControlAgenda implements AutoCloseable {
         return kalimat.toString();
     }
     
+    public List<Date> getAllDatesWithAgenda() {
+        List<Date> datesWithAgenda = new ArrayList<>();
+
+        for (DataAgenda agenda : tampilAgenda()) {
+            Date agendaDate = agenda.getTanggal(); // Ambil tanggal dari setiap agenda
+            if (!datesWithAgenda.contains(agendaDate)) {
+                datesWithAgenda.add(agendaDate); // Pastikan tidak ada duplikasi tanggal
+            }
+        }
+
+        return datesWithAgenda;
+    }
+
     @Override
     public void close() throws SQLException {
         if (connection != null && !connection.isClosed()) {
