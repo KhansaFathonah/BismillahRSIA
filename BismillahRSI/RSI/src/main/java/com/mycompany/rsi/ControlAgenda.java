@@ -211,16 +211,17 @@ public class ControlAgenda implements AutoCloseable {
         return kalimat.toString();
     }
     
-    public List<Date> getAllDatesWithAgenda() {
-        List<Date> datesWithAgenda = new ArrayList<>();
-
-        for (DataAgenda agenda : tampilAgenda()) {
-            Date agendaDate = agenda.getTanggal(); // Ambil tanggal dari setiap agenda
-            if (!datesWithAgenda.contains(agendaDate)) {
-                datesWithAgenda.add(agendaDate); // Pastikan tidak ada duplikasi tanggal
+    public List<java.util.Date> getDatesWithAgenda() {
+        List<java.util.Date> datesWithAgenda = new ArrayList<>();
+        String query = "SELECT DISTINCT tanggal FROM agenda";
+        try (PreparedStatement stmt = connection.prepareStatement(query); ResultSet rs = stmt.executeQuery()) {
+            while (rs.next()) {
+                datesWithAgenda.add(rs.getDate("tanggal"));
             }
+        } catch (SQLException e) {
+            System.err.println("Gagal mengambil daftar tanggal: " + e.getMessage());
+            e.printStackTrace();
         }
-
         return datesWithAgenda;
     }
 

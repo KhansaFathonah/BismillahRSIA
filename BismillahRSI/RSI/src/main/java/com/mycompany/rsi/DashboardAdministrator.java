@@ -192,14 +192,13 @@ public class DashboardAdministrator extends javax.swing.JFrame {
     }
     
     private void highlightDatesWithAgenda() {
-        List<Date> datesWithAgenda = jadwalAgenda.getAllDatesWithAgenda();
+        List<Date> datesWithAgenda = jadwalAgenda.getDatesWithAgenda();
         for (Date date : datesWithAgenda) {
             // Misalnya, memberi warna latar belakang khusus pada tanggal
             jCalendar2.getDayChooser().getDayPanel().getComponent(date.getDate() - 1)
                     .setBackground(Color.YELLOW);
         }
     }
-    
     /**
      * @param args the command line arguments
      */
