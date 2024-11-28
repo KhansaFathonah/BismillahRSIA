@@ -16,7 +16,6 @@ public class LogIn extends javax.swing.JFrame {
     public LogIn() {
         initComponents();
         jButton1.setForeground(java.awt.Color.WHITE);
-        jButton2.setForeground(java.awt.Color.WHITE);
         jButton3.setForeground(java.awt.Color.WHITE);
         jLabel2.setForeground(java.awt.Color.WHITE); 
         jLabel4.setForeground(java.awt.Color.WHITE); 
@@ -38,7 +37,6 @@ public class LogIn extends javax.swing.JFrame {
         jPasswordField1 = new javax.swing.JPasswordField();
         jLabel3 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
@@ -82,17 +80,7 @@ public class LogIn extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 450, 220, -1));
-
-        jButton2.setBackground(new java.awt.Color(0, 51, 51));
-        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton2.setText("AHLI");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 450, -1, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 450, 260, -1));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel4.setText("Password");
@@ -110,7 +98,7 @@ public class LogIn extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 450, -1, -1));
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 450, 140, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon("D:\\image\\Frame Login General.png")); // NOI18N
         jLabel1.setText("jLabel1");
@@ -121,9 +109,28 @@ public class LogIn extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        DashboardPR dashboardPR = new DashboardPR();
-        dashboardPR.setVisible(true);
-        this.dispose();
+        String email = jTextField1.getText();
+        String password = new String(jPasswordField1.getPassword());
+
+        // Jika email atau password belum diisi, tampilkan pesan error
+        if (email.isEmpty() || password.isEmpty()) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Masukkan email dan password terlebih dahulu.");
+            return;
+        }
+
+        // Buat instance dari LogInControl untuk melakukan validasi
+        logInControl logInControl = new logInControl();
+
+        // Cek apakah email dan password sesuai dengan data di database
+        if (logInControl.validatePR(email, password)) {
+            // Jika valid, buka halaman DashboardAdministrator
+            DashboardPR pr = new DashboardPR();
+            pr.setVisible(true);
+            this.dispose();
+        } else {
+            // Jika tidak valid, tampilkan pesan kesalahan
+            javax.swing.JOptionPane.showMessageDialog(this, "Email atau password salah.");
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
@@ -132,14 +139,29 @@ public class LogIn extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        DashboardAdministrator dashboardAdmin = new DashboardAdministrator();
-        dashboardAdmin.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_jButton3ActionPerformed
+        String email = jTextField1.getText();
+        String password = new String(jPasswordField1.getPassword());
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+        // Jika email atau password belum diisi, tampilkan pesan error
+        if (email.isEmpty() || password.isEmpty()) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Masukkan email dan password terlebih dahulu.");
+            return;
+        }
+
+        // Buat instance dari LogInControl untuk melakukan validasi
+        logInControl logInControl = new logInControl();
+
+        // Cek apakah email dan password sesuai dengan data di database
+        if (logInControl.validateLogin(email, password)) {
+            // Jika valid, buka halaman DashboardAdministrator
+            DashboardAdministrator dashboardAdmin = new DashboardAdministrator();
+            dashboardAdmin.setVisible(true);
+            this.dispose();
+        } else {
+            // Jika tidak valid, tampilkan pesan kesalahan
+            javax.swing.JOptionPane.showMessageDialog(this, "Email atau password salah.");
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
         // TODO add your handling code here:
@@ -182,7 +204,6 @@ public class LogIn extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

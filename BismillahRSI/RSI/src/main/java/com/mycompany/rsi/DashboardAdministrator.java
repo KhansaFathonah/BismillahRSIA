@@ -196,9 +196,17 @@ public class DashboardAdministrator extends javax.swing.JFrame {
 
     private void bLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bLogoutActionPerformed
         // TODO add your handling code here:
-        LogIn login = new LogIn();
-        login.setVisible(true);
-        this.dispose();
+        int response = javax.swing.JOptionPane.showConfirmDialog(this,
+                "Apakah Anda yakin ingin logout?", "Konfirmasi Logout",
+                javax.swing.JOptionPane.YES_NO_OPTION,
+                javax.swing.JOptionPane.QUESTION_MESSAGE);
+
+        // Jika pengguna memilih "Yes" (nilai YES_OPTION), maka logout
+        if (response == javax.swing.JOptionPane.YES_OPTION) {
+            LogIn login = new LogIn();
+            login.setVisible(true);
+            this.dispose();
+        }
     }//GEN-LAST:event_bLogoutActionPerformed
 
     private void displayDateDetails(Date date) {

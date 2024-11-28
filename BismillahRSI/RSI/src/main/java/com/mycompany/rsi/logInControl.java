@@ -7,42 +7,68 @@ package com.mycompany.rsi;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 
 /**
  *
  * @author Asus
  */
 public class logInControl {
-    public boolean login(String username, String password) {
-        String sql = "SELECT * FROM users WHERE username = ? AND password = ?";
-        try (Connection conn = DatabaseConnection.getConnection(); PreparedStatement stmt = conn.prepareStatement(sql)) {
 
-            // Set parameters untuk query
-            stmt.setString(1, username);
-            stmt.setString(2, password);
+    private DatabaseConnection databaseConnection;
 
-            // Eksekusi query
-            ResultSet rs = stmt.executeQuery();
-
-            // Periksa apakah user ditemukan
-            if (rs.next()) {
-                System.out.println("Login successful!");
-                return true; // Login berhasil
-            } else {
-                System.out.println("Invalid username or password.");
-                return false; // Login gagal
-            }
-        } catch (SQLException e) {
-            System.err.println("An error occurred while logging in: " + e.getMessage());
-            return false; // Terjadi kesalahan
-        }
+    public logInControl() {
+        databaseConnection = new DatabaseConnection();
     }
 
-    // Method untuk logout
-    public void logout() {
-        // Misalnya, jika aplikasi menggunakan sesi, lakukan reset sesi di sini
-        System.out.println("Logout successful!");
-        // Reset atau hapus sesi (Jika menggunakan sesi dalam aplikasi)
-    } 
+    public boolean validateLogin(String email, String password) {
+        boolean isValid = false;
+
+        try {
+            Connection conn = databaseConnection.getConnection();
+            String query = "SELECT * FROM ADMINISTRATOR WHERE EMAIL = ? AND PASSWORD = ?";
+            PreparedStatement statement = conn.prepareStatement(query);
+            statement.setString(1, email);
+            statement.setString(2, password);
+
+            ResultSet rs = statement.executeQuery();
+
+            if (rs.next()) {
+                // Jika ditemukan, berarti email dan password valid
+                isValid = true;
+            }
+
+            rs.close();
+            statement.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return isValid;
+    }
+    
+    public boolean validatePR(String email, String password) {
+        boolean isValid = false;
+
+        try {
+            Connection conn = databaseConnection.getConnection();
+            String query = "SELECT * FROM PENGGUNA_REGULER WHERE EMAIL = ? AND PASSWORD = ?";
+            PreparedStatement statement = conn.prepareStatement(query);
+            statement.setString(1, email);
+            statement.setString(2, password);
+
+            ResultSet rs = statement.executeQuery();
+
+            if (rs.next()) {
+                // Jika ditemukan, berarti email dan password valid
+                isValid = true;
+            }
+
+            rs.close();
+            statement.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return isValid;
+    }
 }
