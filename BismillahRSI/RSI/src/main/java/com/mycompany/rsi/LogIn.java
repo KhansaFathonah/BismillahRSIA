@@ -4,6 +4,12 @@
  */
 package com.mycompany.rsi;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Asus
@@ -61,6 +67,11 @@ public class LogIn extends javax.swing.JFrame {
         getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 220, 430, -1));
 
         jPasswordField1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jPasswordField1ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 290, 430, -1));
 
         jLabel3.setFont(new java.awt.Font("Century Schoolbook", 1, 48)); // NOI18N
@@ -134,7 +145,52 @@ public class LogIn extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        String email = jTextField1.getText();
+        String password = new String(jPasswordField1.getPassword());
+
+        // Mengecek apakah email atau password kosong
+        if (email.isEmpty() || password.isEmpty()) {
+            // Menampilkan pesan kesalahan jika email atau password kosong
+            JOptionPane.showMessageDialog(null, "Masukkan email dan password terlebih dahulu!", "Error", JOptionPane.ERROR_MESSAGE);
+            return;  // Menghentikan proses lebih lanjut jika ada data yang kosong
+        }
+
+        try {
+            // Koneksi ke database
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/parenta", "root", "");
+
+            // Query untuk mencari data berdasarkan email dan password
+            String query = "SELECT * FROM PARENTA.ADMINISTRATOR WHERE EMAIL = ? AND PASSWORD = ?";
+            PreparedStatement stmt = conn.prepareStatement(query);
+            stmt.setString(1, email);
+            stmt.setString(2, password);
+
+            // Eksekusi query
+            ResultSet rs = stmt.executeQuery();
+
+            // Jika ditemukan, login berhasil dan buka dashboard
+            if (rs.next()) {
+                DashboardAdministrator dashboardAdmin = new DashboardAdministrator();
+                dashboardAdmin.setVisible(true);
+                this.dispose();  // Menutup tampilan login
+            } else {
+                // Jika email dan password tidak cocok
+                JOptionPane.showMessageDialog(null, "Email atau password salah!", "Login Error", JOptionPane.ERROR_MESSAGE);
+            }
+
+            // Menutup koneksi
+            rs.close();
+            stmt.close();
+            conn.close();
+        } catch (Exception e) {
+            // Menampilkan error jika terjadi kesalahan saat mengakses database
+            JOptionPane.showMessageDialog(null, "Terjadi kesalahan saat mengakses database: " + e.getMessage(), "Database Error", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPasswordField1ActionPerformed
 
     /**
      * @param args the command line arguments
