@@ -209,6 +209,21 @@ public class ControlAgenda implements AutoCloseable {
         }
         return kalimat.toString();
     }
+    
+    public List<java.util.Date> getDatesWithAgenda() {
+        List<java.util.Date> datesWithAgenda = new ArrayList<>();
+        String query = "SELECT * FROM agenda";
+        try (PreparedStatement stmt = connection.prepareStatement(query); ResultSet rs = stmt.executeQuery()) {
+            while (rs.next()) {
+                Date tanggal = rs.getDate("TANGGAL");
+                datesWithAgenda.add(tanggal);  // Tambahkan hanya objek `tanggal`
+            }
+        } catch (SQLException e) {
+            System.err.println("Gagal menampilkan data: " + e.getMessage());
+            e.printStackTrace();
+        }
+        return datesWithAgenda;
+    }
 
     @Override
     public void close() throws SQLException {

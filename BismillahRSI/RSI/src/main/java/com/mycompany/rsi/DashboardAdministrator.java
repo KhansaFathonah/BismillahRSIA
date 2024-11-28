@@ -4,13 +4,14 @@
  */
 package com.mycompany.rsi;
 import java.awt.Color;
-import java.awt.Component;
 import javax.swing.JOptionPane;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.sql.SQLException;
+import java.util.List;
+
 
 /**
  *
@@ -47,6 +48,7 @@ public class DashboardAdministrator extends javax.swing.JFrame {
                 displayDateDetails(selectedDate);
             }
         }
+        highlightDatesWithAgenda();
     }
 
     public String getDate(){
@@ -196,6 +198,16 @@ public class DashboardAdministrator extends javax.swing.JFrame {
         String message = jadwalAgenda.showDateDetails(date); 
         JOptionPane.showMessageDialog(this, message, "Informasi Tanggal", JOptionPane.INFORMATION_MESSAGE);
     }
+    
+    private void highlightDatesWithAgenda() {
+        List<java.util.Date> datesWithAgenda = jadwalAgenda.getDatesWithAgenda();
+        for (Date date : datesWithAgenda) {
+            // Misalnya, memberi warna latar belakang khusus pada tanggal
+            jCalendar2.getDayChooser().getDayPanel().getComponent(date.getDate() - 1)
+                    .setBackground(Color.YELLOW);
+        }
+    }
+    
     
     /**
      * @param args the command line arguments
