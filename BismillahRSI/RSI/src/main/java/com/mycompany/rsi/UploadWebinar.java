@@ -151,8 +151,8 @@ public class UploadWebinar extends javax.swing.JFrame {
                 
         try {
             webinar.insertWebinar(judul, deskripsi, link_daftar, hari_tgl);
-            DashboardAdministrator dashboardAdmin = new DashboardAdministrator();
-            dashboardAdmin.setVisible(true);
+            PapanWebinarAdministrator pwa = new PapanWebinarAdministrator();
+            pwa.setVisible(true);
             this.dispose(); // Menutup halaman saat ini
         } catch (Exception e) {
             javax.swing.JOptionPane.showMessageDialog(this, "Terjadi kesalahan saat membuka halaman Dashboard.", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);

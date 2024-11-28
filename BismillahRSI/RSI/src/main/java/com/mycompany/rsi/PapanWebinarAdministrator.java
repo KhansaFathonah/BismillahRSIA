@@ -30,6 +30,10 @@ public class PapanWebinarAdministrator extends javax.swing.JFrame {
         initComponents();
         tombolUpdate.setEnabled(false);
         tombolDelete.setEnabled(false);
+        tombolDelete.setForeground(java.awt.Color.WHITE);
+        tombolUpdate.setForeground(java.awt.Color.WHITE);
+        jButton2.setForeground(java.awt.Color.WHITE);
+        jButton1.setForeground(java.awt.Color.WHITE);
         
         populateTable();
     }
