@@ -8,7 +8,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Date;
@@ -209,20 +208,6 @@ public class ControlAgenda implements AutoCloseable {
             }
         }
         return kalimat.toString();
-    }
-    
-    public List<java.util.Date> getDatesWithAgenda() {
-        List<java.util.Date> datesWithAgenda = new ArrayList<>();
-        String query = "SELECT DISTINCT tanggal FROM agenda";
-        try (PreparedStatement stmt = connection.prepareStatement(query); ResultSet rs = stmt.executeQuery()) {
-            while (rs.next()) {
-                datesWithAgenda.add(rs.getDate("TANGGAL"));
-            }
-        } catch (SQLException e) {
-            System.err.println("Gagal mengambil daftar tanggal: " + e.getMessage());
-            e.printStackTrace();
-        }
-        return datesWithAgenda;
     }
 
     @Override

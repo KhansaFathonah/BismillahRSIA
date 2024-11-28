@@ -249,6 +249,7 @@ public class PapanWebinarAdministrator extends javax.swing.JFrame {
         getContentPane().add(tombolUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 490, -1, 30));
 
         bLogout.setBackground(new java.awt.Color(255, 249, 243));
+        bLogout.setIcon(new javax.swing.ImageIcon("D:\\Chanbaek\\BismillahRSIA\\BismillahRSI\\RSI\\src\\main\\java\\com\\mycompany\\rsi\\image\\logout.png")); // NOI18N
         bLogout.setBorder(null);
         bLogout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

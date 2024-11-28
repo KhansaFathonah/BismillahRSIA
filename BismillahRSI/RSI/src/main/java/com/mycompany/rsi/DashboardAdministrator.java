@@ -4,14 +4,13 @@
  */
 package com.mycompany.rsi;
 import java.awt.Color;
+import java.awt.Component;
 import javax.swing.JOptionPane;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.sql.SQLException;
-import java.util.List;
-
 
 /**
  *
@@ -48,7 +47,6 @@ public class DashboardAdministrator extends javax.swing.JFrame {
                 displayDateDetails(selectedDate);
             }
         }
-        highlightDatesWithAgenda();
     }
 
     public String getDate(){
@@ -143,13 +141,14 @@ public class DashboardAdministrator extends javax.swing.JFrame {
         getContentPane().add(Profile, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, 70));
 
         bLogout.setBackground(new java.awt.Color(255, 249, 243));
+        bLogout.setIcon(new javax.swing.ImageIcon("D:\\Chanbaek\\BismillahRSIA\\BismillahRSI\\RSI\\src\\main\\java\\com\\mycompany\\rsi\\image\\logout.png")); // NOI18N
         bLogout.setBorder(null);
         bLogout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bLogoutActionPerformed(evt);
             }
         });
-        getContentPane().add(bLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 30, 60, -1));
+        getContentPane().add(bLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 80, 50, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon("D:\\Chanbaek\\BismillahRSIA\\BismillahRSI\\RSI\\src\\main\\java\\com\\mycompany\\rsi\\image\\Frame Dashboard General.png")); // NOI18N
         jLabel1.setText("jLabel1");
@@ -196,15 +195,6 @@ public class DashboardAdministrator extends javax.swing.JFrame {
     private void displayDateDetails(Date date) {
         String message = jadwalAgenda.showDateDetails(date); 
         JOptionPane.showMessageDialog(this, message, "Informasi Tanggal", JOptionPane.INFORMATION_MESSAGE);
-    }
-    
-    private void highlightDatesWithAgenda() {
-        List<java.util.Date> datesWithAgenda = jadwalAgenda.getDatesWithAgenda();
-        for (Date date : datesWithAgenda) {
-            // Misalnya, memberi warna latar belakang khusus pada tanggal
-            jCalendar2.getDayChooser().getDayPanel().getComponent(date.getDate() - 1)
-                    .setBackground(Color.YELLOW);
-        }
     }
     
     /**

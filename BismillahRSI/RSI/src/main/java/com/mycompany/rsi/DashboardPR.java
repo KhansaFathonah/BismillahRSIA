@@ -61,6 +61,7 @@ public class DashboardPR extends javax.swing.JFrame {
         BInfoWeb = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jCalendar2 = new com.toedter.calendar.JCalendar();
+        bLogout = new javax.swing.JButton();
         BgDashboardPR = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -100,6 +101,16 @@ public class DashboardPR extends javax.swing.JFrame {
         });
         getContentPane().add(jCalendar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 310, 280));
 
+        bLogout.setBackground(new java.awt.Color(255, 249, 243));
+        bLogout.setIcon(new javax.swing.ImageIcon("D:\\Chanbaek\\BismillahRSIA\\BismillahRSI\\RSI\\src\\main\\java\\com\\mycompany\\rsi\\image\\logout.png")); // NOI18N
+        bLogout.setBorder(null);
+        bLogout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bLogoutActionPerformed(evt);
+            }
+        });
+        getContentPane().add(bLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 80, 50, -1));
+
         BgDashboardPR.setIcon(new javax.swing.ImageIcon("D:\\image\\Frame Dashboard General.png")); // NOI18N
         getContentPane().add(BgDashboardPR, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -116,6 +127,13 @@ public class DashboardPR extends javax.swing.JFrame {
     private void jCalendar2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCalendar2MouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_jCalendar2MouseClicked
+
+    private void bLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bLogoutActionPerformed
+        // TODO add your handling code here:
+        LogIn login = new LogIn();
+        login.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_bLogoutActionPerformed
 
     /**
      * @param args the command line arguments
@@ -161,6 +179,7 @@ public class DashboardPR extends javax.swing.JFrame {
     private javax.swing.JButton BInfoWeb;
     private javax.swing.JLabel BgDashboardPR;
     private javax.swing.JLabel NamaPR;
+    private javax.swing.JButton bLogout;
     private com.toedter.calendar.JCalendar jCalendar2;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel namaAnak;
