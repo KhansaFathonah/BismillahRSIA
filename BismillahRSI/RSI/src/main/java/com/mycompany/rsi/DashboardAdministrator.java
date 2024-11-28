@@ -4,13 +4,16 @@
  */
 package com.mycompany.rsi;
 import java.awt.Color;
+import java.awt.Component;
 import javax.swing.JOptionPane;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.sql.SQLException;
+import java.util.Calendar;
 import java.util.List;
+import javax.swing.JButton;
 
 
 /**
@@ -37,8 +40,12 @@ public class DashboardAdministrator extends javax.swing.JFrame {
         jCalendar2.addPropertyChangeListener("calendar", new PropertyChangeListener() {
             @Override
             public void propertyChange(PropertyChangeEvent evt) {
-                Date selectedDate = jCalendar2.getDate();
-                displayDateDetails(selectedDate);
+                Date newSelectedDate = jCalendar2.getDate();  // Ambil tanggal baru
+                if (newSelectedDate != null && !newSelectedDate.equals(selectedDate)) {
+                    selectedDate = newSelectedDate;  // Set tanggal yang dipilih jika berbeda
+                    displayDateDetails(selectedDate);
+                    highlightDatesWithAgenda();
+                }
             }
         });
         if (selectedDate != null) {
@@ -198,16 +205,55 @@ public class DashboardAdministrator extends javax.swing.JFrame {
         String message = jadwalAgenda.showDateDetails(date); 
         JOptionPane.showMessageDialog(this, message, "Informasi Tanggal", JOptionPane.INFORMATION_MESSAGE);
     }
-    
+
     private void highlightDatesWithAgenda() {
-        List<java.util.Date> datesWithAgenda = jadwalAgenda.getDatesWithAgenda();
-        for (Date date : datesWithAgenda) {
-            // Misalnya, memberi warna latar belakang khusus pada tanggal
-            jCalendar2.getDayChooser().getDayPanel().getComponent(date.getDate() - 1)
-                    .setBackground(Color.YELLOW);
+        // Simpan daftar agenda di memori untuk efisiensi
+        List<DataAgenda> agendaList = jadwalAgenda.tampilAgenda(); // Ambil list agenda dari database
+
+        // Ambil bulan dan tahun yang sedang ditampilkan di jCalendar
+        Calendar selectedCalendar = Calendar.getInstance();
+        selectedCalendar.setTime(jCalendar2.getDate());  // Ambil tanggal yang dipilih di jCalendar
+        int selectedMonth = selectedCalendar.get(Calendar.MONTH);
+        int selectedYear = selectedCalendar.get(Calendar.YEAR);
+
+        // Iterasi semua komponen di DayPanel
+        Component[] components = jCalendar2.getDayChooser().getDayPanel().getComponents();
+
+        for (Component comp : components) {
+            if (comp instanceof JButton) { // Komponen tanggal biasanya JButton
+                JButton dayButton = (JButton) comp;
+
+                try {
+                    // Ambil teks tanggal dari tombol
+                    int day = Integer.parseInt(dayButton.getText());
+
+                    // Reset warna tombol sebelum menerapkan highlight
+                    dayButton.setBackground(null);
+
+                    // Cocokkan tanggal dengan agenda
+                    for (DataAgenda agenda : agendaList) {
+                        Date date = agenda.getTanggal(); // Tanggal agenda
+                        Calendar agendaCalendar = Calendar.getInstance();
+                        agendaCalendar.setTime(date);
+
+                        int agendaDay = agendaCalendar.get(Calendar.DAY_OF_MONTH);
+                        int agendaMonth = agendaCalendar.get(Calendar.MONTH);
+                        int agendaYear = agendaCalendar.get(Calendar.YEAR);
+
+                        // Periksa apakah agenda ada di bulan dan tahun yang sama
+                        if (agendaDay == day && agendaMonth == selectedMonth && agendaYear == selectedYear) {
+                            dayButton.setBackground(Color.YELLOW); // Tandai tanggal dengan warna kuning
+                        }
+                    }
+                } catch (NumberFormatException e) {
+                    // Abaikan jika teks tombol bukan angka (misalnya, hari kosong)
+                }
+            }
         }
+
+        // Pastikan tampilan diperbarui setelah di-highlight
+        jCalendar2.getDayChooser().getDayPanel().repaint(); // Paksa DayPanel untuk melakukan repaint
     }
-    
     
     /**
      * @param args the command line arguments

@@ -37,8 +37,6 @@ public class UploadWebinar extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        bHome = new javax.swing.JButton();
-        bLogout = new javax.swing.JButton();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
         Profile = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -108,24 +106,6 @@ public class UploadWebinar extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("JUDUL");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 190, -1, -1));
-
-        bHome.setBackground(new java.awt.Color(255, 249, 243));
-        bHome.setBorder(null);
-        bHome.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bHomeActionPerformed(evt);
-            }
-        });
-        getContentPane().add(bHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 470, 60, -1));
-
-        bLogout.setBackground(new java.awt.Color(255, 249, 243));
-        bLogout.setBorder(null);
-        bLogout.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bLogoutActionPerformed(evt);
-            }
-        });
-        getContentPane().add(bLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 530, 60, -1));
         getContentPane().add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 310, 570, -1));
 
         Profile.setIcon(new javax.swing.ImageIcon("D:\\Chanbaek\\BismillahRSIA\\BismillahRSI\\RSI\\src\\main\\java\\com\\mycompany\\rsi\\image\\orang.png")); // NOI18N
@@ -200,20 +180,6 @@ public class UploadWebinar extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField4ActionPerformed
 
-    private void bHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bHomeActionPerformed
-        // TODO add your handling code here:
-        DashboardAdministrator dbAdmin = new DashboardAdministrator();
-        dbAdmin.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_bHomeActionPerformed
-
-    private void bLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bLogoutActionPerformed
-        // TODO add your handling code here:
-        LogIn login = new LogIn();
-        login.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_bLogoutActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -251,8 +217,6 @@ public class UploadWebinar extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Profile;
-    private javax.swing.JButton bHome;
-    private javax.swing.JButton bLogout;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private com.toedter.calendar.JDateChooser jDateChooser1;

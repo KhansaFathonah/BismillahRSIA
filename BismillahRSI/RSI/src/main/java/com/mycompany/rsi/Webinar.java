@@ -20,7 +20,7 @@ public class Webinar {
     private String judul;
     private String deskripsi;
     private String link_daftar;
-    private Date hari_tgl;
+    private Date hari_tgl; 
     
     public Webinar(){}
     

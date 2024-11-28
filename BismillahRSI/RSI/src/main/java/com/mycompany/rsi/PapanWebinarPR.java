@@ -76,8 +76,6 @@ public class PapanWebinarPR extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        bHome = new javax.swing.JButton();
-        bLogout = new javax.swing.JButton();
         profilePR = new javax.swing.JLabel();
         lbllinkPendaftaran = new javax.swing.JLabel();
         lbltanggal = new javax.swing.JLabel();
@@ -109,19 +107,6 @@ public class PapanWebinarPR extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 140, 340, 430));
 
-        bHome.setBackground(new java.awt.Color(255, 249, 243));
-        bHome.setBorder(null);
-        getContentPane().add(bHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 480, 50, -1));
-
-        bLogout.setBackground(new java.awt.Color(255, 249, 243));
-        bLogout.setBorder(null);
-        bLogout.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bLogoutActionPerformed(evt);
-            }
-        });
-        getContentPane().add(bLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 540, 40, 40));
-
         profilePR.setIcon(new javax.swing.ImageIcon("D:\\Chanbaek\\BismillahRSIA\\BismillahRSI\\RSI\\src\\main\\java\\com\\mycompany\\rsi\\image\\orang.png")); // NOI18N
         getContentPane().add(profilePR, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, 70));
 
@@ -145,10 +130,6 @@ public class PapanWebinarPR extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void bLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bLogoutActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_bLogoutActionPerformed
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         // TODO add your handling code here:
@@ -217,8 +198,6 @@ public class PapanWebinarPR extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton bHome;
-    private javax.swing.JButton bLogout;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JScrollPane jScrollPane2;
