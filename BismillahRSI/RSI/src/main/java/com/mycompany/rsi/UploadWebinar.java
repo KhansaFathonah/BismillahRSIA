@@ -147,7 +147,7 @@ public class UploadWebinar extends javax.swing.JFrame {
         java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd");
         String tanggalFormatted = sdf.format(hari_tgl);
         String message = "Nama Webinar : " + judul + "\nDeskripsi Webinar : " + deskripsi + "\nTanggal : " + tanggalFormatted + "\n Link Pendaftaran : " + link_daftar;
-        javax.swing.JOptionPane.showMessageDialog(this, message, "Agenda berhasil ditambahkan", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+        javax.swing.JOptionPane.showMessageDialog(this, message, "Webinar berhasil ditambahkan", javax.swing.JOptionPane.INFORMATION_MESSAGE);
                 
         try {
             webinar.insertWebinar(judul, deskripsi, link_daftar, hari_tgl);
